@@ -5,34 +5,34 @@
 @tailwind utilities;
 
 :root {
-  /* Light Theme Backgrounds */
-  --bg-light: #F8F9FB;
-  --bg-white: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #fafbfc;
-  --bg-muted: #EEF1F5;
+  /* Dark Theme Backgrounds (ShyftOff-inspired dark navy) */
+  --bg-light: #0B0F1A;
+  --bg-white: #0F1322;
+  --bg-card: #141829;
+  --bg-card-hover: #1A1E30;
+  --bg-muted: #111526;
 
   /* Dark Theme for Footer */
-  --bg-dark: #0B1121;
-  --bg-dark-card: #131D33;
+  --bg-dark: #070A12;
+  --bg-dark-card: #0D1120;
 
-  /* CXware Brand Colors - Deep Navy & Teal */
-  --gradient-start: #1A3A6B;
-  --gradient-end: #2A7D8A;
-  --accent-blue: #1A3A6B;
-  --accent-purple: #2A7D8A;
-  --accent-purple-hover: #1E5F6B;
+  /* CXware Brand Colors - Blue to Purple Gradient (from Elementor) */
+  --gradient-start: #2047FF;
+  --gradient-end: #C873E5;
+  --accent-blue: #2047FF;
+  --accent-purple: #C873E5;
+  --accent-purple-hover: #9562C7;
 
   /* Text Colors */
-  --text-heading: #0B1121;
-  --text-dark: #0B1121;
-  --text-primary: #1E293B;
-  --text-secondary: #64748B;
-  --text-muted: #94A3B8;
+  --text-heading: #FFFFFF;
+  --text-dark: #FFFFFF;
+  --text-primary: #C8CDD8;
+  --text-secondary: #8B92A5;
+  --text-muted: #5A6178;
   --text-light: #ffffff;
 
   /* Borders */
-  --border-light: rgba(0, 0, 0, 0.07);
+  --border-light: rgba(255, 255, 255, 0.08);
   --border-dark: rgba(255, 255, 255, 0.08);
 }
 
@@ -77,20 +77,21 @@
   }
 
   .gradient-bg-subtle {
-    background: linear-gradient(135deg, rgba(26, 58, 107, 0.06), rgba(42, 125, 138, 0.06));
+    background: linear-gradient(135deg, rgba(32, 71, 255, 0.1), rgba(200, 115, 229, 0.1));
   }
 
   /* Light Card */
   .card-light {
-    background: var(--bg-white);
+    background: var(--bg-card);
     border: 1px solid var(--border-light);
     border-radius: 16px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .card-light:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.12);
     transform: translateY(-2px);
   }
 
@@ -124,7 +125,7 @@
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(26, 58, 107, 0.3);
+    box-shadow: 0 8px 24px rgba(32, 71, 255, 0.3);
   }
 
   /* Secondary Button - Gradient Border (Elementor style) */
@@ -139,10 +140,10 @@
     transition: all 0.3s ease;
     background: transparent;
     border: 2px solid transparent;
-    background-image: linear-gradient(white, white), linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    background-image: linear-gradient(var(--bg-card), var(--bg-card)), linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    color: var(--text-dark);
+    color: var(--text-heading);
   }
 
   .btn-secondary:hover {
@@ -162,7 +163,7 @@
     font-size: 0.9rem;
     transition: all 0.3s ease;
     background: white;
-    color: var(--text-dark);
+    color: #0B0F1A;
   }
 
   .btn-light:hover {
@@ -185,7 +186,7 @@
     font-size: clamp(60px, 10vw, 120px);
     font-weight: 800;
     line-height: 1;
-    background: linear-gradient(180deg, rgba(26, 58, 107, 0.3), rgba(42, 125, 138, 0.3));
+    background: linear-gradient(180deg, rgba(32, 71, 255, 0.4), rgba(200, 115, 229, 0.4));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -207,7 +208,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(26, 58, 107, 0.1), rgba(42, 125, 138, 0.1));
+    background: linear-gradient(135deg, rgba(32, 71, 255, 0.15), rgba(200, 115, 229, 0.15));
     color: var(--accent-purple);
   }
 
@@ -219,7 +220,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 58, 107, 0.1);
+    background: rgba(32, 71, 255, 0.15);
     color: var(--accent-blue);
   }
 
@@ -227,10 +228,10 @@
   .testimonial-card {
     padding: 2rem;
     border-radius: 1rem;
-    background: white;
-    color: var(--text-dark);
+    background: var(--bg-card);
+    color: var(--text-primary);
     border: 1px solid var(--border-light);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
 
   /* Light Section */
@@ -248,9 +249,9 @@
     background: var(--bg-muted);
   }
 
-  /* Teal tinted section - very subtle */
+  /* Purple tinted section - subtle dark */
   .section-purple {
-    background: linear-gradient(135deg, #F4F8F9, #EDF4F5);
+    background: linear-gradient(135deg, #0E1225, #12152B);
   }
 
   /* Dark Section */

@@ -23,14 +23,14 @@ export default function HowToStart() {
   ];
 
   return (
-    <section id="how-to-start" className="py-24 bg-white">
+    <section id="how-to-start" className="py-24" style={{ background: 'var(--bg-white)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">How to </span>
+            <span className="text-[#FFFFFF]">How to </span>
             <span className="gradient-text">Get Started</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#8B92A5]">
             Here's a look at what you can expect.
           </p>
         </div>
@@ -41,8 +41,8 @@ export default function HowToStart() {
               <div className="card-light p-6 h-full transition-all group-hover:shadow-xl">
                 <span className="big-number text-6xl mb-6 block">{step.number}</span>
                 <span className="section-label mb-2 block">Step {index + 1}</span>
-                <h3 className="text-xl font-semibold text-[#0C0227] mb-3">{step.title}</h3>
-                <p className="text-[#6b687a] text-sm leading-relaxed">{step.description}</p>
+                <h3 className="text-xl font-semibold text-[#FFFFFF] mb-3">{step.title}</h3>
+                <p className="text-[#8B92A5] text-sm leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}

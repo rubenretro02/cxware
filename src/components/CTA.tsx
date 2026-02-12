@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section id="contact" className="py-24 bg-[#f7f6f8]">
+    <section id="contact" className="py-24" style={{ background: 'var(--bg-muted)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="gradient-bg rounded-3xl p-12 md:p-16 relative overflow-hidden">
           {/* Decorative circles */}

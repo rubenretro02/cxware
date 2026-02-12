@@ -26,11 +26,11 @@ export default function Testimonials() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-label mb-4 block">Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0B1121]">Why Brands </span>
+            <span className="text-[#FFFFFF]">Why Brands </span>
             <span className="gradient-text">Trust</span>
-            <span className="text-[#0B1121]"> CXware</span>
+            <span className="text-[#FFFFFF]"> CXware</span>
           </h2>
-          <p className="text-lg text-[#64748B]">
+          <p className="text-lg text-[#8B92A5]">
             See what keeps the best brands working on our platform
           </p>
         </div>
@@ -39,25 +39,25 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-black/5"
+              className="bg-[#141829] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-white/10"
             >
               <div className="mb-6">
                 <svg className="w-10 h-10 text-[#C873E5]" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <p className="text-[#0B1121] text-lg mb-6 leading-relaxed">
+              <p className="text-[#FFFFFF] text-lg mb-6 leading-relaxed">
                 {testimonial.quote}
               </p>
-              <div className="flex items-center gap-4 pt-4 border-t border-black/10">
+              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-semibold text-[#0B1121]">{testimonial.name}</p>
-                  <p className="text-sm text-[#64748B]">{testimonial.role}</p>
+                  <p className="font-semibold text-[#FFFFFF]">{testimonial.name}</p>
+                  <p className="text-sm text-[#8B92A5]">{testimonial.role}</p>
                 </div>
               </div>
             </div>
