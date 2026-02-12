@@ -16,35 +16,6 @@ export default function AgentCTA() {
               <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "2s" }} />
             </div>
 
-            {/* Floating Agent Photos */}
-            <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block">
-              <div className="relative w-64 h-64">
-                <img
-                  src="/images/call-center-agent-2.jpg"
-                  alt="Agent"
-                  className="absolute top-0 right-0 w-16 h-16 rounded-full border-4 border-[var(--agent-bg-card)]/20 shadow-xl animate-float-slow object-cover"
-                />
-                <img
-                  src="/images/call-center-agent-1.jpg"
-                  alt="Agent"
-                  className="absolute top-10 left-8 w-14 h-14 rounded-full border-4 border-[var(--agent-bg-card)]/20 shadow-xl animate-float-slow object-cover"
-                  style={{ animationDelay: "1s" }}
-                />
-                <img
-                  src="/images/woman-laptop.jpg"
-                  alt="Agent"
-                  className="absolute bottom-6 right-6 w-16 h-16 rounded-full border-4 border-[var(--agent-bg-card)]/20 shadow-xl animate-float-slow object-cover"
-                  style={{ animationDelay: "2s" }}
-                />
-                <img
-                  src="/images/agent-headset-woman.jpg"
-                  alt="Agent"
-                  className="absolute bottom-0 left-0 w-12 h-12 rounded-full border-4 border-[var(--agent-bg-card)]/20 shadow-xl animate-float-slow object-cover"
-                  style={{ animationDelay: "3s" }}
-                />
-              </div>
-            </div>
-
             <div className="relative z-10 max-w-2xl">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--agent-bg-card)] mb-6">
                 Ready to start your journey?

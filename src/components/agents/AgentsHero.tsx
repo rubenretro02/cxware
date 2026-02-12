@@ -101,37 +101,12 @@ export default function AgentsHero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2047FF]/10 to-transparent" />
               </div>
 
-              {/* Floating laptop image */}
-              <div className="absolute -bottom-4 -left-8 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--agent-bg-card)] animate-float-slow">
-                <img
-                  src="/images/woman-laptop.jpg"
-                  alt="Agent working on laptop"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
               {/* Floating pay card */}
               <div className="absolute -bottom-6 right-8 rounded-2xl p-4 shadow-xl border animate-float-slow agent-card" style={{ animationDelay: "1s" }}>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2047FF] to-[#7C3AED] flex items-center justify-center">
-                    <svg className="w-6 h-6 text-[var(--agent-bg-card)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-bold" style={{ color: "var(--agent-text-heading)" }}>$14-$20/hr</p>
-                    <p className="text-sm" style={{ color: "var(--agent-text-secondary)" }}>Competitive Pay</p>
-                  </div>
+                <div>
+                  <p className="font-bold text-lg" style={{ color: "var(--agent-text-heading)" }}>$14-$20/hr</p>
+                  <p className="text-sm" style={{ color: "var(--agent-text-secondary)" }}>Competitive Pay</p>
                 </div>
-              </div>
-
-              {/* Floating headset badge top-right */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl overflow-hidden shadow-lg border-4 border-[var(--agent-bg-card)] animate-float-slow" style={{ animationDelay: "2s" }}>
-                <img
-                  src="/images/call-center-agent-1.jpg"
-                  alt="Call center agent"
-                  className="w-full h-full object-cover"
-                />
               </div>
             </div>
           </ScrollReveal>

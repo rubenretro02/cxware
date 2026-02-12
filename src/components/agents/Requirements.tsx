@@ -71,23 +71,7 @@ export default function Requirements() {
                 </div>
               </div>
 
-              {/* Floating headset image */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--agent-bg-secondary)] animate-float-slow">
-                <img
-                  src="/images/agent-headset-woman.jpg"
-                  alt="Agent with headset"
-                  className="w-full h-full object-cover"
-                />
-              </div>
 
-              {/* Floating laptop image */}
-              <div className="absolute -bottom-4 -left-4 w-28 h-20 rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--agent-bg-secondary)] animate-float-slow" style={{ animationDelay: "2s" }}>
-                <img
-                  src="/images/woman-laptop.jpg"
-                  alt="Agent working on laptop"
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
           </ScrollReveal>
         </div>

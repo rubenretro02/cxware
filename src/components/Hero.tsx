@@ -119,14 +119,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Globe Image */}
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-2xl overflow-hidden shadow-2xl animate-float hidden xl:block">
-              <img
-                src="/images/globe-network.jpg"
-                alt="Global Network"
-                className="w-full h-full object-cover"
-              />
-            </div>
+
           </div>
         </div>
       </div>

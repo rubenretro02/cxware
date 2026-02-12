@@ -78,22 +78,7 @@ export default function WhatYouDo() {
             </ScrollReveal>
           ))}
 
-          {/* Image card with headset agent */}
-          <ScrollReveal delay={400} direction="scale">
-            <div className="relative rounded-2xl overflow-hidden h-full min-h-[200px]">
-              <img
-                src="/images/agent-headset-woman.jpg"
-                alt="Customer service agent with headset"
-                className="w-full h-full object-cover absolute inset-0"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2047FF]/80 via-[#2047FF]/40 to-transparent" />
-              <div className="relative p-6 flex items-end h-full min-h-[200px]">
-                <p className="text-[var(--agent-bg-card)] text-sm font-medium">
-                  * Training varies by brand; requirements are clear before you accept a shift.
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
+
         </div>
       </div>
     </section>

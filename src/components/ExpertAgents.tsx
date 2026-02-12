@@ -8,17 +8,6 @@ export default function ExpertAgents() {
     "Join an agent community of passionate professionals",
   ];
 
-  // Agent images from local folder
-  const agentImages = [
-    { src: "/images/call-center-agent-1.jpg", alt: "Call center agent" },
-    { src: "/images/call-center-agent-2.jpg", alt: "Customer service agent" },
-    { src: "/images/woman-laptop.jpg", alt: "Support agent" },
-    { src: "/images/agent-headset-woman.jpg", alt: "Remote agent" },
-    { src: "/images/call-center-team.jpg", alt: "Service representative" },
-    { src: "/images/business-meeting.jpg", alt: "Professional agent" },
-    { src: "/images/agent-male-headset.jpg", alt: "Business professional" },
-    { src: "/images/globe-network.jpg", alt: "Global team" },
-  ];
 
   return (
     <section className="py-24" style={{ background: 'var(--bg-muted)' }}>
@@ -61,24 +50,37 @@ export default function ExpertAgents() {
           </div>
 
           <div className="relative">
-            <div className="gradient-bg rounded-3xl p-8 aspect-square flex items-center justify-center relative overflow-hidden">
+            <div className="gradient-bg rounded-3xl p-10 md:p-12 relative overflow-hidden">
               <div className="absolute inset-0">
                 <div className="absolute top-8 left-8 w-20 h-20 rounded-full bg-white/10" />
                 <div className="absolute bottom-12 right-12 w-16 h-16 rounded-full bg-white/10" />
               </div>
 
-              <div className="relative grid grid-cols-3 gap-4 w-full max-w-xs">
-                {agentImages.map((img, index) => (
-                  <div key={index} className="aspect-square rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-full object-cover"
-                    />
+              <div className="relative space-y-8">
+                {/* Big stat */}
+                <div>
+                  <div className="text-7xl md:text-8xl font-bold text-white mb-2">1,000+</div>
+                  <p className="text-lg text-white/80">Verified agents ready to serve</p>
+                </div>
+
+                {/* Stats grid */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/10 rounded-2xl p-5">
+                    <div className="text-3xl font-bold text-white mb-1">98%</div>
+                    <p className="text-sm text-white/70">Satisfaction rate</p>
                   </div>
-                ))}
-                <div className="aspect-square rounded-2xl bg-white/20 flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">+1K</span>
+                  <div className="bg-white/10 rounded-2xl p-5">
+                    <div className="text-3xl font-bold text-white mb-1">24/7</div>
+                    <p className="text-sm text-white/70">Coverage available</p>
+                  </div>
+                  <div className="bg-white/10 rounded-2xl p-5">
+                    <div className="text-3xl font-bold text-white mb-1">30+</div>
+                    <p className="text-sm text-white/70">Industries served</p>
+                  </div>
+                  <div className="bg-white/10 rounded-2xl p-5">
+                    <div className="text-3xl font-bold text-white mb-1">55%</div>
+                    <p className="text-sm text-white/70">Cost savings avg.</p>
+                  </div>
                 </div>
               </div>
             </div>
