@@ -39,14 +39,14 @@ export default function WhyJoin() {
   ];
 
   return (
-    <section className="py-24 bg-[#f7f6f8]">
+    <section className="py-24" style={{ background: 'var(--bg-muted)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">Why </span>
+            <span className="text-[#FFFFFF]">Why </span>
             <span className="gradient-text">CXware</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#8B92A5]">
             Flexible work designed for top customer service professionals that love supporting customers
           </p>
         </div>
@@ -55,8 +55,8 @@ export default function WhyJoin() {
           {benefits.map((benefit) => (
             <div key={benefit.title} className="card-light p-6 space-y-4 hover:shadow-xl transition-all">
               <div className="icon-box">{benefit.icon}</div>
-              <h3 className="text-lg font-semibold text-[#0C0227]">{benefit.title}</h3>
-              <p className="text-[#6b687a] text-sm">{benefit.description}</p>
+              <h3 className="text-lg font-semibold text-[#FFFFFF]">{benefit.title}</h3>
+              <p className="text-[#8B92A5] text-sm">{benefit.description}</p>
             </div>
           ))}
         </div>

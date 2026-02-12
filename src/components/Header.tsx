@@ -38,7 +38,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-black/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B0F1A]/95 backdrop-blur-md border-b border-white/5">
       <nav className="max-w-7xl mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -52,13 +52,13 @@ export default function Header() {
             </Link>
 
             {/* For Business / For Agents Toggle */}
-            <div className="hidden md:flex items-center bg-[#f0eff2] rounded-full p-1">
+            <div className="hidden md:flex items-center bg-white/10 rounded-full p-1">
               <Link
                 href="/"
                 className={`px-5 py-2 text-sm font-semibold rounded-full transition-all ${
                   !isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md"
-                    : "text-[#6b687a] hover:text-[#0C0227]"
+                    : "text-[#8B92A5] hover:text-[#FFFFFF]"
                 }`}
               >
                 For Business
@@ -68,7 +68,7 @@ export default function Header() {
                 className={`px-5 py-2 text-sm font-semibold rounded-full transition-all ${
                   isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md"
-                    : "text-[#6b687a] hover:text-[#0C0227]"
+                    : "text-[#8B92A5] hover:text-[#FFFFFF]"
                 }`}
               >
                 For Agents
@@ -83,7 +83,7 @@ export default function Header() {
               <>
                 <Link
                   href="#how-it-works"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                 >
                   How It Works
                 </Link>
@@ -96,7 +96,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                   >
                     Services
                     <svg
@@ -110,7 +110,7 @@ export default function Header() {
                   </button>
 
                   {activeDropdown === "services" && (
-                    <div className="absolute top-full left-0 mt-2 w-[550px] bg-white rounded-2xl border border-black/10 shadow-2xl p-6 grid grid-cols-2 gap-8">
+                    <div className="absolute top-full left-0 mt-2 w-[550px] bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-6 grid grid-cols-2 gap-8">
                       <div>
                         <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
                           By Solution
@@ -120,7 +120,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#6b687a] hover:text-[#0C0227] hover:bg-[#f7f6f8] transition-all"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
                             </Link>
@@ -136,7 +136,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#6b687a] hover:text-[#0C0227] hover:bg-[#f7f6f8] transition-all"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
                             </Link>
@@ -149,14 +149,14 @@ export default function Header() {
 
                 <Link
                   href="#faq"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                 >
                   FAQs
                 </Link>
 
                 <Link
                   href="#contact"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                 >
                   About
                 </Link>
@@ -166,7 +166,7 @@ export default function Header() {
               <>
                 <Link
                   href="#how-to-start"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                 >
                   How It Works
                 </Link>
@@ -179,7 +179,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                   >
                     Opportunities
                     <svg
@@ -193,7 +193,7 @@ export default function Header() {
                   </button>
 
                   {activeDropdown === "opportunities" && (
-                    <div className="absolute top-full left-0 mt-2 w-[350px] bg-white rounded-2xl border border-black/10 shadow-2xl p-5">
+                    <div className="absolute top-full left-0 mt-2 w-[350px] bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-5">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
                         Open Positions
                       </h4>
@@ -202,7 +202,7 @@ export default function Header() {
                           <Link
                             key={item.label}
                             href={item.href}
-                            className="flex items-center justify-between px-3 py-3 rounded-lg text-[#6b687a] hover:text-[#0C0227] hover:bg-[#f7f6f8] transition-all"
+                            className="flex items-center justify-between px-3 py-3 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                           >
                             <span className="text-sm font-medium">{item.label}</span>
                             <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
@@ -215,14 +215,14 @@ export default function Header() {
 
                 <Link
                   href="#faq"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                 >
                   FAQs
                 </Link>
 
                 <Link
                   href="#requirements"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                 >
                   Requirements
                 </Link>
@@ -259,7 +259,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-[#0C0227]"
+            className="lg:hidden p-2 text-[#FFFFFF]"
           >
             {isOpen ? (
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -275,15 +275,15 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-black/10 pt-4">
+          <div className="lg:hidden mt-4 pb-4 border-t border-white/10 pt-4">
             {/* Mobile Toggle */}
-            <div className="flex items-center bg-[#f0eff2] rounded-full p-1 mb-4">
+            <div className="flex items-center bg-white/10 rounded-full p-1 mb-4">
               <Link
                 href="/"
                 className={`flex-1 px-4 py-2 text-sm font-semibold rounded-full text-center transition-all ${
                   !isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : "text-[#6b687a]"
+                    : "text-[#8B92A5]"
                 }`}
               >
                 For Business
@@ -293,7 +293,7 @@ export default function Header() {
                 className={`flex-1 px-4 py-2 text-sm font-semibold rounded-full text-center transition-all ${
                   isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : "text-[#6b687a]"
+                    : "text-[#8B92A5]"
                 }`}
               >
                 For Agents
@@ -303,16 +303,16 @@ export default function Header() {
             <div className="flex flex-col gap-2">
               {!isAgentsPage ? (
                 <>
-                  <Link href="#how-it-works" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#how-it-works" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#services" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#services" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     Services
                   </Link>
-                  <Link href="#faq" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#faq" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
                     FAQs
                   </Link>
-                  <Link href="#contact" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#contact" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
                     About
                   </Link>
                   <div className="mt-4 px-4">
@@ -329,16 +329,16 @@ export default function Header() {
                 </>
               ) : (
                 <>
-                  <Link href="#how-to-start" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#how-to-start" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#opportunities" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     Opportunities
                   </Link>
-                  <Link href="#faq" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#faq" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
                     FAQs
                   </Link>
-                  <Link href="#requirements" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#requirements" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
                     Requirements
                   </Link>
                   <div className="mt-4 px-4">

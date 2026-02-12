@@ -49,14 +49,14 @@ export default function WhatYouDo() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24" style={{ background: 'var(--bg-white)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">What You'll </span>
+            <span className="text-[#FFFFFF]">What You'll </span>
             <span className="gradient-text">Do</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#8B92A5]">
             CXware agents lead with empathy and help customers resolve their issues as fast as possible.
           </p>
         </div>
@@ -65,8 +65,8 @@ export default function WhatYouDo() {
           {roles.map((role) => (
             <div key={role.title} className="card-light p-6 space-y-4 hover:shadow-xl transition-all">
               <div className="icon-box">{role.icon}</div>
-              <h3 className="text-lg font-semibold text-[#0C0227]">{role.title}</h3>
-              <p className="text-[#6b687a] text-sm">{role.description}</p>
+              <h3 className="text-lg font-semibold text-[#FFFFFF]">{role.title}</h3>
+              <p className="text-[#8B92A5] text-sm">{role.description}</p>
             </div>
           ))}
           <div className="relative rounded-2xl overflow-hidden">

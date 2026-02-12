@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function AgentsHero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden" style={{ background: 'var(--bg-light)' }}>
       {/* Subtle gradient on right side */}
       <div className="absolute right-0 top-0 w-1/2 h-full gradient-bg opacity-10 hidden lg:block" />
 
@@ -18,13 +18,13 @@ export default function AgentsHero() {
             <span className="section-label">Remote Customer Service Jobs - Work Around Your Schedule</span>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-[#0C0227]">Earn </span>
+              <span className="text-[#FFFFFF]">Earn </span>
               <span className="gradient-text">Competitive Pay</span>
-              <span className="text-[#0C0227]"> on a schedule you </span>
+              <span className="text-[#FFFFFF]"> on a schedule you </span>
               <span className="gradient-text">Choose</span>
             </h1>
 
-            <p className="text-xl text-[#6b687a] max-w-xl leading-relaxed">
+            <p className="text-xl text-[#8B92A5] max-w-xl leading-relaxed">
               Become a CXware agent and tap into flexible customer service shifts you can accept—or skip—with total freedom. Get credentialed fast, choose the hours you want, and take home pay that often beats standard rates.
             </p>
 
@@ -46,29 +46,29 @@ export default function AgentsHero() {
                 <img
                   src="/images/call-center-agent-2.jpg"
                   alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-white object-cover shadow-md"
+                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
                 />
                 <img
                   src="/images/call-center-agent-1.jpg"
                   alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-white object-cover shadow-md"
+                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
                 />
                 <img
                   src="/images/woman-laptop.jpg"
                   alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-white object-cover shadow-md"
+                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
                 />
                 <img
                   src="/images/agent-headset-woman.jpg"
                   alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-white object-cover shadow-md"
+                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
                 />
-                <div className="w-11 h-11 rounded-full border-3 border-white bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center text-white text-xs font-bold shadow-md">
+                <div className="w-11 h-11 rounded-full border-3 border-[#1A1E30] bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center text-white text-xs font-bold shadow-md">
                   +1K
                 </div>
               </div>
-              <p className="text-sm text-[#6b687a]">
-                <span className="text-[#0C0227] font-semibold">1,000+ Agents</span> and growing
+              <p className="text-sm text-[#8B92A5]">
+                <span className="text-[#FFFFFF] font-semibold">1,000+ Agents</span> and growing
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function AgentsHero() {
             </div>
 
             {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
+            <div className="absolute -bottom-6 -left-6 bg-[#141829] rounded-2xl p-4 shadow-xl border border-white/10">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,8 +94,8 @@ export default function AgentsHero() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[#0C0227] font-bold">$14-$20/hr</p>
-                  <p className="text-sm text-[#6b687a]">Competitive Pay</p>
+                  <p className="text-[#FFFFFF] font-bold">$14-$20/hr</p>
+                  <p className="text-sm text-[#8B92A5]">Competitive Pay</p>
                 </div>
               </div>
             </div>

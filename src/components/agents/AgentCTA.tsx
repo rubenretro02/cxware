@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function AgentCTA() {
   return (
-    <section id="apply" className="py-24 bg-[#f7f6f8]">
+    <section id="apply" className="py-24" style={{ background: 'var(--bg-muted)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="gradient-bg rounded-3xl p-12 md:p-16 relative overflow-hidden">
           {/* Decorative circles */}
@@ -67,7 +67,7 @@ export default function AgentCTA() {
 
         {/* Bottom link for businesses */}
         <div className="mt-12 text-center">
-          <p className="text-[#6b687a] mb-2">Looking for scalable customer support for your business?</p>
+          <p className="text-[#8B92A5] mb-2">Looking for scalable customer support for your business?</p>
           <Link href="/" className="text-[#C873E5] font-medium hover:underline inline-flex items-center gap-2">
             Learn more
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -23,15 +23,15 @@ export default function Opportunities() {
   ];
 
   return (
-    <section id="opportunities" className="py-24 bg-[#f7f6f8]">
+    <section id="opportunities" className="py-24" style={{ background: 'var(--bg-muted)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-label mb-4 block">All Opportunities</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">Apply to be a Self-Employed </span>
+            <span className="text-[#FFFFFF]">Apply to be a Self-Employed </span>
             <span className="gradient-text">Agent or Freelancer</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#8B92A5]">
             Businesses across multiple industries trust CXware Agent to deliver exceptional virtual support services.
           </p>
         </div>
@@ -43,10 +43,10 @@ export default function Opportunities() {
                 <span className="inline-block px-3 py-1 text-xs font-semibold bg-gradient-to-r from-[#2047FF]/10 to-[#C873E5]/10 text-[#C873E5] rounded-full mb-4">
                   {job.type}
                 </span>
-                <h3 className="text-lg font-semibold text-[#0C0227] mb-3">{job.title}</h3>
-                <p className="text-[#6b687a] text-sm mb-4">{job.description}</p>
+                <h3 className="text-lg font-semibold text-[#FFFFFF] mb-3">{job.title}</h3>
+                <p className="text-[#8B92A5] text-sm mb-4">{job.description}</p>
               </div>
-              <div className="pt-4 border-t border-black/10">
+              <div className="pt-4 border-t border-white/10">
                 <p className="text-[#C873E5] font-bold mb-4">{job.pay}</p>
                 <Link href="#apply" className="btn-primary w-full justify-center text-sm py-3">
                   Apply Now
