@@ -1,3 +1,7 @@
+"use client";
+
+import ScrollReveal from "@/components/ScrollReveal";
+
 export default function WhatYouDo() {
   const roles = [
     {
@@ -49,39 +53,47 @@ export default function WhatYouDo() {
   ];
 
   return (
-    <section className="py-24" style={{ background: 'var(--bg-white)' }}>
+    <section className="py-24" style={{ background: "var(--agent-bg-primary)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#FFFFFF]">What You'll </span>
-            <span className="gradient-text">Do</span>
-          </h2>
-          <p className="text-lg text-[#8B92A5]">
-            CXware agents lead with empathy and help customers resolve their issues as fast as possible.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-2xl mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span style={{ color: "var(--agent-text-heading)" }}>{"What You'll "}</span>
+              <span className="agent-gradient-text">Do</span>
+            </h2>
+            <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
+              CXware agents lead with empathy and help customers resolve their issues as fast as possible.
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {roles.map((role) => (
-            <div key={role.title} className="card-light p-6 space-y-4 hover:shadow-xl transition-all">
-              <div className="icon-box">{role.icon}</div>
-              <h3 className="text-lg font-semibold text-[#FFFFFF]">{role.title}</h3>
-              <p className="text-[#8B92A5] text-sm">{role.description}</p>
-            </div>
+          {roles.map((role, index) => (
+            <ScrollReveal key={role.title} delay={index * 80}>
+              <div className="agent-card p-6 h-full flex flex-col gap-4">
+                <div className="agent-icon-box">{role.icon}</div>
+                <h3 className="text-lg font-semibold" style={{ color: "var(--agent-text-heading)" }}>{role.title}</h3>
+                <p className="text-sm" style={{ color: "var(--agent-text-secondary)" }}>{role.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
-          <div className="relative rounded-2xl overflow-hidden">
-            <img
-              src="/images/agent-headset-woman.jpg"
-              alt="Customer service agent"
-              className="w-full h-full object-cover absolute inset-0"
-            />
-            <div className="absolute inset-0 gradient-bg opacity-80" />
-            <div className="relative p-6 flex items-end h-full min-h-[200px]">
-              <p className="text-white text-sm font-medium">
-                * Training varies by brand; requirements are clear before you accept a shift.
-              </p>
+
+          {/* Image card with headset agent */}
+          <ScrollReveal delay={400} direction="scale">
+            <div className="relative rounded-2xl overflow-hidden h-full min-h-[200px]">
+              <img
+                src="/images/agent-headset-woman.jpg"
+                alt="Customer service agent with headset"
+                className="w-full h-full object-cover absolute inset-0"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2047FF]/80 via-[#2047FF]/40 to-transparent" />
+              <div className="relative p-6 flex items-end h-full min-h-[200px]">
+                <p className="text-[var(--agent-bg-card)] text-sm font-medium">
+                  * Training varies by brand; requirements are clear before you accept a shift.
+                </p>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

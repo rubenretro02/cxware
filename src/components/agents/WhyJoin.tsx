@@ -1,3 +1,7 @@
+"use client";
+
+import ScrollReveal from "@/components/ScrollReveal";
+
 export default function WhyJoin() {
   const benefits = [
     {
@@ -7,7 +11,7 @@ export default function WhyJoin() {
         </svg>
       ),
       title: "Choose your own hours",
-      description: "Pick 30-minute shifts and stack up to full-time or keep it part-time—the choice is always yours.",
+      description: "Pick 30-minute shifts and stack up to full-time or keep it part-time--the choice is always yours.",
     },
     {
       icon: (
@@ -15,7 +19,7 @@ export default function WhyJoin() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
       ),
-      title: "Work from home—no commute",
+      title: "Work from home--no commute",
       description: "Log in from home with a hard-wired 25 Mbps+ connection and a reliable computer. CXware is 100% remote across the U.S. & LATAM.",
     },
     {
@@ -25,7 +29,7 @@ export default function WhyJoin() {
         </svg>
       ),
       title: "Competitive pay",
-      description: "Earn market-leading hourly rates that are deposited weekly—the perfect second job or supplemental income.",
+      description: "Earn market-leading hourly rates that are deposited weekly--the perfect second job or supplemental income.",
     },
     {
       icon: (
@@ -39,25 +43,29 @@ export default function WhyJoin() {
   ];
 
   return (
-    <section className="py-24" style={{ background: 'var(--bg-muted)' }}>
+    <section className="py-24" style={{ background: "var(--agent-bg-secondary)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#FFFFFF]">Why </span>
-            <span className="gradient-text">CXware</span>
-          </h2>
-          <p className="text-lg text-[#8B92A5]">
-            Flexible work designed for top customer service professionals that love supporting customers
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-2xl mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span style={{ color: "var(--agent-text-heading)" }}>Why </span>
+              <span className="agent-gradient-text">CXware</span>
+            </h2>
+            <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
+              Flexible work designed for top customer service professionals that love supporting customers
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((benefit) => (
-            <div key={benefit.title} className="card-light p-6 space-y-4 hover:shadow-xl transition-all">
-              <div className="icon-box">{benefit.icon}</div>
-              <h3 className="text-lg font-semibold text-[#FFFFFF]">{benefit.title}</h3>
-              <p className="text-[#8B92A5] text-sm">{benefit.description}</p>
-            </div>
+          {benefits.map((benefit, index) => (
+            <ScrollReveal key={benefit.title} delay={index * 100}>
+              <div className="agent-card p-6 h-full flex flex-col gap-4">
+                <div className="agent-icon-box">{benefit.icon}</div>
+                <h3 className="text-lg font-semibold" style={{ color: "var(--agent-text-heading)" }}>{benefit.title}</h3>
+                <p className="text-sm" style={{ color: "var(--agent-text-secondary)" }}>{benefit.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

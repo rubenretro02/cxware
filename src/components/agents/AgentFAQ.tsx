@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AgentFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -30,47 +31,52 @@ export default function AgentFAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24" style={{ background: 'var(--bg-white)' }}>
+    <section id="faq" className="py-24" style={{ background: "var(--agent-bg-primary)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12">
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-4">
-              Frequently Asked
-              <br />
-              Questions
-            </h2>
-            <p className="text-lg text-[#8B92A5] mb-6">
-              Still curious? We&apos;ve answered the most common agent questions.
-            </p>
-            <Link href="#apply" className="text-[#C873E5] font-medium hover:underline">
-              Have more questions? Apply and ask during onboarding
-            </Link>
-          </div>
+          <ScrollReveal direction="left">
+            <div className="lg:sticky lg:top-32 lg:self-start">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--agent-text-heading)" }}>
+                Frequently Asked
+                <br />
+                Questions
+              </h2>
+              <p className="text-lg mb-6" style={{ color: "var(--agent-text-secondary)" }}>
+                {"Still curious? We've answered the most common agent questions."}
+              </p>
+              <Link href="#apply" className="text-[#2047FF] font-medium hover:underline">
+                Have more questions? Apply and ask during onboarding
+              </Link>
+            </div>
+          </ScrollReveal>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={faq.question}
-                className="border-b border-white/10 pb-4"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full flex items-center justify-between py-4 text-left"
+          <ScrollReveal direction="right">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={faq.question}
+                  className="pb-4"
+                  style={{ borderBottom: "1px solid var(--agent-border)" }}
                 >
-                  <span className="text-lg font-medium text-[#FFFFFF] pr-4">{faq.question}</span>
-                  <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center transition-transform ${openIndex === index ? 'rotate-45' : ''}`}>
-                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                    </svg>
-                  </span>
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-[#8B92A5] pb-4">{faq.answer}</p>
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    className="w-full flex items-center justify-between py-4 text-left"
+                  >
+                    <span className="text-lg font-medium pr-4" style={{ color: "var(--agent-text-heading)" }}>{faq.question}</span>
+                    <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#2047FF] to-[#7C3AED] flex items-center justify-center transition-transform duration-300 ${openIndex === index ? "rotate-45" : ""}`}>
+                      <svg className="w-4 h-4 text-[var(--agent-bg-card)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+                    <p className="pb-4" style={{ color: "var(--agent-text-secondary)" }}>{faq.answer}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
