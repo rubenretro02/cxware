@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0C0227] border-t border-white/5 pt-16 pb-8">
+    <footer className="bg-[#0B1121] border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
@@ -21,7 +21,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Email*"
-                className="flex-1 bg-[#231e2f] border border-white/10 rounded-md px-5 py-3 text-white placeholder-[#6b687a] focus:outline-none focus:border-[#C873E5] transition-colors"
+                className="flex-1 bg-[#231e2f] border border-white/10 rounded-md px-5 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#C873E5] transition-colors"
               />
               <button type="submit" className="px-6 py-3 bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white font-semibold rounded-md hover:shadow-lg transition-all">
                 Sign Up
@@ -68,7 +68,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#6b687a] text-sm">
+          <p className="text-[#64748B] text-sm">
             © 2025 CXware Agent Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-6">

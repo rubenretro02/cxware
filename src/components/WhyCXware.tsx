@@ -30,10 +30,10 @@ export default function WhyCXware() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="lg:sticky lg:top-32">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-[#0C0227]">Why </span>
+              <span className="text-[#0B1121]">Why </span>
               <span className="gradient-text">CXware</span>
             </h2>
-            <p className="text-lg text-[#6b687a] mb-8">
+            <p className="text-lg text-[#64748B] mb-8">
               CXware delivers the precision of technology and the reliability of people—outperforming legacy BPOs (people without tech) and WFM solutions (tech without people).
             </p>
             <Link href="#contact" className="btn-primary">
@@ -51,8 +51,8 @@ export default function WhyCXware() {
                 className="card-light p-6 space-y-3 hover:shadow-xl transition-all"
               >
                 <span className="section-label">{benefit.label}</span>
-                <h3 className="text-lg font-semibold text-[#0C0227]">{benefit.title}</h3>
-                <p className="text-sm text-[#6b687a]">{benefit.description}</p>
+                <h3 className="text-lg font-semibold text-[#0B1121]">{benefit.title}</h3>
+                <p className="text-sm text-[#64748B]">{benefit.description}</p>
               </div>
             ))}
           </div>

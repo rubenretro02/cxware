@@ -71,10 +71,10 @@ export default function Services() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-label mb-4 block">The Workforce Platform</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">for Every </span>
+            <span className="text-[#0B1121]">for Every </span>
             <span className="gradient-text">Contact Center</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#64748B]">
             Make contact center ops insanely easy. Automate your workforce operations and provide exceptional service.
           </p>
         </div>
@@ -91,8 +91,8 @@ export default function Services() {
               <div className="icon-box mb-4">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold text-[#0C0227] mb-2">{service.title}</h3>
-              <p className="text-[#6b687a] mb-4">{service.description}</p>
+              <h3 className="text-xl font-semibold text-[#0B1121] mb-2">{service.title}</h3>
+              <p className="text-[#64748B] mb-4">{service.description}</p>
               <Link
                 href="#contact"
                 className="inline-flex items-center gap-2 text-[#C873E5] text-sm font-medium group-hover:gap-3 transition-all"

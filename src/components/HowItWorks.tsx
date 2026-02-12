@@ -27,10 +27,10 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">How to </span>
+            <span className="text-[#0B1121]">How to </span>
             <span className="gradient-text">Get Started</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#64748B]">
             Here's a look at what you can expect.
           </p>
         </div>
@@ -50,10 +50,10 @@ export default function HowItWorks() {
                 <span className="section-label mb-2 block">Step {index + 1}</span>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-[#0C0227] mb-3">{step.title}</h3>
+                <h3 className="text-xl font-bold text-[#0B1121] mb-3">{step.title}</h3>
 
                 {/* Description */}
-                <p className="text-[#6b687a] text-sm leading-relaxed">{step.description}</p>
+                <p className="text-[#64748B] text-sm leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}

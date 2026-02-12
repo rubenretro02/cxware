@@ -58,7 +58,7 @@ export default function Header() {
                 className={`px-5 py-2 text-sm font-semibold rounded-full transition-all ${
                   !isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md"
-                    : "text-[#6b687a] hover:text-[#0C0227]"
+                    : "text-[#64748B] hover:text-[#0B1121]"
                 }`}
               >
                 For Business
@@ -68,7 +68,7 @@ export default function Header() {
                 className={`px-5 py-2 text-sm font-semibold rounded-full transition-all ${
                   isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md"
-                    : "text-[#6b687a] hover:text-[#0C0227]"
+                    : "text-[#64748B] hover:text-[#0B1121]"
                 }`}
               >
                 For Agents
@@ -83,7 +83,7 @@ export default function Header() {
               <>
                 <Link
                   href="#how-it-works"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                 >
                   How It Works
                 </Link>
@@ -96,7 +96,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                   >
                     Services
                     <svg
@@ -120,7 +120,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#6b687a] hover:text-[#0C0227] hover:bg-[#f7f6f8] transition-all"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#64748B] hover:text-[#0B1121] hover:bg-[#f7f6f8] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
                             </Link>
@@ -136,7 +136,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#6b687a] hover:text-[#0C0227] hover:bg-[#f7f6f8] transition-all"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#64748B] hover:text-[#0B1121] hover:bg-[#f7f6f8] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
                             </Link>
@@ -149,14 +149,14 @@ export default function Header() {
 
                 <Link
                   href="#faq"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                 >
                   FAQs
                 </Link>
 
                 <Link
                   href="#contact"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                 >
                   About
                 </Link>
@@ -166,7 +166,7 @@ export default function Header() {
               <>
                 <Link
                   href="#how-to-start"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                 >
                   How It Works
                 </Link>
@@ -179,7 +179,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                   >
                     Opportunities
                     <svg
@@ -202,7 +202,7 @@ export default function Header() {
                           <Link
                             key={item.label}
                             href={item.href}
-                            className="flex items-center justify-between px-3 py-3 rounded-lg text-[#6b687a] hover:text-[#0C0227] hover:bg-[#f7f6f8] transition-all"
+                            className="flex items-center justify-between px-3 py-3 rounded-lg text-[#64748B] hover:text-[#0B1121] hover:bg-[#f7f6f8] transition-all"
                           >
                             <span className="text-sm font-medium">{item.label}</span>
                             <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
@@ -215,14 +215,14 @@ export default function Header() {
 
                 <Link
                   href="#faq"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                 >
                   FAQs
                 </Link>
 
                 <Link
                   href="#requirements"
-                  className="px-4 py-2 text-sm font-medium text-[#6b687a] hover:text-[#0C0227] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-[#64748B] hover:text-[#0B1121] transition-colors"
                 >
                   Requirements
                 </Link>
@@ -259,7 +259,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-[#0C0227]"
+            className="lg:hidden p-2 text-[#0B1121]"
           >
             {isOpen ? (
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -283,7 +283,7 @@ export default function Header() {
                 className={`flex-1 px-4 py-2 text-sm font-semibold rounded-full text-center transition-all ${
                   !isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : "text-[#6b687a]"
+                    : "text-[#64748B]"
                 }`}
               >
                 For Business
@@ -293,7 +293,7 @@ export default function Header() {
                 className={`flex-1 px-4 py-2 text-sm font-semibold rounded-full text-center transition-all ${
                   isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : "text-[#6b687a]"
+                    : "text-[#64748B]"
                 }`}
               >
                 For Agents
@@ -303,16 +303,16 @@ export default function Header() {
             <div className="flex flex-col gap-2">
               {!isAgentsPage ? (
                 <>
-                  <Link href="#how-it-works" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#how-it-works" className="px-4 py-3 text-[#0B1121] hover:bg-[#f7f6f8] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#services" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#services" className="px-4 py-3 text-[#0B1121] hover:bg-[#f7f6f8] rounded-lg">
                     Services
                   </Link>
-                  <Link href="#faq" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#faq" className="px-4 py-3 text-[#64748B] hover:bg-[#f7f6f8] rounded-lg">
                     FAQs
                   </Link>
-                  <Link href="#contact" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#contact" className="px-4 py-3 text-[#64748B] hover:bg-[#f7f6f8] rounded-lg">
                     About
                   </Link>
                   <div className="mt-4 px-4">
@@ -329,16 +329,16 @@ export default function Header() {
                 </>
               ) : (
                 <>
-                  <Link href="#how-to-start" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#how-to-start" className="px-4 py-3 text-[#0B1121] hover:bg-[#f7f6f8] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#opportunities" className="px-4 py-3 text-[#0C0227] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#opportunities" className="px-4 py-3 text-[#0B1121] hover:bg-[#f7f6f8] rounded-lg">
                     Opportunities
                   </Link>
-                  <Link href="#faq" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#faq" className="px-4 py-3 text-[#64748B] hover:bg-[#f7f6f8] rounded-lg">
                     FAQs
                   </Link>
-                  <Link href="#requirements" className="px-4 py-3 text-[#6b687a] hover:bg-[#f7f6f8] rounded-lg">
+                  <Link href="#requirements" className="px-4 py-3 text-[#64748B] hover:bg-[#f7f6f8] rounded-lg">
                     Requirements
                   </Link>
                   <div className="mt-4 px-4">

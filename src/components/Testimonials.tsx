@@ -26,11 +26,11 @@ export default function Testimonials() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-label mb-4 block">Testimonials</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#0C0227]">Why Brands </span>
+            <span className="text-[#0B1121]">Why Brands </span>
             <span className="gradient-text">Trust</span>
-            <span className="text-[#0C0227]"> CXware</span>
+            <span className="text-[#0B1121]"> CXware</span>
           </h2>
-          <p className="text-lg text-[#6b687a]">
+          <p className="text-lg text-[#64748B]">
             See what keeps the best brands working on our platform
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function Testimonials() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <p className="text-[#0C0227] text-lg mb-6 leading-relaxed">
+              <p className="text-[#0B1121] text-lg mb-6 leading-relaxed">
                 {testimonial.quote}
               </p>
               <div className="flex items-center gap-4 pt-4 border-t border-black/10">
@@ -56,8 +56,8 @@ export default function Testimonials() {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-semibold text-[#0C0227]">{testimonial.name}</p>
-                  <p className="text-sm text-[#6b687a]">{testimonial.role}</p>
+                  <p className="font-semibold text-[#0B1121]">{testimonial.name}</p>
+                  <p className="text-sm text-[#64748B]">{testimonial.role}</p>
                 </div>
               </div>
             </div>

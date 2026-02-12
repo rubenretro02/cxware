@@ -28,18 +28,18 @@ export default function ExpertAgents() {
             <div className="space-y-4">
               <span className="section-label">Expert Agents</span>
               <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="text-[#0C0227]">Get support from </span>
+                <span className="text-[#0B1121]">Get support from </span>
                 <span className="gradient-text">the best agents</span>
-                <span className="text-[#0C0227]"> in the world</span>
+                <span className="text-[#0B1121]"> in the world</span>
               </h2>
             </div>
 
-            <p className="text-lg text-[#6b687a]">
+            <p className="text-lg text-[#64748B]">
               CXware pairs brands with top 1099 contractor agents that value autonomy and love customer service. The platform automatically verifies, certifies, schedules and handles payments making workforce ops insanely easy for brands and agents.
             </p>
 
             <div className="space-y-4">
-              <h3 className="text-[#0C0227] font-semibold">Why agents work with CXware</h3>
+              <h3 className="text-[#0B1121] font-semibold">Why agents work with CXware</h3>
               {features.map((feature) => (
                 <div key={feature} className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center">
@@ -47,7 +47,7 @@ export default function ExpertAgents() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-[#6b687a]">{feature}</span>
+                  <span className="text-[#64748B]">{feature}</span>
                 </div>
               ))}
             </div>

@@ -34,12 +34,12 @@ export default function FAQ() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0C0227] mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1121] mb-4">
               Frequently Asked
               <br />
               Questions
             </h2>
-            <p className="text-lg text-[#6b687a] mb-6">
+            <p className="text-lg text-[#64748B] mb-6">
               Still curious? We&apos;ve answered the most common business questions.
             </p>
             <Link href="#contact" className="text-[#C873E5] font-medium hover:underline">
@@ -58,7 +58,7 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-center justify-between py-4 text-left"
                 >
-                  <span className="text-lg font-medium text-[#0C0227] pr-4">{faq.question}</span>
+                  <span className="text-lg font-medium text-[#0B1121] pr-4">{faq.question}</span>
                   <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center transition-transform ${openIndex === index ? 'rotate-45' : ''}`}>
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -66,7 +66,7 @@ export default function FAQ() {
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                  <p className="text-[#6b687a] pb-4">{faq.answer}</p>
+                  <p className="text-[#64748B] pb-4">{faq.answer}</p>
                 </div>
               </div>
             ))}
