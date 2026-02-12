@@ -204,6 +204,7 @@ export default function Header() {
                           <Link
                             key={item.label}
                             href={item.href}
+                            onClick={() => setActiveDropdown(null)}
                             className="flex items-center justify-between px-3 py-3 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                           >
                             <span className="text-sm font-medium">{item.label}</span>
@@ -214,6 +215,7 @@ export default function Header() {
                       <div className="mt-3 pt-3 border-t border-white/10">
                         <Link
                           href="/agents/opportunities"
+                          onClick={() => setActiveDropdown(null)}
                           className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[#C873E5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all text-sm font-medium"
                         >
                           View All Opportunities
