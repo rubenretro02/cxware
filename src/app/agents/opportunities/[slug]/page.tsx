@@ -2,13 +2,9 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import OpportunityPageContent from "@/components/agents/OpportunityPageContent";
-import { getOpportunityBySlug, opportunities } from "@/lib/opportunities";
+import { getOpportunityBySlug } from "@/lib/opportunities";
 
-export function generateStaticParams() {
-  return opportunities.map((opp) => ({
-    slug: opp.slug,
-  }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
