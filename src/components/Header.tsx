@@ -8,7 +8,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-  const isAgentsPage = pathname === "/agents";
+  const isAgentsPage = pathname === "/agents" || pathname.startsWith("/agents/");
 
   // Business page navigation items
   const businessSolutionItems = [
@@ -32,9 +32,11 @@ export default function Header() {
 
   // Agents page navigation items
   const agentOpportunityItems = [
-    { label: "USA - Remote Call Center Agent", pay: "$14-$20/hr", href: "#opportunities" },
-    { label: "Spanish Bilingual Agent (USA)", pay: "$17-$20/hr", href: "#opportunities" },
-    { label: "Dominican Republic - Freelancer", pay: "$5-$7/hr", href: "#opportunities" },
+    { label: "Customer Service", pay: "$14-$20/hr", href: "/agents/opportunities/customer-service" },
+    { label: "Inbound Sales", pay: "$14-$20+/hr", href: "/agents/opportunities/inbound-sales" },
+    { label: "Healthcare Support", pay: "$15-$20/hr", href: "/agents/opportunities/healthcare" },
+    { label: "Insurance Sales", pay: "$16-$25+/hr", href: "/agents/opportunities/insurance-sales" },
+    { label: "Bilingual Spanish", pay: "$17-$20+/hr", href: "/agents/opportunities/bilingual-spanish" },
   ];
 
   return (
@@ -195,7 +197,7 @@ export default function Header() {
                   {activeDropdown === "opportunities" && (
                     <div className="absolute top-full left-0 mt-2 w-[350px] bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-5">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
-                        Open Positions
+                        Remote Opportunities
                       </h4>
                       <div className="space-y-2">
                         {agentOpportunityItems.map((item) => (
@@ -208,6 +210,17 @@ export default function Header() {
                             <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
                           </Link>
                         ))}
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-white/10">
+                        <Link
+                          href="/agents/opportunities"
+                          className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[#C873E5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all text-sm font-medium"
+                        >
+                          View All Opportunities
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -332,7 +345,7 @@ export default function Header() {
                   <Link href="#how-to-start" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
+                  <Link href="/agents/opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     Opportunities
                   </Link>
                   <Link href="#faq" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">

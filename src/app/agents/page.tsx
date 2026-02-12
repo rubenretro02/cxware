@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import AgentsHero from "@/components/agents/AgentsHero";
 import WhyJoin from "@/components/agents/WhyJoin";
 import HowToStart from "@/components/agents/HowToStart";
-import Opportunities from "@/components/agents/Opportunities";
 import WhatYouDo from "@/components/agents/WhatYouDo";
 import AgentTestimonials from "@/components/agents/AgentTestimonials";
 import Requirements from "@/components/agents/Requirements";
@@ -22,7 +21,6 @@ export default function AgentsPage() {
       <AgentsHero />
       <WhyJoin />
       <HowToStart />
-      <Opportunities />
       <WhatYouDo />
       <AgentTestimonials />
       <Requirements />
