@@ -10,8 +10,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const opportunity = getOpportunityBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const opportunity = getOpportunityBySlug(slug);
   if (!opportunity) return { title: "Opportunity Not Found" };
 
   return {
@@ -20,8 +21,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function OpportunityPage({ params }: { params: { slug: string } }) {
-  const opportunity = getOpportunityBySlug(params.slug);
+export default async function OpportunityPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const opportunity = getOpportunityBySlug(slug);
 
   if (!opportunity) {
     notFound();
