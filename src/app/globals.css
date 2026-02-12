@@ -16,6 +16,20 @@
   --bg-dark: #070A12;
   --bg-dark-card: #0D1120;
 
+  /* Agent Theme - Warm, lighter palette */
+  --agent-bg-primary: #F7F8FC;
+  --agent-bg-secondary: #EDEEF5;
+  --agent-bg-card: #FFFFFF;
+  --agent-bg-card-hover: #F0F1F8;
+  --agent-bg-muted: #F0F2F9;
+  --agent-bg-accent: #E8E4F3;
+  --agent-text-heading: #1A1D2E;
+  --agent-text-primary: #3D4258;
+  --agent-text-secondary: #6B7094;
+  --agent-text-muted: #8E93B0;
+  --agent-border: rgba(32, 71, 255, 0.08);
+  --agent-card-shadow: rgba(32, 71, 255, 0.06);
+
   /* CXware Brand Colors - Blue to Purple Gradient (from Elementor) */
   --gradient-start: #2047FF;
   --gradient-end: #C873E5;
@@ -259,6 +273,151 @@
     background: var(--bg-dark);
     color: var(--text-light);
   }
+
+  /* ===== AGENT THEME CLASSES ===== */
+
+  /* Agent Sections */
+  .agent-section-primary {
+    background: var(--agent-bg-primary);
+  }
+
+  .agent-section-secondary {
+    background: var(--agent-bg-secondary);
+  }
+
+  .agent-section-muted {
+    background: var(--agent-bg-muted);
+  }
+
+  .agent-section-accent {
+    background: linear-gradient(135deg, #F3F0FF, #EBF0FF);
+  }
+
+  /* Agent Cards */
+  .agent-card {
+    background: var(--agent-bg-card);
+    border: 1px solid var(--agent-border);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 12px var(--agent-card-shadow);
+  }
+
+  .agent-card:hover {
+    box-shadow: 0 12px 32px rgba(32, 71, 255, 0.1);
+    border-color: rgba(32, 71, 255, 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Agent Gradient Text */
+  .agent-gradient-text {
+    background: linear-gradient(90deg, #2047FF, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Agent Buttons */
+  .agent-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #2047FF, #7C3AED);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 16px rgba(32, 71, 255, 0.25);
+  }
+
+  .agent-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(32, 71, 255, 0.35);
+  }
+
+  .agent-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 2px solid rgba(32, 71, 255, 0.2);
+    color: var(--agent-text-heading);
+  }
+
+  .agent-btn-secondary:hover {
+    background: rgba(32, 71, 255, 0.05);
+    border-color: rgba(32, 71, 255, 0.4);
+  }
+
+  /* Agent Section Label */
+  .agent-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #2047FF;
+  }
+
+  /* Agent Icon Box */
+  .agent-icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(32, 71, 255, 0.08), rgba(124, 58, 237, 0.08));
+    color: #2047FF;
+    transition: all 0.3s ease;
+  }
+
+  .agent-card:hover .agent-icon-box {
+    background: linear-gradient(135deg, rgba(32, 71, 255, 0.15), rgba(124, 58, 237, 0.15));
+    transform: scale(1.05);
+  }
+
+  /* Agent Testimonial Card */
+  .agent-testimonial-card {
+    padding: 2rem;
+    border-radius: 1.25rem;
+    background: var(--agent-bg-card);
+    color: var(--agent-text-primary);
+    border: 1px solid var(--agent-border);
+    box-shadow: 0 4px 20px var(--agent-card-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .agent-testimonial-card:hover {
+    box-shadow: 0 12px 40px rgba(32, 71, 255, 0.1);
+    transform: translateY(-4px);
+  }
+
+  /* Agent Big Number */
+  .agent-big-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(180deg, rgba(32, 71, 255, 0.15), rgba(124, 58, 237, 0.15));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Agent Stat Number */
+  .agent-stat-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2047FF;
+  }
 }
 
 @layer utilities {
@@ -267,7 +426,151 @@
   }
 }
 
-/* Animations */
+/* ===== ANIMATIONS ===== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotateIn {
+  from { opacity: 0; transform: rotate(-5deg) scale(0.95); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1deg); }
+  66% { transform: translateY(-4px) rotate(-1deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(32, 71, 255, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(32, 71, 255, 0.25); }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(32, 71, 255, 0.05), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Staggered children animations */
+.stagger-children > * {
+  opacity: 0;
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* Scroll-triggered visible state */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
