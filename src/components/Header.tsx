@@ -8,33 +8,36 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-  const isAgentsPage = pathname === "/agents";
+  const isAgentsPage = pathname === "/agents" || pathname.startsWith("/agents/");
+  const isServicePage = pathname.startsWith("/services");
 
   // Business page navigation items
   const businessSolutionItems = [
-    { icon: "phone", label: "Call Center Outsourcing", href: "#services" },
-    { icon: "users", label: "Customer Service Outsourcing", href: "#services" },
-    { icon: "chat", label: "Live Chat Support", href: "#services" },
-    { icon: "clock", label: "24/7 Help Desk", href: "#services" },
-    { icon: "file", label: "Tax Support", href: "#services" },
-    { icon: "heart", label: "Healthcare Support", href: "#services" },
+    { icon: "phone", label: "Call Center Outsourcing", href: "/services/call-center-outsourcing" },
+    { icon: "users", label: "Customer Service Outsourcing", href: "/services/customer-service-outsourcing" },
+    { icon: "chat", label: "Live Chat Support", href: "/services/live-chat-support" },
+    { icon: "clock", label: "24/7 Help Desk", href: "/services/help-desk" },
+    { icon: "file", label: "Tax Support", href: "/services/tax-support" },
+    { icon: "heart", label: "Healthcare Support", href: "/services/healthcare-support" },
   ];
 
   const businessIndustryItems = [
-    { label: "Insurance", href: "#services" },
-    { label: "Telecommunications", href: "#services" },
-    { label: "Utilities", href: "#services" },
-    { label: "Finance/Banking", href: "#services" },
-    { label: "Travel/Transportation", href: "#services" },
-    { label: "Retail", href: "#services" },
-    { label: "Healthcare", href: "#services" },
+    { label: "Insurance", href: "/services/insurance" },
+    { label: "Telecommunications", href: "/services/telecommunications" },
+    { label: "Utilities", href: "/services/utilities" },
+    { label: "Finance/Banking", href: "/services/finance-banking" },
+    { label: "Travel/Transportation", href: "/services/travel-transportation" },
+    { label: "Retail", href: "/services/retail" },
+    { label: "Healthcare", href: "/services/healthcare-industry" },
   ];
 
   // Agents page navigation items
   const agentOpportunityItems = [
-    { label: "USA - Remote Call Center Agent", pay: "$14-$20/hr", href: "#opportunities" },
-    { label: "Spanish Bilingual Agent (USA)", pay: "$17-$20/hr", href: "#opportunities" },
-    { label: "Dominican Republic - Freelancer", pay: "$5-$7/hr", href: "#opportunities" },
+    { label: "Customer Service", pay: "$14-$20/hr", href: "/agents/opportunities/customer-service" },
+    { label: "Inbound Sales", pay: "$14-$20+/hr", href: "/agents/opportunities/inbound-sales" },
+    { label: "Healthcare Support", pay: "$15-$20/hr", href: "/agents/opportunities/healthcare" },
+    { label: "Insurance Sales", pay: "$16-$25+/hr", href: "/agents/opportunities/insurance-sales" },
+    { label: "Bilingual Spanish", pay: "$17-$20+/hr", href: "/agents/opportunities/bilingual-spanish" },
   ];
 
   return (
@@ -96,7 +99,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
+                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${isServicePage ? "text-[#FFFFFF]" : "text-[#8B92A5] hover:text-[#FFFFFF]"}`}
                   >
                     Services
                     <svg
@@ -120,6 +123,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
+                              onClick={() => setActiveDropdown(null)}
                               className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
@@ -136,12 +140,25 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
+                              onClick={() => setActiveDropdown(null)}
                               className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
                             </Link>
                           ))}
                         </div>
+                      </div>
+                      <div className="col-span-2 mt-2 pt-3 border-t border-white/10">
+                        <Link
+                          href="/services"
+                          onClick={() => setActiveDropdown(null)}
+                          className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[#C873E5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all text-sm font-medium"
+                        >
+                          View All Services
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -195,19 +212,32 @@ export default function Header() {
                   {activeDropdown === "opportunities" && (
                     <div className="absolute top-full left-0 mt-2 w-[350px] bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-5">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
-                        Open Positions
+                        Remote Opportunities
                       </h4>
                       <div className="space-y-2">
                         {agentOpportunityItems.map((item) => (
                           <Link
                             key={item.label}
                             href={item.href}
+                            onClick={() => setActiveDropdown(null)}
                             className="flex items-center justify-between px-3 py-3 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                           >
                             <span className="text-sm font-medium">{item.label}</span>
                             <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
                           </Link>
                         ))}
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-white/10">
+                        <Link
+                          href="/agents/opportunities"
+                          onClick={() => setActiveDropdown(null)}
+                          className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[#C873E5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all text-sm font-medium"
+                        >
+                          View All Opportunities
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -306,7 +336,7 @@ export default function Header() {
                   <Link href="#how-it-works" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#services" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
+                  <Link href="/services" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     Services
                   </Link>
                   <Link href="#faq" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
@@ -332,7 +362,7 @@ export default function Header() {
                   <Link href="#how-to-start" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
+                  <Link href="/agents/opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     Opportunities
                   </Link>
                   <Link href="#faq" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">

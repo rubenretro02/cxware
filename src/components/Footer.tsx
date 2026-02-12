@@ -45,11 +45,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Use Cases</h4>
             <ul className="space-y-3">
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Customer Service</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Healthcare Support</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Insurance Sales</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Tax Support</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Tech Support</Link></li>
+              <li><Link href="/services/customer-service-outsourcing" className="text-[#a3a0ab] hover:text-white transition-colors">Customer Service</Link></li>
+              <li><Link href="/services/healthcare-support" className="text-[#a3a0ab] hover:text-white transition-colors">Healthcare Support</Link></li>
+              <li><Link href="/services/insurance" className="text-[#a3a0ab] hover:text-white transition-colors">Insurance Sales</Link></li>
+              <li><Link href="/services/tax-support" className="text-[#a3a0ab] hover:text-white transition-colors">Tax Support</Link></li>
+              <li><Link href="/services/help-desk" className="text-[#a3a0ab] hover:text-white transition-colors">24/7 Help Desk</Link></li>
             </ul>
           </div>
 
@@ -57,11 +57,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wider">Industries</h4>
             <ul className="space-y-3">
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Insurance</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Retail</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Finance/Banking</Link></li>
-              <li><Link href="#services" className="text-[#a3a0ab] hover:text-white transition-colors">Telecommunications</Link></li>
+              <li><Link href="/services/insurance" className="text-[#a3a0ab] hover:text-white transition-colors">Insurance</Link></li>
+              <li><Link href="/services/healthcare-industry" className="text-[#a3a0ab] hover:text-white transition-colors">Healthcare</Link></li>
+              <li><Link href="/services/retail" className="text-[#a3a0ab] hover:text-white transition-colors">Retail</Link></li>
+              <li><Link href="/services/finance-banking" className="text-[#a3a0ab] hover:text-white transition-colors">Finance/Banking</Link></li>
+              <li><Link href="/services/telecommunications" className="text-[#a3a0ab] hover:text-white transition-colors">Telecommunications</Link></li>
             </ul>
           </div>
         </div>
