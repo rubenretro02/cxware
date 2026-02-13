@@ -9,7 +9,7 @@ import ExpertAgents from "@/components/ExpertAgents";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
-import MapSection from "@/components/MapSection";
+
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -26,7 +26,6 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <CTA />
-      <MapSection />
       <Footer />
     </main>
   );

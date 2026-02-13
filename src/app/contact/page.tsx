@@ -27,29 +27,31 @@ export default function ContactPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Left - Text */}
-            <div>
-              <span className="section-label">Get In Touch</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 leading-tight">
-                <span className="text-white">{"Let's Build Your "}</span>
-                <span className="gradient-text">Ideal CX Team</span>
-              </h1>
-              <p className="text-lg text-[#8B92A5] leading-relaxed">
-                {
-                  "Ready to scale your customer operations? Fill out the form below and we'll get back to you within one business day."
-                }
-              </p>
-            </div>
+          {/* Hero with background image */}
+          <div className="relative rounded-3xl overflow-hidden mb-16 min-h-[400px] md:min-h-[450px] flex items-center">
+            {/* Background Image */}
+            <img
+              src="/images/contact-hero.avif"
+              alt="CXware professional agent working in modern office"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            {/* Overlay gradient - darker on right for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-l from-[#0B0E18]/90 via-[#0B0E18]/60 to-transparent" />
 
-            {/* Right - Image */}
-            <div className="relative h-[300px] md:h-[380px] rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="/images/contact-hero.avif"
-                alt="CXware professional agent working in modern office"
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#0B0E18]/30" />
+            {/* Text on the right side */}
+            <div className="relative w-full flex justify-end px-8 md:px-16 py-12">
+              <div className="max-w-lg text-right">
+                <span className="section-label">Get In Touch</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 leading-tight">
+                  <span className="text-white">{"Let's Build Your "}</span>
+                  <span className="gradient-text">Ideal CX Team</span>
+                </h1>
+                <p className="text-lg text-[#c0c4d0] leading-relaxed">
+                  {
+                    "Ready to scale your customer operations? Fill out the form below and we'll get back to you within one business day."
+                  }
+                </p>
+              </div>
             </div>
           </div>
 
