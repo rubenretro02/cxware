@@ -38,7 +38,7 @@ export default function MapSection() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="CXware Office Location - 66 W Flagler St, Ste 900, Miami, FL 33130"
-          className="grayscale hover:grayscale-0 transition-all duration-500"
+          className="hover:scale-[1.02] transition-transform duration-500 origin-center"
         />
       </div>
     </section>
