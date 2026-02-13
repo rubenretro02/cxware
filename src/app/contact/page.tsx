@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import MapSection from "@/components/MapSection";
 
 export const metadata: Metadata = {
   title: "Contact Us - CXware Agent Solutions",
@@ -188,6 +189,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <MapSection />
       <Footer />
     </main>
   );
