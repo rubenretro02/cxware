@@ -23,15 +23,11 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 export default async function OpportunityPage(props: { params: Promise<{ slug: string }> }) {
   const { slug } = await props.params;
-  console.log("[v0] Rendering opportunity page for slug:", slug);
   const opportunity = getOpportunityBySlug(slug);
 
   if (!opportunity) {
-    console.log("[v0] Opportunity not found for slug:", slug);
     notFound();
   }
-
-  console.log("[v0] Found opportunity:", opportunity.title);
 
   return (
     <main className="min-h-screen">
