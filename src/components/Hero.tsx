@@ -120,12 +120,14 @@ export default function Hero() {
             </div>
 
             {/* Globe Image */}
-            <div className="flex justify-end mt-6 -mr-8">
+            <div className="flex flex-col items-end mt-6 -mr-8">
               <img
                 src="/images/globe.webp"
                 alt="Global network of CXware agents"
-                className="w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] object-contain drop-shadow-[0_0_40px_rgba(32,71,255,0.3)] animate-spin-slow"
+                className="w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] object-contain drop-shadow-[0_0_50px_rgba(32,71,255,0.35)] animate-spin-slow"
               />
+              {/* Shadow underneath for 3D effect */}
+              <div className="w-[180px] lg:w-[220px] h-[20px] mx-auto mt-2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(32,71,255,0.25)_0%,transparent_70%)] blur-sm" />
             </div>
 
           </div>
