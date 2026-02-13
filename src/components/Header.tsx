@@ -31,31 +31,31 @@ export default function Header() {
 
   // Business page navigation items
   const businessSolutionItems = [
-    { icon: "phone", label: "Call Center Outsourcing", href: "#services" },
-    { icon: "users", label: "Customer Service Outsourcing", href: "#services" },
-    { icon: "chat", label: "Live Chat Support", href: "#services" },
-    { icon: "clock", label: "24/7 Help Desk", href: "#services" },
-    { icon: "file", label: "Tax Support", href: "#services" },
-    { icon: "heart", label: "Healthcare Support", href: "#services" },
+    { icon: "phone", label: "Call Center Outsourcing", href: "/services/call-center-outsourcing" },
+    { icon: "users", label: "Customer Service Outsourcing", href: "/services/customer-service-outsourcing" },
+    { icon: "chat", label: "Live Chat Support", href: "/services/live-chat-support" },
+    { icon: "clock", label: "24/7 Help Desk", href: "/services/24-7-help-desk" },
+    { icon: "file", label: "Tax Support", href: "/services/tax-support" },
+    { icon: "heart", label: "Healthcare Support", href: "/services/healthcare-support" },
   ];
 
   const businessIndustryItems = [
-    { label: "Insurance", href: "#services" },
-    { label: "Telecommunications", href: "#services" },
-    { label: "Utilities", href: "#services" },
-    { label: "Finance/Banking", href: "#services" },
-    { label: "Travel/Transportation", href: "#services" },
-    { label: "Retail", href: "#services" },
-    { label: "Healthcare", href: "#services" },
+    { label: "Insurance", href: "/services/call-center-outsourcing" },
+    { label: "Telecommunications", href: "/services/call-center-outsourcing" },
+    { label: "Utilities", href: "/services/call-center-outsourcing" },
+    { label: "Finance/Banking", href: "/services/call-center-outsourcing" },
+    { label: "Travel/Transportation", href: "/services/call-center-outsourcing" },
+    { label: "Retail", href: "/services/customer-service-outsourcing" },
+    { label: "Healthcare", href: "/services/healthcare-support" },
   ];
 
   // Agents page navigation items
   const agentOpportunityItems = [
-    { label: "Customer Service", pay: "$14-$20/hr", href: "#opportunities" },
-    { label: "Inbound Sales", pay: "$14-$20+/hr", href: "#opportunities" },
-    { label: "Healthcare Support", pay: "$15-$20/hr", href: "#opportunities" },
-    { label: "Insurance Sales", pay: "$16-$25+/hr", href: "#opportunities" },
-    { label: "Bilingual Spanish", pay: "$17-$20+/hr", href: "#opportunities" },
+    { label: "Customer Service", pay: "$14-$20/hr", href: "/agents/opportunities/customer-service" },
+    { label: "Inbound Sales", pay: "$14-$20+/hr", href: "/agents/opportunities/inbound-sales" },
+    { label: "Healthcare Support", pay: "$15-$20/hr", href: "/agents/opportunities/healthcare-support" },
+    { label: "Insurance Sales", pay: "$16-$25+/hr", href: "/agents/opportunities/insurance-sales" },
+    { label: "Bilingual Spanish", pay: "$17-$20+/hr", href: "/agents/opportunities/bilingual-spanish" },
   ];
 
   return (
@@ -247,7 +247,7 @@ export default function Header() {
                       </div>
                       <div className="mt-4 pt-3 border-t border-white/10">
                         <Link
-                          href="#opportunities"
+                          href="/agents/opportunities"
                           onClick={() => setActiveDropdown(null)}
                           className="flex items-center justify-center gap-2 text-sm font-medium text-[#C873E5] hover:text-white transition-colors"
                         >
@@ -384,7 +384,7 @@ export default function Header() {
                   <Link href="#how-to-start" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     How It Works
                   </Link>
-                  <Link href="#opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
+                  <Link href="/agents/opportunities" className="px-4 py-3 text-[#FFFFFF] hover:bg-[#1A1E30] rounded-lg">
                     Opportunities
                   </Link>
                   <Link href="#faq" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
