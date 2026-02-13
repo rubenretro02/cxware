@@ -61,12 +61,12 @@ export default function Header() {
 
   // Colors based on page context
   const navBg = isAgentsPage
-    ? "bg-[#1E1F25]/90 border-[#2A2B33]"
+    ? "bg-[#2E3039]/90 border-[#3E3F49]"
     : "bg-[#0B0F1A]/90 border-white/10";
 
-  const dropdownBg = isAgentsPage ? "bg-[#1E1F25]" : "bg-[#141829]";
-  const dropdownBorder = isAgentsPage ? "border-[#2A2B33]" : "border-white/10";
-  const hoverBg = isAgentsPage ? "hover:bg-[#28292F]" : "hover:bg-[#1A1E30]";
+  const dropdownBg = isAgentsPage ? "bg-[#2E3039]" : "bg-[#141829]";
+  const dropdownBorder = isAgentsPage ? "border-[#3E3F49]" : "border-white/10";
+  const hoverBg = isAgentsPage ? "hover:bg-[#383A44]" : "hover:bg-[#1A1E30]";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
@@ -85,7 +85,7 @@ export default function Header() {
             </Link>
 
             {/* For Business / For Agents Toggle Pills */}
-            <div className={`hidden md:flex items-center rounded-full p-0.5 border ${isAgentsPage ? "border-[#3A3B43] bg-[#28292F]" : "border-white/10 bg-white/5"}`}>
+            <div className={`hidden md:flex items-center rounded-full p-0.5 border ${isAgentsPage ? "border-[#4A4B55] bg-[#383A44]" : "border-white/10 bg-white/5"}`}>
               <Link
                 href="/"
                 className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all ${
@@ -291,22 +291,28 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-2.5">
             {!isAgentsPage ? (
               <Link
-                href="#contact"
-                className="group px-5 py-2 text-xs font-bold uppercase tracking-wider text-white border border-[#C873E5]/60 rounded-full hover:border-[#C873E5] hover:bg-[#C873E5]/10 transition-all"
+                href="/contact"
+                className="group relative flex items-center overflow-hidden rounded-full bg-[#0D1117] transition-all hover:shadow-lg hover:shadow-[#2047FF]/20"
               >
-                {"Let's Talk"}
+                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
+                <span className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white">
+                  {"Let's Talk"}
+                </span>
               </Link>
             ) : (
               <Link
                 href="#apply"
-                className="group px-5 py-2 text-xs font-bold uppercase tracking-wider text-white border border-[#C873E5]/60 rounded-full hover:border-[#C873E5] hover:bg-[#C873E5]/10 transition-all"
+                className="group relative flex items-center overflow-hidden rounded-full bg-[#0D1117] transition-all hover:shadow-lg hover:shadow-[#2047FF]/20"
               >
-                Apply Now
+                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
+                <span className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white">
+                  Apply Now
+                </span>
               </Link>
             )}
             <Link
-              href={isAgentsPage ? "#apply" : "#contact"}
-              className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
+              href={isAgentsPage ? "#apply" : "/contact"}
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-[#2047FF] to-[#C873E5] text-white hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
               aria-label={isAgentsPage ? "Apply now" : "Contact us"}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -338,7 +344,7 @@ export default function Header() {
         {isOpen && (
           <div className="lg:hidden mt-3 pb-3 border-t border-white/10 pt-3">
             {/* Mobile Toggle */}
-            <div className={`flex items-center rounded-full p-0.5 mb-4 border ${isAgentsPage ? "border-[#3A3B43] bg-[#28292F]" : "border-white/10 bg-white/5"}`}>
+            <div className={`flex items-center rounded-full p-0.5 mb-4 border ${isAgentsPage ? "border-[#4A4B55] bg-[#383A44]" : "border-white/10 bg-white/5"}`}>
               <Link
                 href="/"
                 className={`flex-1 px-4 py-2 text-xs font-semibold rounded-full text-center transition-all ${
@@ -381,14 +387,17 @@ export default function Header() {
                   </Link>
                   <div className="mt-3 px-2">
                     <Link
-                      href="#contact"
+                      href="/contact"
                       onClick={() => setIsOpen(false)}
-                      className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white border border-[#C873E5]/60 rounded-full hover:border-[#C873E5] transition-all"
+                      className="w-full relative flex items-center justify-center overflow-hidden rounded-full bg-[#0D1117] transition-all"
                     >
-                      {"Let's Talk"}
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
+                      <span className="flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white">
+                        {"Let's Talk"}
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
                     </Link>
                   </div>
                 </>
@@ -410,12 +419,15 @@ export default function Header() {
                     <Link
                       href="#apply"
                       onClick={() => setIsOpen(false)}
-                      className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white border border-[#C873E5]/60 rounded-full hover:border-[#C873E5] transition-all"
+                      className="w-full relative flex items-center justify-center overflow-hidden rounded-full bg-[#0D1117] transition-all"
                     >
-                      Apply Now
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
+                      <span className="flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white">
+                        Apply Now
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
                     </Link>
                   </div>
                 </>
