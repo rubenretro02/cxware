@@ -69,7 +69,7 @@ export default function Header() {
   const hoverBg = isAgentsPage ? "hover:bg-[#383A44]" : "hover:bg-[#1A1E30]";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+    <header className="relative z-50 px-4 pt-4">
       <nav
         className={`max-w-7xl mx-auto px-6 py-2.5 rounded-full border backdrop-blur-xl ${navBg} shadow-lg shadow-black/20`}
       >
@@ -287,38 +287,23 @@ export default function Header() {
             )}
           </div>
 
-          {/* Right: CTA + Arrow */}
-          <div className="hidden md:flex items-center gap-2.5">
+          {/* Right: CTA */}
+          <div className="hidden md:flex items-center">
             {!isAgentsPage ? (
               <Link
                 href="/contact"
-                className="group relative flex items-center overflow-hidden rounded-full bg-[#0D1117] transition-all hover:shadow-lg hover:shadow-[#2047FF]/20"
+                className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
               >
-                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
-                <span className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white">
-                  {"Let's Talk"}
-                </span>
+                {"Let's Talk"}
               </Link>
             ) : (
               <Link
                 href="#apply"
-                className="group relative flex items-center overflow-hidden rounded-full bg-[#0D1117] transition-all hover:shadow-lg hover:shadow-[#2047FF]/20"
+                className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
               >
-                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
-                <span className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white">
-                  Apply Now
-                </span>
+                Apply Now
               </Link>
             )}
-            <Link
-              href={isAgentsPage ? "#apply" : "/contact"}
-              className="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-[#2047FF] to-[#C873E5] text-white hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
-              aria-label={isAgentsPage ? "Apply now" : "Contact us"}
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -389,15 +374,9 @@ export default function Header() {
                     <Link
                       href="/contact"
                       onClick={() => setIsOpen(false)}
-                      className="w-full relative flex items-center justify-center overflow-hidden rounded-full bg-[#0D1117] transition-all"
+                      className="w-full flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
                     >
-                      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
-                      <span className="flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                        {"Let's Talk"}
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
+                      {"Let's Talk"}
                     </Link>
                   </div>
                 </>
@@ -419,15 +398,9 @@ export default function Header() {
                     <Link
                       href="#apply"
                       onClick={() => setIsOpen(false)}
-                      className="w-full relative flex items-center justify-center overflow-hidden rounded-full bg-[#0D1117] transition-all"
+                      className="w-full flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
                     >
-                      <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#2047FF] to-[#C873E5]" />
-                      <span className="flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white">
-                        Apply Now
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
+                      Apply Now
                     </Link>
                   </div>
                 </>
