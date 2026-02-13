@@ -1,14 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const isAgentsPage = pathname === "/agents";
+
+  const handleMouseEnter = useCallback((dropdown: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveDropdown(dropdown);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
+  }, []);
+
+  const handleToggleDropdown = useCallback((dropdown: string) => {
+    setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
+  }, []);
 
   // Business page navigation items
   const businessSolutionItems = [
@@ -91,11 +110,12 @@ export default function Header() {
                 {/* Services Dropdown */}
                 <div
                   className="relative"
-                  onMouseEnter={() => setActiveDropdown("services")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("services")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     type="button"
+                    onClick={() => handleToggleDropdown("services")}
                     className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                   >
                     Services
@@ -110,7 +130,8 @@ export default function Header() {
                   </button>
 
                   {activeDropdown === "services" && (
-                    <div className="absolute top-full left-0 mt-2 w-[550px] bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-6 grid grid-cols-2 gap-8">
+                    <div className="absolute top-full left-0 pt-2 w-[550px]">
+                    <div className="bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-6 grid grid-cols-2 gap-8">
                       <div>
                         <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
                           By Solution
@@ -144,9 +165,10 @@ export default function Header() {
                         </div>
                       </div>
                     </div>
+                    </div>
                   )}
                 </div>
-
+                
                 <Link
                   href="#faq"
                   className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
@@ -181,11 +203,12 @@ export default function Header() {
                 {/* Opportunities Dropdown */}
                 <div
                   className="relative"
-                  onMouseEnter={() => setActiveDropdown("opportunities")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("opportunities")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     type="button"
+                    onClick={() => handleToggleDropdown("opportunities")}
                     className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                   >
                     Opportunities
@@ -200,7 +223,8 @@ export default function Header() {
                   </button>
 
                   {activeDropdown === "opportunities" && (
-                    <div className="absolute top-full left-0 mt-2 w-[350px] bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-5">
+                    <div className="absolute top-full left-0 pt-2 w-[350px]">
+                    <div className="bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-5">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
                         Open Positions
                       </h4>
@@ -217,9 +241,10 @@ export default function Header() {
                         ))}
                       </div>
                     </div>
+                    </div>
                   )}
                 </div>
-
+                
                 <Link
                   href="#faq"
                   className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
