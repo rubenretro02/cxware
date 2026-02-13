@@ -119,6 +119,16 @@ export default function Hero() {
               </div>
             </div>
 
+            {/* Globe Image */}
+            <div className="relative mt-8 flex justify-center">
+              <img
+                src="/images/globe.jpg"
+                alt="Global CX operations"
+                className="w-72 h-72 object-contain animate-spin-slow"
+              />
+              {/* Shadow underneath for 3D effect */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-8 bg-[#2047FF]/10 blur-xl rounded-full" />
+            </div>
 
           </div>
         </div>

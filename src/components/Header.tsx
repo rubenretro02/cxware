@@ -1,15 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const isAgentsPage = pathname === "/agents" || pathname.startsWith("/agents/");
   const isServicePage = pathname.startsWith("/services");
+
+  const handleMouseEnter = useCallback((dropdown: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveDropdown(dropdown);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300);
+  }, []);
+
+  const handleToggleDropdown = useCallback((dropdown: string) => {
+    setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
+  }, []);
 
   // Business page navigation items
   const businessSolutionItems = [
@@ -94,11 +113,12 @@ export default function Header() {
                 {/* Services Dropdown */}
                 <div
                   className="relative"
-                  onMouseEnter={() => setActiveDropdown("services")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("services")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     type="button"
+                    onClick={() => handleToggleDropdown("services")}
                     className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${isServicePage ? "text-[#FFFFFF]" : "text-[#8B92A5] hover:text-[#FFFFFF]"}`}
                   >
                     Services
@@ -148,18 +168,6 @@ export default function Header() {
                           ))}
                         </div>
                       </div>
-                      <div className="col-span-2 mt-2 pt-3 border-t border-white/10">
-                        <Link
-                          href="/services"
-                          onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[#C873E5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all text-sm font-medium"
-                        >
-                          View All Services
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </Link>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -177,6 +185,13 @@ export default function Header() {
                 >
                   About
                 </Link>
+
+                <Link
+                  href="/contact"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
+                >
+                  Contact
+                </Link>
               </>
             ) : (
               // Agents Navigation
@@ -191,11 +206,12 @@ export default function Header() {
                 {/* Opportunities Dropdown */}
                 <div
                   className="relative"
-                  onMouseEnter={() => setActiveDropdown("opportunities")}
-                  onMouseLeave={() => setActiveDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter("opportunities")}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     type="button"
+                    onClick={() => handleToggleDropdown("opportunities")}
                     className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
                   >
                     Opportunities
@@ -231,7 +247,7 @@ export default function Header() {
                         <Link
                           href="/agents/opportunities"
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-[#C873E5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all text-sm font-medium"
+                          className="flex items-center justify-center gap-2 text-sm font-medium text-[#C873E5] hover:text-white transition-colors"
                         >
                           View All Opportunities
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -267,7 +283,7 @@ export default function Header() {
                 href="#contact"
                 className="px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[#2047FF] to-[#C873E5] rounded-md hover:shadow-lg transition-all flex items-center gap-2"
               >
-                Let's Talk
+                Let&apos;s Talk
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -345,12 +361,15 @@ export default function Header() {
                   <Link href="#contact" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
                     About
                   </Link>
+                  <Link href="/contact" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
+                    Contact
+                  </Link>
                   <div className="mt-4 px-4">
                     <Link
                       href="#contact"
                       className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#2047FF] to-[#C873E5] rounded-md"
                     >
-                      Let's Talk
+                      Let&apos;s Talk
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
