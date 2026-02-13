@@ -122,7 +122,7 @@ export default function Hero() {
             {/* Globe Image */}
             <div className="relative mt-8 flex justify-center">
               <img
-                src="/images/globe.jpg"
+                src="/images/globe.webp"
                 alt="Global CX operations"
                 className="w-72 h-72 object-contain animate-spin-slow"
               />
