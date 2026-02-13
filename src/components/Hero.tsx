@@ -31,7 +31,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link href="#contact" className="btn-primary text-base py-4 px-8">
+              <Link href="/contact" className="btn-primary text-base py-4 px-8">
                 Let's Talk
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -124,7 +124,7 @@ export default function Hero() {
               <img
                 src="/images/globe.webp"
                 alt="Global network of CXware agents"
-                className="w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] object-contain drop-shadow-[0_0_40px_rgba(32,71,255,0.3)] animate-float-slow"
+                className="w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] object-contain drop-shadow-[0_0_40px_rgba(32,71,255,0.3)] animate-spin-slow"
               />
             </div>
 

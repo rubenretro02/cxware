@@ -160,6 +160,13 @@ export default function Header() {
                 >
                   About
                 </Link>
+
+                <Link
+                  href="/contact"
+                  className="px-4 py-2 text-sm font-medium text-[#8B92A5] hover:text-[#FFFFFF] transition-colors"
+                >
+                  Contact
+                </Link>
               </>
             ) : (
               // Agents Navigation
@@ -234,7 +241,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3">
             {!isAgentsPage ? (
               <Link
-                href="#contact"
+                href="/contact"
                 className="px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[#2047FF] to-[#C873E5] rounded-md hover:shadow-lg transition-all flex items-center gap-2"
               >
                 Let's Talk
@@ -315,9 +322,12 @@ export default function Header() {
                   <Link href="#contact" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
                     About
                   </Link>
+                  <Link href="/contact" className="px-4 py-3 text-[#8B92A5] hover:bg-[#1A1E30] rounded-lg">
+                    Contact
+                  </Link>
                   <div className="mt-4 px-4">
                     <Link
-                      href="#contact"
+                      href="/contact"
                       className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#2047FF] to-[#C873E5] rounded-md"
                     >
                       Let's Talk
