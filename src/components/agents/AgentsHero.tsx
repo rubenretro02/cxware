@@ -6,20 +6,20 @@ import ScrollReveal from "@/components/ScrollReveal";
 export default function AgentsHero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Full background image */}
+      {/* Full background image - woman on the right */}
       <img
         src="/images/agent-hero-banner.jpg"
         alt="CXware Agent smiling with headset in call center"
-        className="absolute inset-0 w-full h-full object-cover object-left-top"
+        className="absolute inset-0 w-full h-full object-cover object-right"
       />
-      {/* Gradient overlay - transparent on left (shows person), dark on right (for text) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f5f3ff]/40 to-[#f5f3ff]/95" />
+      {/* Gradient overlay - opaque on left (for text), transparent on right (shows person) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#f5f3ff]/95 via-[#f5f3ff]/70 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#f5f3ff]/80 via-transparent to-[#f5f3ff]/60 lg:hidden" />
 
-      {/* Text Content - positioned on the right */}
+      {/* Text Content - positioned on the left */}
       <div className="relative w-full max-w-7xl mx-auto px-6 py-32 lg:py-40">
-        <div className="flex justify-end">
-          <div className="max-w-xl space-y-8 text-right">
+        <div className="flex justify-start">
+          <div className="max-w-xl space-y-8 text-left">
             <ScrollReveal delay={100}>
               <span className="agent-section-label">Remote Customer Service Jobs - Work Around Your Schedule</span>
             </ScrollReveal>
@@ -40,7 +40,7 @@ export default function AgentsHero() {
             </ScrollReveal>
 
             <ScrollReveal delay={400}>
-              <div className="flex flex-wrap justify-end gap-4">
+              <div className="flex flex-wrap justify-start gap-4">
                 <Link href="#apply" className="agent-btn-primary text-base py-4 px-8">
                   Apply Now
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,7 +55,7 @@ export default function AgentsHero() {
 
             {/* Social Proof */}
             <ScrollReveal delay={500}>
-              <div className="flex items-center justify-end gap-4">
+              <div className="flex items-center justify-start gap-4">
                 <div className="flex -space-x-3">
                   <img
                     src="/images/call-center-agent-2.jpg"
