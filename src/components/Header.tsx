@@ -61,17 +61,20 @@ export default function Header() {
 
   // Colors based on page context
   const navBg = isAgentsPage
-    ? "bg-[#2E3039]/90 border-[#3E3F49]"
+    ? "bg-[#F5F0EB]/90 border-[#E0D8CF]"
     : "bg-[#0B0F1A]/90 border-white/10";
 
-  const dropdownBg = isAgentsPage ? "bg-[#2E3039]" : "bg-[#141829]";
-  const dropdownBorder = isAgentsPage ? "border-[#3E3F49]" : "border-white/10";
-  const hoverBg = isAgentsPage ? "hover:bg-[#383A44]" : "hover:bg-[#1A1E30]";
+  const dropdownBg = isAgentsPage ? "bg-[#F5F0EB]" : "bg-[#141829]";
+  const dropdownBorder = isAgentsPage ? "border-[#E0D8CF]" : "border-white/10";
+  const hoverBg = isAgentsPage ? "hover:bg-[#EAE3DB]" : "hover:bg-[#1A1E30]";
+  const navText = isAgentsPage ? "text-[#5C5550]" : "text-[#8B92A5]";
+  const navTextHover = isAgentsPage ? "hover:text-[#1A1714]" : "hover:text-white";
+  const navTextActive = isAgentsPage ? "text-[#1A1714]" : "text-white";
 
   return (
     <header className="relative z-50 px-4 pt-4">
       <nav
-        className={`max-w-7xl mx-auto px-6 py-2.5 rounded-full border backdrop-blur-xl ${navBg} shadow-lg shadow-black/20`}
+        className={`max-w-7xl mx-auto px-6 py-2.5 rounded-full border backdrop-blur-xl ${navBg} ${isAgentsPage ? "shadow-lg shadow-black/5" : "shadow-lg shadow-black/20"}`}
       >
         <div className="flex items-center justify-between">
           {/* Left: Logo + Toggle */}
@@ -85,13 +88,13 @@ export default function Header() {
             </Link>
 
             {/* For Business / For Agents Toggle Pills */}
-            <div className={`hidden md:flex items-center rounded-full p-0.5 border ${isAgentsPage ? "border-[#4A4B55] bg-[#383A44]" : "border-white/10 bg-white/5"}`}>
+            <div className={`hidden md:flex items-center rounded-full p-0.5 border ${isAgentsPage ? "border-[#D6CFC6] bg-[#EAE3DB]" : "border-white/10 bg-white/5"}`}>
               <Link
                 href="/"
                 className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all ${
                   !isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md shadow-[#2047FF]/25"
-                    : "text-[#8B92A5] hover:text-white"
+                    : isAgentsPage ? "text-[#5C5550] hover:text-[#1A1714]" : "text-[#8B92A5] hover:text-white"
                 }`}
               >
                 For Business
@@ -209,7 +212,7 @@ export default function Header() {
               <>
                 <Link
                   href="#how-to-start"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
+                  className={`px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
                 >
                   How It Works
                 </Link>
@@ -223,7 +226,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => handleToggleDropdown("opportunities")}
-                    className="flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
+                    className={`flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
                   >
                     Opportunities
                     <svg
@@ -247,18 +250,18 @@ export default function Header() {
                             key={item.label}
                             href={item.href}
                             onClick={() => setActiveDropdown(null)}
-                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-white ${hoverBg} transition-all`}
+                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg ${navText} ${navTextHover} ${hoverBg} transition-all`}
                           >
                             <span className="text-sm font-medium">{item.label}</span>
                             <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
                           </Link>
                         ))}
                       </div>
-                      <div className="mt-3 pt-3 border-t border-white/10">
+                      <div className={`mt-3 pt-3 border-t ${isAgentsPage ? "border-[#D6CFC6]" : "border-white/10"}`}>
                         <Link
                           href="/agents/opportunities"
                           onClick={() => setActiveDropdown(null)}
-                          className="flex items-center justify-center gap-2 text-sm font-medium text-[#C873E5] hover:text-white transition-colors"
+                          className={`flex items-center justify-center gap-2 text-sm font-medium text-[#C873E5] ${navTextHover} transition-colors`}
                         >
                           View All Opportunities
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -272,14 +275,14 @@ export default function Header() {
 
                 <Link
                   href="#faq"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
+                  className={`px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
                 >
                   FAQs
                 </Link>
 
                 <Link
                   href="#requirements"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
+                  className={`px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
                 >
                   Requirements
                 </Link>
@@ -310,7 +313,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-white"
+            className={`lg:hidden p-2 ${isAgentsPage ? "text-[#1A1714]" : "text-white"}`}
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -327,15 +330,15 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden mt-3 pb-3 border-t border-white/10 pt-3">
+          <div className={`lg:hidden mt-3 pb-3 border-t pt-3 ${isAgentsPage ? "border-[#D6CFC6]" : "border-white/10"}`}>
             {/* Mobile Toggle */}
-            <div className={`flex items-center rounded-full p-0.5 mb-4 border ${isAgentsPage ? "border-[#4A4B55] bg-[#383A44]" : "border-white/10 bg-white/5"}`}>
+            <div className={`flex items-center rounded-full p-0.5 mb-4 border ${isAgentsPage ? "border-[#D6CFC6] bg-[#EAE3DB]" : "border-white/10 bg-white/5"}`}>
               <Link
                 href="/"
                 className={`flex-1 px-4 py-2 text-xs font-semibold rounded-full text-center transition-all ${
                   !isAgentsPage
                     ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : "text-[#8B92A5]"
+                    : isAgentsPage ? "text-[#5C5550]" : "text-[#8B92A5]"
                 }`}
               >
                 For Business
@@ -382,16 +385,16 @@ export default function Header() {
                 </>
               ) : (
                 <>
-                  <Link href="#how-to-start" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-white ${hoverBg} rounded-lg transition-colors`}>
+                  <Link href="#how-to-start" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navTextActive} ${hoverBg} rounded-lg transition-colors`}>
                     How It Works
                   </Link>
-                  <Link href="/agents/opportunities" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-white ${hoverBg} rounded-lg transition-colors`}>
+                  <Link href="/agents/opportunities" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navTextActive} ${hoverBg} rounded-lg transition-colors`}>
                     Opportunities
                   </Link>
-                  <Link href="#faq" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-[#8B92A5] ${hoverBg} rounded-lg transition-colors`}>
+                  <Link href="#faq" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navText} ${hoverBg} rounded-lg transition-colors`}>
                     FAQs
                   </Link>
-                  <Link href="#requirements" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-[#8B92A5] ${hoverBg} rounded-lg transition-colors`}>
+                  <Link href="#requirements" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navText} ${hoverBg} rounded-lg transition-colors`}>
                     Requirements
                   </Link>
                   <div className="mt-3 px-2">
