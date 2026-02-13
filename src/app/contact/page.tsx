@@ -27,6 +27,16 @@ export default function ContactPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
+          {/* Hero Image */}
+          <div className="relative w-full h-[250px] md:h-[350px] lg:h-[400px] rounded-3xl overflow-hidden shadow-2xl mb-12">
+            <img
+              src="/images/contact-hero.avif"
+              alt="CXware professional agent working in modern office"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0E18]/70 via-transparent to-transparent" />
+          </div>
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="section-label">Get In Touch</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 leading-tight">
