@@ -119,6 +119,14 @@ export default function Hero() {
               </div>
             </div>
 
+            {/* Globe Image */}
+            <div className="flex justify-end mt-6 -mr-8">
+              <img
+                src="/images/globe.webp"
+                alt="Global network of CXware agents"
+                className="w-[280px] h-[280px] lg:w-[340px] lg:h-[340px] object-contain drop-shadow-[0_0_40px_rgba(32,71,255,0.3)] animate-float-slow"
+              />
+            </div>
 
           </div>
         </div>
