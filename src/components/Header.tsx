@@ -51,9 +51,11 @@ export default function Header() {
 
   // Agents page navigation items
   const agentOpportunityItems = [
-    { label: "USA - Remote Call Center Agent", pay: "$14-$20/hr", href: "#opportunities" },
-    { label: "Spanish Bilingual Agent (USA)", pay: "$17-$20/hr", href: "#opportunities" },
-    { label: "Dominican Republic - Freelancer", pay: "$5-$7/hr", href: "#opportunities" },
+    { label: "Customer Service", pay: "$14-$20/hr", href: "#opportunities" },
+    { label: "Inbound Sales", pay: "$14-$20+/hr", href: "#opportunities" },
+    { label: "Healthcare Support", pay: "$15-$20/hr", href: "#opportunities" },
+    { label: "Insurance Sales", pay: "$16-$25+/hr", href: "#opportunities" },
+    { label: "Bilingual Spanish", pay: "$17-$20+/hr", href: "#opportunities" },
   ];
 
   return (
@@ -141,6 +143,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
+                              onClick={() => setActiveDropdown(null)}
                               className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
@@ -157,6 +160,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href={item.href}
+                              onClick={() => setActiveDropdown(null)}
                               className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                             >
                               <span className="text-sm font-medium">{item.label}</span>
@@ -226,19 +230,32 @@ export default function Header() {
                     <div className="absolute top-full left-0 pt-2 w-[350px]">
                     <div className="bg-[#141829] rounded-2xl border border-white/10 shadow-2xl p-5">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-[#C873E5] mb-4">
-                        Open Positions
+                        Remote Opportunities
                       </h4>
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         {agentOpportunityItems.map((item) => (
                           <Link
                             key={item.label}
                             href={item.href}
+                            onClick={() => setActiveDropdown(null)}
                             className="flex items-center justify-between px-3 py-3 rounded-lg text-[#8B92A5] hover:text-[#FFFFFF] hover:bg-[#1A1E30] transition-all"
                           >
                             <span className="text-sm font-medium">{item.label}</span>
                             <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
                           </Link>
                         ))}
+                      </div>
+                      <div className="mt-4 pt-3 border-t border-white/10">
+                        <Link
+                          href="#opportunities"
+                          onClick={() => setActiveDropdown(null)}
+                          className="flex items-center justify-center gap-2 text-sm font-medium text-[#C873E5] hover:text-white transition-colors"
+                        >
+                          View All Opportunities
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
                       </div>
                     </div>
                     </div>
