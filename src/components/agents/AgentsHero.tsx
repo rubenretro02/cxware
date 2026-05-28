@@ -7,7 +7,7 @@ export default function AgentsHero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center pt-24 overflow-hidden">
       {/* Full-bleed background photo — visible across the whole hero */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0">
         <img
           src="/images/agent-hero-banner.jpg"
           alt="WingCX agent working remotely"
@@ -31,7 +31,7 @@ export default function AgentsHero() {
         <div className="aurora-blob w-[460px] h-[460px] -top-28 -left-20" style={{ opacity: 0.22 }} />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-5 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 lg:px-8">
         <div className="grid grid-cols-12 gap-x-8">
           {/* Copy block — left, capped at 7/12 so the photo breathes on the right */}
           <ScrollReveal as="div" variant="stagger" className="col-span-12 lg:col-span-7 space-y-7 py-12">
