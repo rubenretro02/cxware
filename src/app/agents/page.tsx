@@ -10,8 +10,8 @@ import AgentFAQ from "@/components/agents/AgentFAQ";
 import AgentCTA from "@/components/agents/AgentCTA";
 
 export const metadata = {
-  title: "Become an Agent | CXware Agent Solutions",
-  description: "Start your remote career with CXware. Work from home, choose your schedule, and earn competitive pay as an independent contractor.",
+  title: "Become an Agent | WingCX Agent Solutions",
+  description: "Start your remote career with WingCX. Work from home, choose your schedule, and earn competitive pay as an independent contractor.",
 };
 
 export default function AgentsPage() {

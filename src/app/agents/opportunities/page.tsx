@@ -3,9 +3,9 @@ import Footer from "@/components/Footer";
 import OpportunitiesListing from "@/components/agents/OpportunitiesListing";
 
 export const metadata = {
-  title: "All Opportunities | CXware Agent Solutions",
+  title: "All Opportunities | WingCX Agent Solutions",
   description:
-    "Explore all remote customer service, sales, healthcare, and bilingual opportunities with CXware. Work from home, choose your schedule, and earn competitive pay.",
+    "Explore all remote customer service, sales, healthcare, and bilingual opportunities with WingCX. Work from home, choose your schedule, and earn competitive pay.",
 };
 
 export default function OpportunitiesPage() {

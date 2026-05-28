@@ -22,7 +22,7 @@ export default function Requirements() {
                 <span className="agent-section-label mb-4 block">Agent Requirements</span>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4">
                   <span style={{ color: "var(--agent-text-heading)" }}>Are you the next </span>
-                  <span className="agent-gradient-text">CXware agent</span>
+                  <span className="agent-gradient-text">WingCX agent</span>
                   <span style={{ color: "var(--agent-text-heading)" }}>?</span>
                 </h2>
                 <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
@@ -61,13 +61,13 @@ export default function Requirements() {
               <div className="rounded-3xl overflow-hidden relative aspect-square shadow-2xl">
                 <img
                   src="/images/call-center-team.jpg"
-                  alt="CXware agents working together"
+                  alt="WingCX agents working together"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2047FF]/80 via-[#2047FF]/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-[var(--agent-bg-card)]">
                   <div className="text-7xl font-bold mb-4">1,000+</div>
-                  <p className="text-xl text-[var(--agent-bg-card)]/90">Agents already working with CXware</p>
+                  <p className="text-xl text-[var(--agent-bg-card)]/90">Agents already working with WingCX</p>
                 </div>
               </div>
 

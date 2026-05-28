@@ -21,7 +21,7 @@ export default function AgentCTA() {
                 Ready to start your journey?
               </h2>
               <p className="text-lg md:text-xl text-[var(--agent-bg-card)]/90 mb-8">
-                See how CXware can boost your income and flexibility in as little as 30 days.
+                See how WingCX can boost your income and flexibility in as little as 30 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link

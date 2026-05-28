@@ -33,7 +33,7 @@ export default function OpportunitiesListing() {
                 <span className="agent-gradient-text">Remote Role</span>
               </h1>
               <p className="text-xl leading-relaxed" style={{ color: "var(--agent-text-secondary)" }}>
-                Explore all available remote opportunities with CXware. Each role offers flexible scheduling, competitive pay, and the freedom to work from home.
+                Explore all available remote opportunities with WingCX. Each role offers flexible scheduling, competitive pay, and the freedom to work from home.
               </p>
             </div>
           </ScrollReveal>

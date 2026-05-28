@@ -62,7 +62,7 @@ export default function WhatYouDo() {
               <span className="agent-gradient-text">Do</span>
             </h2>
             <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
-              CXware agents lead with empathy and help customers resolve their issues as fast as possible.
+              WingCX agents lead with empathy and help customers resolve their issues as fast as possible.
             </p>
           </div>
         </ScrollReveal>

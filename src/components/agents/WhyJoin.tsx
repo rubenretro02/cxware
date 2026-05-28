@@ -20,7 +20,7 @@ export default function WhyJoin() {
         </svg>
       ),
       title: "Work from home--no commute",
-      description: "Log in from home with a hard-wired 25 Mbps+ connection and a reliable computer. CXware is 100% remote across the U.S. & LATAM.",
+      description: "Log in from home with a hard-wired 25 Mbps+ connection and a reliable computer. WingCX is 100% remote across the U.S. & LATAM.",
     },
     {
       icon: (
@@ -49,7 +49,7 @@ export default function WhyJoin() {
           <div className="max-w-2xl mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span style={{ color: "var(--agent-text-heading)" }}>Why </span>
-              <span className="agent-gradient-text">CXware</span>
+              <span className="agent-gradient-text">WingCX</span>
             </h2>
             <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
               Flexible work designed for top customer service professionals that love supporting customers

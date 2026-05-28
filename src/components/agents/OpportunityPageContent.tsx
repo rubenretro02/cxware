@@ -420,7 +420,7 @@ export default function OpportunityPageContent({ opportunity }: { opportunity: O
                   Ready to get started as a {opportunity.title} Agent?
                 </h2>
                 <p className="text-lg md:text-xl text-[var(--agent-bg-card)]/90 mb-8">
-                  Apply today and start your flexible, remote career with CXware. Set your own schedule, work from home, and earn competitive pay.
+                  Apply today and start your flexible, remote career with WingCX. Set your own schedule, work from home, and earn competitive pay.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link

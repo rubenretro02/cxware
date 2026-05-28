@@ -9,12 +9,12 @@ export default function AgentFAQ() {
 
   const faqs = [
     {
-      question: "Is CXware legit?",
-      answer: "Absolutely. CXware has been helping connect brands with top customer service professionals for over 3 years. We've facilitated millions of customer interactions and work with recognized companies across multiple industries.",
+      question: "Is WingCX legit?",
+      answer: "Absolutely. WingCX has been helping connect brands with top customer service professionals for over 3 years. We've facilitated millions of customer interactions and work with recognized companies across multiple industries.",
     },
     {
       question: "Do I need to pay to get started?",
-      answer: "No! CXware is completely free to join. You never pay us anything. We connect you with opportunities and you earn money for your work.",
+      answer: "No! WingCX is completely free to join. You never pay us anything. We connect you with opportunities and you earn money for your work.",
     },
     {
       question: "What if I messed up on my application?",

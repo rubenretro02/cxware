@@ -15,7 +15,7 @@ export default function Opportunities() {
       title: "Spanish Bilingual USA - Remote WFH Call Center Agents",
       type: "Independent Contractor",
       pay: "$17 to $20 USD per hour",
-      description: "Work with CXware Agent as an Independent Contractor and unlock flexible remote opportunities. Choose contracts that match your skills, set your own schedule, and take control of your time and income.",
+      description: "Work with WingCX Agent as an Independent Contractor and unlock flexible remote opportunities. Choose contracts that match your skills, set your own schedule, and take control of your time and income.",
     },
     {
       title: "Dominican Republic - Remote WFH Freelancer",
@@ -36,7 +36,7 @@ export default function Opportunities() {
               <span className="agent-gradient-text">Agent or Freelancer</span>
             </h2>
             <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
-              Businesses across multiple industries trust CXware Agent to deliver exceptional virtual support services.
+              Businesses across multiple industries trust WingCX Agent to deliver exceptional virtual support services.
             </p>
           </div>
         </ScrollReveal>

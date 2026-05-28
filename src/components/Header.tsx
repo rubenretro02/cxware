@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import BrandMark from "./BrandMark";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,14 +80,7 @@ export default function Header() {
         <div className="flex items-center justify-between gap-4 px-4 sm:px-5 lg:px-6 py-2.5">
           {/* Left — wordmark + Business/Agents toggle */}
           <div className="flex items-center gap-5">
-            <Link href="/" className="flex items-center shrink-0 group">
-              <img
-                src="https://ext.same-assets.com/405996721/472180092.webp"
-                alt="CXware"
-                className="h-7 w-auto transition-transform duration-300 group-hover:scale-105"
-                style={isAgentsPage ? {} : { filter: "invert(0)" }}
-              />
-            </Link>
+            <BrandMark brand={isAgentsPage ? "wingcx" : "cxware"} />
 
             <div
               className="hidden md:flex items-center rounded-full p-[3px] border"

@@ -1,23 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import BrandMark from "./BrandMark";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isAgentsPage = pathname === "/agents" || pathname.startsWith("/agents/");
+  const brand = isAgentsPage ? "wingcx" : "cxware";
+  const brandName = isAgentsPage ? "WingCX" : "CXware";
+
   return (
     <footer className="border-t border-[var(--line)] pt-16 pb-10 bg-[var(--bg-inset)]">
       <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14">
           {/* Brand + newsletter */}
           <div className="col-span-12 lg:col-span-5 space-y-6">
-            <Link href="/" className="inline-flex items-center group">
-              <img
-                src="https://ext.same-assets.com/405996721/472180092.webp"
-                alt="CXware"
-                className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
-              />
-            </Link>
+            <BrandMark brand={brand} className="!h-auto" />
             <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[42ch]">
-              Monthly notes on workforce ops, AI in support, and the operational details that move CSAT. No spam.
+              {isAgentsPage
+                ? "Monthly notes on remote support careers, brand training, and the operational details that make great agents. No spam."
+                : "Monthly notes on workforce ops, AI in support, and the operational details that move CSAT. No spam."}
             </p>
             <form className="flex max-w-md gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
@@ -66,7 +69,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[var(--line)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <p className="mono text-[12px] text-[var(--fg-faint)]">
-            © 2025 CXware Agent Solutions — All rights reserved.
+            © 2025 {brandName} Agent Solutions — All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-[13px]">
             <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">

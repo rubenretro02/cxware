@@ -10,7 +10,7 @@ export default function AgentsHero() {
       <div className="absolute inset-0">
         <img
           src="/images/agent-hero-banner.jpg"
-          alt="CXware Agent working remotely"
+          alt="WingCX Agent working remotely"
           className="w-full h-full object-cover"
         />
         {/* Gradient overlay - opaque on left (for text), transparent on right (shows person) */}
@@ -37,7 +37,7 @@ export default function AgentsHero() {
 
           <ScrollReveal delay={200}>
             <p className="text-xl max-w-xl leading-relaxed mt-8 text-[#c0c4d0]">
-              Become a CXware agent and tap into flexible customer service shifts you can
+              Become a WingCX agent and tap into flexible customer service shifts you can
               accept---or skip---with total freedom. Get credentialed fast, choose the hours
               you want, and take home pay that often beats standard rates.
             </p>

@@ -3,5 +3,6 @@ export default function AgentsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="agent-theme min-h-screen">{children}</div>;
+  // Same light Business theme — only branding differs (handled in Header/Footer).
+  return <>{children}</>;
 }

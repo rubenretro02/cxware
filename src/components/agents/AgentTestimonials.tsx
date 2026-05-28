@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export default function AgentTestimonials() {
   const testimonials = [
     {
-      quote: "CXware lets me schedule work around my kids' school day--and still average 30+ hours.",
+      quote: "WingCX lets me schedule work around my kids' school day--and still average 30+ hours.",
       name: "Maria R.",
       location: "Tampa",
       image: "/images/call-center-agent-2.jpg",
@@ -17,13 +17,13 @@ export default function AgentTestimonials() {
       image: "/images/call-center-agent-1.jpg",
     },
     {
-      quote: "At CXware, I feel like my voice matters. The environment encourages learning and collaboration. It's rewarding to help customers while knowing I'm supported every step of the way.",
+      quote: "At WingCX, I feel like my voice matters. The environment encourages learning and collaboration. It's rewarding to help customers while knowing I'm supported every step of the way.",
       name: "Jamal R.",
       location: "Atlanta",
       image: "/images/agent-male-headset.jpg",
     },
     {
-      quote: "Being part of CXware has boosted my confidence. The team is like a family--always ready to help. I've grown professionally and personally.",
+      quote: "Being part of WingCX has boosted my confidence. The team is like a family--always ready to help. I've grown professionally and personally.",
       name: "Priya D.",
       location: "Miami",
       image: "/images/woman-laptop.jpg",
@@ -39,7 +39,7 @@ export default function AgentTestimonials() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span style={{ color: "var(--agent-text-heading)" }}>Why Agents </span>
               <span className="agent-gradient-text">Love</span>
-              <span style={{ color: "var(--agent-text-heading)" }}> CXware</span>
+              <span style={{ color: "var(--agent-text-heading)" }}> WingCX</span>
             </h2>
             <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
               See what keeps the best agents working on our platform
