@@ -140,7 +140,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
 
             <ScrollReveal delay={400}>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="btn-primary text-base py-4 px-8">
+                <Link href="/contact" className="btn-primary text-base py-4 px-8">
                   {"Let's Talk"}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -341,7 +341,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
                   {service.ctaDescription}
                 </p>
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFFFFF] text-[#2047FF] font-semibold rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
                 >
                   {"Talk with Sales"}

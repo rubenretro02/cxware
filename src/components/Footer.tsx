@@ -36,10 +36,10 @@ export default function Footer() {
           <FooterCol
             title="Platform"
             items={[
-              { label: "How it works", href: "#how-it-works" },
+              { label: "How it works", href: isAgentsPage ? "/agents#how-to-start" : "/#how-it-works" },
               { label: "Services", href: "/services/call-center-outsourcing" },
-              { label: "For agents", href: "/agents" },
-              { label: "FAQ", href: "#faq" },
+              { label: isAgentsPage ? "For business" : "For agents", href: isAgentsPage ? "/" : "/agents" },
+              { label: "FAQ", href: isAgentsPage ? "/agents#faq" : "/#faq" },
               { label: "Contact", href: "/contact" },
             ]}
           />

@@ -126,7 +126,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-0.5 text-[13px]">
             {!isAgentsPage ? (
               <>
-                <Link href="#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                <Link href="/#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   How It Works
                 </Link>
 
@@ -204,7 +204,7 @@ export default function Header() {
                   </div>
                 </div>
 
-                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                <Link href="/#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   FAQs
                 </Link>
                 <Link href="/contact" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
@@ -213,7 +213,7 @@ export default function Header() {
               </>
             ) : (
               <>
-                <Link href="#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                <Link href="/agents#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   How It Works
                 </Link>
 
@@ -281,10 +281,10 @@ export default function Header() {
                   </div>
                 </div>
 
-                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                <Link href="/agents#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   FAQs
                 </Link>
-                <Link href="#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                <Link href="/agents#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   Requirements
                 </Link>
               </>
@@ -356,16 +356,16 @@ export default function Header() {
             <ul className="flex flex-col">
               {(!isAgentsPage
                 ? [
-                    { label: "How It Works", href: "#how-it-works" },
+                    { label: "How It Works", href: "/#how-it-works" },
                     { label: "Services", href: "/services/call-center-outsourcing" },
-                    { label: "FAQs", href: "#faq" },
+                    { label: "FAQs", href: "/#faq" },
                     { label: "Contact", href: "/contact" },
                   ]
                 : [
-                    { label: "How It Works", href: "#how-to-start" },
+                    { label: "How It Works", href: "/agents#how-to-start" },
                     { label: "Opportunities", href: "/agents/opportunities" },
-                    { label: "FAQs", href: "#faq" },
-                    { label: "Requirements", href: "#requirements" },
+                    { label: "FAQs", href: "/agents#faq" },
+                    { label: "Requirements", href: "/agents#requirements" },
                   ]
               ).map((item) => (
                 <li key={item.label}>
