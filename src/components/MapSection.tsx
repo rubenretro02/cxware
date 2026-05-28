@@ -7,7 +7,7 @@ export default function MapSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mt-4">
             66 W Flagler St, Suite 900
           </h2>
-          <p className="text-[#8B92A5] mt-3 max-w-lg mx-auto">
+          <p className="text-[var(--fg-muted)] mt-3 max-w-lg mx-auto">
             Miami, FL 33130
           </p>
         </div>

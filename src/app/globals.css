@@ -346,11 +346,31 @@
   }
 
   /* ============================================================
-     Marquee mask (theme-aware via currentColor not needed — just mask)
+     Marquee — CSS animation, reliable and visibly moving.
+     Pause on hover so users can read.
      ============================================================ */
   .marquee-mask {
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .marquee-wrap {
+    overflow: hidden;
+    width: 100%;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0 1.25rem;
+    width: max-content;
+    animation: marquee-slide 50s linear infinite;
+    will-change: transform;
+  }
+  .marquee-wrap:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-slide {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
   }
 
   /* Image reveal — clip-path slide in */
@@ -440,7 +460,7 @@
     filter: none;
     transition: none;
   }
-  .live-dot::after, .aurora-blob, .img-reveal {
+  .live-dot::after, .aurora-blob, .img-reveal, .marquee-track {
     animation: none;
     clip-path: inset(0 0 0 0);
   }

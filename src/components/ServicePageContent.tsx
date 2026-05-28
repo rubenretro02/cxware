@@ -97,7 +97,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 pb-20 overflow-hidden bg-[#0B0F1A]">
+      <section className="relative pt-28 pb-20 overflow-hidden bg-[var(--bg)]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-[#2047FF]/[0.06] blur-3xl animate-breathe" />
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#C873E5]/[0.04] blur-3xl animate-breathe" style={{ animationDelay: "2s" }} />
@@ -105,7 +105,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
 
         <div className="relative max-w-7xl mx-auto px-6">
           <ScrollReveal delay={0}>
-            <nav className="mb-8 flex items-center gap-2 text-sm text-[#8B92A5]">
+            <nav className="mb-8 flex items-center gap-2 text-sm text-[var(--fg-muted)]">
               <Link href="/" className="hover:text-[#C873E5] transition-colors">For Business</Link>
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -114,7 +114,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-              <span className="text-[#FFFFFF]">{service.title}</span>
+              <span className="text-[var(--fg)]">{service.title}</span>
             </nav>
           </ScrollReveal>
 
@@ -127,13 +127,13 @@ export default function ServicePageContent({ service }: { service: Service }) {
 
             <ScrollReveal delay={200}>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                <span className="text-[#FFFFFF]">{service.heroTitle.split(" ").slice(0, -1).join(" ")} </span>
+                <span className="text-[var(--fg)]">{service.heroTitle.split(" ").slice(0, -1).join(" ")} </span>
                 <span className="gradient-text">{service.heroTitle.split(" ").slice(-1)}</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <p className="text-xl leading-relaxed text-[#8B92A5] mb-8 max-w-3xl">
+              <p className="text-xl leading-relaxed text-[var(--fg-muted)] mb-8 max-w-3xl">
                 {service.heroSubtitle}
               </p>
             </ScrollReveal>
@@ -159,7 +159,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
               {service.stats.map((stat) => (
                 <div key={stat.label} className="card-light p-6 text-center">
                   <p className="text-2xl md:text-3xl font-bold gradient-text mb-1">{stat.value}</p>
-                  <p className="text-sm text-[#8B92A5]">{stat.label}</p>
+                  <p className="text-sm text-[var(--fg-muted)]">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -168,15 +168,15 @@ export default function ServicePageContent({ service }: { service: Service }) {
       </section>
 
       {/* Description */}
-      <section className="py-20 bg-[#0F1322]">
+      <section className="py-20 bg-[var(--bg-elev-1)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <ScrollReveal>
               <span className="section-label mb-4 block">Overview</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--fg)] mb-6">
                 {service.heroSubtitle}
               </h2>
-              <p className="text-lg leading-relaxed text-[#8B92A5]">
+              <p className="text-lg leading-relaxed text-[var(--fg-muted)]">
                 {service.description}
               </p>
             </ScrollReveal>
@@ -185,12 +185,12 @@ export default function ServicePageContent({ service }: { service: Service }) {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-[#0B0F1A]">
+      <section className="py-20 bg-[var(--bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="section-label mb-4 block">Capabilities</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF]">
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--fg)]">
                 How We Deliver Results
               </h2>
             </div>
@@ -203,10 +203,10 @@ export default function ServicePageContent({ service }: { service: Service }) {
                   <div className="icon-box mb-5">
                     <FeatureIcon icon={feature.icon} />
                   </div>
-                  <h3 className="text-xl font-bold text-[#FFFFFF] mb-3">
+                  <h3 className="text-xl font-bold text-[var(--fg)] mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-[#8B92A5] leading-relaxed">
+                  <p className="text-[var(--fg-muted)] leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -217,16 +217,16 @@ export default function ServicePageContent({ service }: { service: Service }) {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-[#0F1322]">
+      <section className="py-20 bg-[var(--bg-elev-1)]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
               <div>
                 <span className="section-label mb-4 block">Benefits</span>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-[var(--fg)] mb-6">
                   Why Choose WingCX for {service.title}
                 </h2>
-                <p className="text-lg text-[#8B92A5] mb-8">
+                <p className="text-lg text-[var(--fg-muted)] mb-8">
                   We deliver measurable improvements across cost, quality, and scalability.
                 </p>
               </div>
@@ -238,11 +238,11 @@ export default function ServicePageContent({ service }: { service: Service }) {
                   {service.benefits.map((benefit) => (
                     <div key={benefit} className="flex items-start gap-3">
                       <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-[#FFFFFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-3 h-3 text-[var(--fg)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-[#C8CDD8]">{benefit}</span>
+                      <span className="text-[var(--fg-muted)]">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -253,12 +253,12 @@ export default function ServicePageContent({ service }: { service: Service }) {
       </section>
 
       {/* Use Cases */}
-      <section className="py-20 bg-[#0B0F1A]">
+      <section className="py-20 bg-[var(--bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="section-label mb-4 block">Use Cases</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF]">
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--fg)]">
                 Common Applications
               </h2>
             </div>
@@ -272,7 +272,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
                     <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-r from-[#2047FF]/10 to-[#C873E5]/10 flex items-center justify-center">
                       <span className="text-sm font-bold text-[#C873E5]">{index + 1}</span>
                     </div>
-                    <p className="text-[#C8CDD8] text-sm">{useCase}</p>
+                    <p className="text-[var(--fg-muted)] text-sm">{useCase}</p>
                   </div>
                 ))}
               </div>
@@ -282,15 +282,15 @@ export default function ServicePageContent({ service }: { service: Service }) {
       </section>
 
       {/* Explore Other Services */}
-      <section className="py-20 bg-[#0F1322]">
+      <section className="py-20 bg-[var(--bg-elev-1)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center max-w-3xl mx-auto mb-12">
               <span className="section-label mb-4 block">Explore More</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--fg)] mb-4">
                 Other Solutions & Industries
               </h2>
-              <p className="text-lg text-[#8B92A5]">
+              <p className="text-lg text-[var(--fg-muted)]">
                 WingCX serves businesses across multiple industries and use cases.
               </p>
             </div>
@@ -304,8 +304,8 @@ export default function ServicePageContent({ service }: { service: Service }) {
                     <span className="text-xs font-semibold uppercase tracking-wider text-[#C873E5] mb-3">
                       {other.category === "solution" ? "Solution" : "Industry"}
                     </span>
-                    <h3 className="text-lg font-bold text-[#FFFFFF] mb-2">{other.title}</h3>
-                    <p className="text-sm text-[#8B92A5] mb-4 flex-1">
+                    <h3 className="text-lg font-bold text-[var(--fg)] mb-2">{other.title}</h3>
+                    <p className="text-sm text-[var(--fg-muted)] mb-4 flex-1">
                       {other.heroSubtitle}
                     </p>
                     <span className="text-[#C873E5] text-sm font-semibold flex items-center gap-1">
@@ -323,7 +323,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#0B0F1A]">
+      <section className="py-24 bg-[var(--bg)]">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal direction="scale">
             <div className="rounded-3xl p-12 md:p-16 relative overflow-hidden bg-gradient-to-br from-[#2047FF] to-[#C873E5]">
@@ -334,15 +334,15 @@ export default function ServicePageContent({ service }: { service: Service }) {
               </div>
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   {service.ctaTitle}
                 </h2>
-                <p className="text-lg md:text-xl text-[#FFFFFF]/90 mb-8">
+                <p className="text-lg md:text-xl text-white/90 mb-8">
                   {service.ctaDescription}
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FFFFFF] text-[#2047FF] font-semibold rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#2047FF] font-semibold rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
                 >
                   {"Talk with Sales"}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

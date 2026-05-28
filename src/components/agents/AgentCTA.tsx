@@ -11,16 +11,16 @@ export default function AgentCTA() {
           <div className="rounded-3xl p-12 md:p-16 relative overflow-hidden bg-gradient-to-br from-[#2047FF] to-[#7C3AED]">
             {/* Animated decorative circles */}
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" />
-              <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "1s" }} />
-              <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "2s" }} />
+              <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/10 animate-breathe" />
+              <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-white/10 animate-breathe" style={{ animationDelay: "1s" }} />
+              <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-white/10 animate-breathe" style={{ animationDelay: "2s" }} />
             </div>
 
             <div className="relative z-10 max-w-2xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--agent-bg-card)] mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Ready to start your journey?
               </h2>
-              <p className="text-lg md:text-xl text-[var(--agent-bg-card)]/90 mb-8">
+              <p className="text-lg md:text-xl text-white/90 mb-8">
                 See how WingCX can boost your income and flexibility in as little as 30 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -36,7 +36,7 @@ export default function AgentCTA() {
                 </Link>
                 <Link
                   href="/"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-[var(--agent-bg-card)] font-semibold rounded-xl border-2 border-[var(--agent-bg-card)]/30 hover:bg-[var(--agent-bg-card)]/10 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-white font-semibold rounded-xl border-2 border-[var(--agent-bg-card)]/30 hover:bg-white/10 transition-all"
                 >
                   For Businesses
                 </Link>

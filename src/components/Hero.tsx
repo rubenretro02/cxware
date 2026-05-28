@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
+import Counter from "./Counter";
 
 export default function Hero() {
   return (
@@ -116,9 +117,9 @@ export default function Hero() {
                   <span className="gradient-text font-bold">ALL GREEN</span>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
-                  <Stat label="Coverage" value="99.8" unit="%" />
-                  <Stat label="Avg wait" value="11" unit="s" />
-                  <Stat label="Cost ↓" value="45" unit="%" />
+                  <Stat label="Coverage" value={99.8} unit="%" decimals={1} />
+                  <Stat label="Avg wait" value={11} unit="s" />
+                  <Stat label="Cost ↓" value={45} unit="%" />
                 </div>
               </div>
             </div>
@@ -129,14 +130,24 @@ export default function Hero() {
   );
 }
 
-function Stat({ label, value, unit }: { label: string; value: string; unit: string }) {
+function Stat({
+  label,
+  value,
+  unit,
+  decimals = 0,
+}: {
+  label: string;
+  value: number;
+  unit: string;
+  decimals?: number;
+}) {
   return (
     <div>
       <div className="mono text-[10px] text-[#9BA3B8] uppercase tracking-[0.14em]">
         {label}
       </div>
-      <div className="mono text-[#0A1226] text-[20px] tabular-nums mt-1 font-bold">
-        {value}
+      <div className="mono text-[#0A1226] text-[20px] mt-1 font-bold">
+        <Counter value={value} format={(n) => n.toFixed(decimals)} />
         <span className="text-[#6B7591] text-[12px] ml-0.5 font-normal">{unit}</span>
       </div>
     </div>

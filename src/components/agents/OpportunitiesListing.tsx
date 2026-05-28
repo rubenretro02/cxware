@@ -112,16 +112,16 @@ export default function OpportunitiesListing() {
           <ScrollReveal direction="scale">
             <div className="rounded-3xl p-12 md:p-16 relative overflow-hidden bg-gradient-to-br from-[#2047FF] to-[#7C3AED]">
               <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" />
-                <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "1s" }} />
-                <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "2s" }} />
+                <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/10 animate-breathe" />
+                <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-white/10 animate-breathe" style={{ animationDelay: "1s" }} />
+                <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-white/10 animate-breathe" style={{ animationDelay: "2s" }} />
               </div>
 
               <div className="relative z-10 text-center max-w-2xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold text-[var(--agent-bg-card)] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   {"Don't see the right fit?"}
                 </h2>
-                <p className="text-lg md:text-xl text-[var(--agent-bg-card)]/90 mb-8">
+                <p className="text-lg md:text-xl text-white/90 mb-8">
                   New opportunities are added regularly. Apply now and we'll match you with the best programs based on your skills and experience.
                 </p>
                 <Link

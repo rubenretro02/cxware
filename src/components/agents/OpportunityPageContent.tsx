@@ -120,7 +120,7 @@ export default function OpportunityPageContent({ opportunity }: { opportunity: O
                     {opportunity.skills.map((skill) => (
                       <div key={skill} className="flex items-start gap-3">
                         <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-[#2047FF] to-[#7C3AED] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-[#FFFFFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-3 h-3 text-[var(--fg)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
@@ -410,16 +410,16 @@ export default function OpportunityPageContent({ opportunity }: { opportunity: O
           <ScrollReveal direction="scale">
             <div className="rounded-3xl p-12 md:p-16 relative overflow-hidden bg-gradient-to-br from-[#2047FF] to-[#7C3AED]">
               <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" />
-                <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "1s" }} />
-                <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-[var(--agent-bg-card)]/10 animate-breathe" style={{ animationDelay: "2s" }} />
+                <div className="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/10 animate-breathe" />
+                <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-white/10 animate-breathe" style={{ animationDelay: "1s" }} />
+                <div className="absolute bottom-10 left-1/3 w-12 h-12 rounded-full bg-white/10 animate-breathe" style={{ animationDelay: "2s" }} />
               </div>
 
               <div className="relative z-10 max-w-2xl">
-                <h2 className="text-4xl md:text-5xl font-bold text-[var(--agent-bg-card)] mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Ready to get started as a {opportunity.title} Agent?
                 </h2>
-                <p className="text-lg md:text-xl text-[var(--agent-bg-card)]/90 mb-8">
+                <p className="text-lg md:text-xl text-white/90 mb-8">
                   Apply today and start your flexible, remote career with WingCX. Set your own schedule, work from home, and earn competitive pay.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -435,7 +435,7 @@ export default function OpportunityPageContent({ opportunity }: { opportunity: O
                   </Link>
                   <Link
                     href="/agents/opportunities"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-[var(--agent-bg-card)] font-semibold rounded-xl border-2 border-[var(--agent-bg-card)]/30 hover:bg-[var(--agent-bg-card)]/10 transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-white font-semibold rounded-xl border-2 border-[var(--agent-bg-card)]/30 hover:bg-white/10 transition-all"
                   >
                     View All Opportunities
                   </Link>

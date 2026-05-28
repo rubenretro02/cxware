@@ -33,7 +33,7 @@ export default function ContactPage() {
               className="w-full h-[400px] object-cover"
             />
             {/* Overlay gradient - darker on right for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-l from-[#0B0F1A]/90 via-[#0B0F1A]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-[var(--bg)] via-[var(--bg)]/40 to-transparent" />
 
             {/* Text on the right side */}
             <div className="absolute inset-0 flex items-center justify-end">
@@ -43,7 +43,7 @@ export default function ContactPage() {
                   {"Let's Build Your "}
                   <span className="gradient-text">Ideal CX Team</span>
                 </h1>
-                <p className="text-[#8B92A5] text-lg">
+                <p className="text-[var(--fg-muted)] text-lg">
                   {
                     "Ready to scale your customer operations? Fill out the form below and we'll get back to you within one business day."
                   }
@@ -74,7 +74,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Fast Onboarding</p>
-                      <p className="text-[#8B92A5] text-xs">Get your CX team live in days, not months</p>
+                      <p className="text-[var(--fg-muted)] text-xs">Get your CX team live in days, not months</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -85,7 +85,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Cut Costs 25-55%</p>
-                      <p className="text-[#8B92A5] text-xs">Pay only for productive hours with flexible scaling</p>
+                      <p className="text-[var(--fg-muted)] text-xs">Pay only for productive hours with flexible scaling</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -96,7 +96,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Global Talent Pool</p>
-                      <p className="text-[#8B92A5] text-xs">Access 1,000+ pre-vetted agents worldwide</p>
+                      <p className="text-[var(--fg-muted)] text-xs">Access 1,000+ pre-vetted agents worldwide</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -107,7 +107,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm">Enterprise Security</p>
-                      <p className="text-[#8B92A5] text-xs">SOC 2 compliant with end-to-end encryption</p>
+                      <p className="text-[var(--fg-muted)] text-xs">SOC 2 compliant with end-to-end encryption</p>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
 import ScrollReveal from "./ScrollReveal";
 
 const testimonials = [
@@ -55,29 +54,8 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const doubled = [...testimonials, ...testimonials];
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
-  const pausedRef = useRef(false);
-  const speedRef = useRef(0.45);
-
-  const animate = useCallback(() => {
-    const el = scrollRef.current;
-    if (el && !pausedRef.current) {
-      el.scrollLeft += speedRef.current;
-      const half = el.scrollWidth / 2;
-      if (el.scrollLeft >= half) el.scrollLeft -= half;
-    }
-    rafRef.current = requestAnimationFrame(animate);
-  }, []);
-
-  useEffect(() => {
-    rafRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [animate]);
+  // Duplicate so the CSS marquee wraps seamlessly
+  const track = [...testimonials, ...testimonials];
 
   return (
     <section className="py-28 lg:py-32 bg-[var(--bg-elev-1)] border-y border-[var(--line)] relative overflow-hidden">
@@ -96,22 +74,12 @@ export default function Testimonials() {
         </ScrollReveal>
       </div>
 
-      <div
-        className="relative marquee-mask"
-        onMouseEnter={() => (pausedRef.current = true)}
-        onMouseLeave={() => (pausedRef.current = false)}
-        onTouchStart={() => (pausedRef.current = true)}
-        onTouchEnd={() => (pausedRef.current = false)}
-      >
-        <div
-          ref={scrollRef}
-          className="flex gap-4 lg:gap-5 overflow-x-hidden px-5 lg:px-8"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {doubled.map((t, i) => (
+      <div className="marquee-wrap marquee-mask">
+        <div className="marquee-track">
+          {track.map((t, i) => (
             <figure
               key={`${t.name}-${i}`}
-              className="flex-shrink-0 w-[320px] lg:w-[380px] rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--bg)] p-7 flex flex-col hover:border-[var(--line-strong)] hover:-translate-y-1 transition-all duration-500 ease-[var(--ease-cinema)]"
+              className="marquee-item flex-shrink-0 w-[320px] lg:w-[380px] rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--bg)] p-7 flex flex-col hover:border-[var(--line-strong)] hover:-translate-y-1 transition-all duration-500 ease-[var(--ease-cinema)]"
             >
               <svg className="w-7 h-7 mb-5" viewBox="0 0 24 24">
                 <defs>

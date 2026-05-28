@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import Counter from "@/components/Counter";
 
 export default function AgentsHero() {
   return (
@@ -63,13 +64,13 @@ export default function AgentsHero() {
               </Link>
             </div>
 
-            {/* Inline stat strip — replaces the floating card */}
+            {/* Inline stat strip — counters animate on viewport entry */}
             <div className="flex flex-wrap items-end gap-x-8 gap-y-4 pt-6">
-              <Stat label="Top hourly" value="$25" unit="+" />
+              <Stat label="Top hourly" prefix="$" value={25} suffix="+" />
               <span className="hidden sm:block w-px h-10 bg-[var(--line)]" />
-              <Stat label="Time to live" value="48" unit="hr" />
+              <Stat label="Time to live" value={48} suffix="hr" />
               <span className="hidden sm:block w-px h-10 bg-[var(--line)]" />
-              <Stat label="Open roles" value="120" unit="" />
+              <Stat label="Open roles" value={120} suffix="" />
               <span className="hidden md:block w-px h-10 bg-[var(--line)]" />
               <div className="flex items-center gap-2.5 mono text-[11px] text-[var(--fg-dim)] uppercase tracking-[0.16em]">
                 <span className="live-dot" />
@@ -112,15 +113,30 @@ export default function AgentsHero() {
   );
 }
 
-function Stat({ label, value, unit }: { label: string; value: string; unit: string }) {
+function Stat({
+  label,
+  prefix = "",
+  value,
+  suffix,
+}: {
+  label: string;
+  prefix?: string;
+  value: number;
+  suffix: string;
+}) {
   return (
     <div>
       <div className="mono text-[10.5px] text-[var(--fg-dim)] uppercase tracking-[0.16em] mb-1">
         {label}
       </div>
-      <div className="mono text-[var(--fg)] text-[28px] tabular-nums leading-none font-bold">
-        {value}
-        <span className="text-[var(--fg-dim)] text-[14px] ml-0.5 font-normal">{unit}</span>
+      <div className="mono text-[var(--fg)] text-[28px] leading-none font-bold">
+        {prefix}
+        <Counter value={value} />
+        {suffix && (
+          <span className="text-[var(--fg-dim)] text-[14px] ml-0.5 font-normal">
+            {suffix}
+          </span>
+        )}
       </div>
     </div>
   );

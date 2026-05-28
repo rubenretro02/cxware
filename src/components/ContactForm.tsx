@@ -209,7 +209,7 @@ export default function ContactForm() {
           </svg>
         </div>
         <h3 className="text-3xl font-bold text-white mb-4">Thank you for reaching out!</h3>
-        <p className="text-[#8B92A5] max-w-md mx-auto mb-8">
+        <p className="text-[var(--fg-muted)] max-w-md mx-auto mb-8">
           {"We've received your inquiry and our team will get back to you within one business day. We look forward to helping you scale your CX operations."}
         </p>
         <button
@@ -233,10 +233,10 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <p className="text-[#8B92A5] mb-1">
+        <p className="text-[var(--fg-muted)] mb-1">
           {"To talk with our team, please complete this short form."}
         </p>
-        <p className="text-sm text-[#64748B]">
+        <p className="text-sm text-[var(--fg-dim)]">
           {"We'll get back to you within one business day."}
         </p>
       </div>
@@ -244,7 +244,7 @@ export default function ContactForm() {
       {/* Name Row */}
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="firstName" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             First Name *
           </label>
           <input
@@ -252,7 +252,7 @@ export default function ContactForm() {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="John"
           />
           {errors.firstName && (
@@ -260,7 +260,7 @@ export default function ContactForm() {
           )}
         </div>
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="lastName" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             Last Name *
           </label>
           <input
@@ -268,7 +268,7 @@ export default function ContactForm() {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="Smith"
           />
           {errors.lastName && (
@@ -280,7 +280,7 @@ export default function ContactForm() {
       {/* Email & Phone Row */}
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             Business Email *
           </label>
           <input
@@ -289,7 +289,7 @@ export default function ContactForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="john@company.com"
           />
           {errors.email && (
@@ -297,7 +297,7 @@ export default function ContactForm() {
           )}
         </div>
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             Phone Number
           </label>
           <input
@@ -306,7 +306,7 @@ export default function ContactForm() {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -315,7 +315,7 @@ export default function ContactForm() {
       {/* Company & Job Title Row */}
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="company" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             Company *
           </label>
           <input
@@ -323,7 +323,7 @@ export default function ContactForm() {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="Acme Inc."
           />
           {errors.company && (
@@ -331,7 +331,7 @@ export default function ContactForm() {
           )}
         </div>
         <div>
-          <label htmlFor="jobTitle" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="jobTitle" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             Job Title *
           </label>
           <input
@@ -339,7 +339,7 @@ export default function ContactForm() {
             name="jobTitle"
             value={formData.jobTitle}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="VP of Customer Experience"
           />
           {errors.jobTitle && (
@@ -350,7 +350,7 @@ export default function ContactForm() {
 
       {/* Contact Reason */}
       <div>
-        <label htmlFor="contactReason" className="block text-sm font-medium text-[#8B92A5] mb-2">
+        <label htmlFor="contactReason" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
           Contact Reason *
         </label>
         <select
@@ -358,7 +358,7 @@ export default function ContactForm() {
           name="contactReason"
           value={formData.contactReason}
           onChange={handleChange}
-          className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
+          className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
         >
           <option value="">Please Select One</option>
           {CONTACT_REASONS.map((reason) => (
@@ -375,7 +375,7 @@ export default function ContactForm() {
       {/* Team Size & How Heard Row */}
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="teamSize" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="teamSize" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             How many agents do you need? *
           </label>
           <select
@@ -383,7 +383,7 @@ export default function ContactForm() {
             name="teamSize"
             value={formData.teamSize}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
           >
             <option value="">Please Select</option>
             {TEAM_SIZE_OPTIONS.map((size) => (
@@ -397,7 +397,7 @@ export default function ContactForm() {
           )}
         </div>
         <div>
-          <label htmlFor="howHeard" className="block text-sm font-medium text-[#8B92A5] mb-2">
+          <label htmlFor="howHeard" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
             How did you hear about us?
           </label>
           <select
@@ -405,7 +405,7 @@ export default function ContactForm() {
             name="howHeard"
             value={formData.howHeard}
             onChange={handleChange}
-            className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
           >
             <option value="">Please Select</option>
             {HOW_HEARD_OPTIONS.map((option) => (
@@ -419,7 +419,7 @@ export default function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[#8B92A5] mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-[var(--fg-muted)] mb-2">
           Tell Us About Your Needs *
         </label>
         <textarea
@@ -428,7 +428,7 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="w-full bg-[#0D1120] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors resize-none"
+          className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors resize-none"
           placeholder="Tell us about your customer service needs, volume, channels, etc."
         />
         {errors.message && (
@@ -460,7 +460,7 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="text-xs text-[#64748B] text-center">
+      <p className="text-xs text-[var(--fg-dim)] text-center">
         {"By submitting this form, you agree to our "}
         <Link href="#" className="text-[#C873E5] hover:underline">Privacy Policy</Link>
         {" and "}
