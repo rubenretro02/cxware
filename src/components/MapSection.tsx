@@ -20,7 +20,7 @@ export default function MapSection() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="CXware Office - 66 W Flagler St, Suite 900, Miami, FL 33130"
+            title="WingCX Office - 66 W Flagler St, Suite 900, Miami, FL 33130"
           />
         </div>
       </div>

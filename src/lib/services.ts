@@ -29,7 +29,7 @@ export const services: Service[] = [
     heroTitle: "Call Center Outsourcing",
     heroSubtitle: "Scale your contact center operations without the overhead",
     description:
-      "Handle inbound and outbound calls for billing, account help, and customer service with CXware's fully managed call center outsourcing. Our credentialed agents deliver enterprise-grade support at a fraction of the cost of traditional BPOs. Whether you need 10 agents or 1,000, we match you with top-performing remote agents who are trained, certified, and ready to represent your brand from day one.",
+      "Handle inbound and outbound calls for billing, account help, and customer service with WingCX's fully managed call center outsourcing. Our credentialed agents deliver enterprise-grade support at a fraction of the cost of traditional BPOs. Whether you need 10 agents or 1,000, we match you with top-performing remote agents who are trained, certified, and ready to represent your brand from day one.",
     features: [
       {
         title: "Rapid Agent Deployment",
@@ -74,7 +74,7 @@ export const services: Service[] = [
       "Overflow and after-hours call handling",
     ],
     ctaTitle: "Ready to Transform Your Call Center?",
-    ctaDescription: "See how CXware can boost your CX and cut costs in as little as 30 days.",
+    ctaDescription: "See how WingCX can boost your CX and cut costs in as little as 30 days.",
   },
   {
     slug: "customer-service-outsourcing",
@@ -83,7 +83,7 @@ export const services: Service[] = [
     heroTitle: "Customer Service Outsourcing",
     heroSubtitle: "Deliver exceptional customer experiences at scale",
     description:
-      "Your customers deserve the best support experience every time they reach out. CXware's customer service outsourcing connects your brand with expert remote agents who provide empathetic, efficient, and brand-aligned support across every channel. From first contact resolution to complex escalations, our agents handle it all while maintaining the highest quality standards.",
+      "Your customers deserve the best support experience every time they reach out. WingCX's customer service outsourcing connects your brand with expert remote agents who provide empathetic, efficient, and brand-aligned support across every channel. From first contact resolution to complex escalations, our agents handle it all while maintaining the highest quality standards.",
     features: [
       {
         title: "Omnichannel Support",
@@ -128,7 +128,7 @@ export const services: Service[] = [
       "Customer retention and loyalty programs",
     ],
     ctaTitle: "Elevate Your Customer Experience",
-    ctaDescription: "Let CXware connect you with top-tier agents who deliver exceptional service at a fraction of the cost.",
+    ctaDescription: "Let WingCX connect you with top-tier agents who deliver exceptional service at a fraction of the cost.",
   },
   {
     slug: "live-chat-support",
@@ -137,7 +137,7 @@ export const services: Service[] = [
     heroTitle: "Live Chat Support",
     heroSubtitle: "Respond to customers in real time via web chat",
     description:
-      "Modern customers expect instant answers. CXware's live chat support connects your website visitors with trained agents who respond in real time, guiding customers through purchases, resolving issues, and providing personalized assistance. Our chat agents are skilled at handling multiple conversations simultaneously while maintaining quality and personal touch.",
+      "Modern customers expect instant answers. WingCX's live chat support connects your website visitors with trained agents who respond in real time, guiding customers through purchases, resolving issues, and providing personalized assistance. Our chat agents are skilled at handling multiple conversations simultaneously while maintaining quality and personal touch.",
     features: [
       {
         title: "Real-Time Response",
@@ -182,7 +182,7 @@ export const services: Service[] = [
       "Proactive customer engagement campaigns",
     ],
     ctaTitle: "Launch Live Chat Support Today",
-    ctaDescription: "Connect with customers the moment they need help. Get started with CXware's live chat agents.",
+    ctaDescription: "Connect with customers the moment they need help. Get started with WingCX's live chat agents.",
   },
   {
     slug: "help-desk",
@@ -191,7 +191,7 @@ export const services: Service[] = [
     heroTitle: "24/7 Help Desk Support",
     heroSubtitle: "Round-the-clock technical support and issue resolution",
     description:
-      "Your customers don't stop needing help at 5 PM. CXware's 24/7 help desk support ensures your users always have access to knowledgeable agents who can troubleshoot issues, answer questions, and resolve problems quickly. Our agents are trained on your products and systems, providing consistent, reliable support around the clock.",
+      "Your customers don't stop needing help at 5 PM. WingCX's 24/7 help desk support ensures your users always have access to knowledgeable agents who can troubleshoot issues, answer questions, and resolve problems quickly. Our agents are trained on your products and systems, providing consistent, reliable support around the clock.",
     features: [
       {
         title: "Always-On Coverage",
@@ -245,7 +245,7 @@ export const services: Service[] = [
     heroTitle: "Tax Support Services",
     heroSubtitle: "Expert seasonal tax support agents ready when you need them",
     description:
-      "Tax season creates massive demand spikes that are nearly impossible to staff with traditional models. CXware provides certified tax support agents who are trained on tax software, IRS procedures, and customer service best practices. Our agents help callers navigate tax preparation, filing questions, software troubleshooting, and deadline-related concerns with expertise and patience.",
+      "Tax season creates massive demand spikes that are nearly impossible to staff with traditional models. WingCX provides certified tax support agents who are trained on tax software, IRS procedures, and customer service best practices. Our agents help callers navigate tax preparation, filing questions, software troubleshooting, and deadline-related concerns with expertise and patience.",
     features: [
       {
         title: "Seasonal Surge Ready",
@@ -290,7 +290,7 @@ export const services: Service[] = [
       "Overflow support during filing deadlines",
     ],
     ctaTitle: "Prepare for Tax Season Now",
-    ctaDescription: "Don't scramble when tax season hits. Get CXware's tax support agents certified and ready to go.",
+    ctaDescription: "Don't scramble when tax season hits. Get WingCX's tax support agents certified and ready to go.",
   },
   {
     slug: "healthcare-support",
@@ -299,7 +299,7 @@ export const services: Service[] = [
     heroTitle: "Healthcare Support Services",
     heroSubtitle: "Compassionate patient support with full HIPAA compliance",
     description:
-      "Healthcare customers need empathetic, knowledgeable support from people who understand their concerns. CXware provides HIPAA-compliant healthcare support agents who assist patients with insurance navigation, appointment scheduling, prescription inquiries, and more. Our agents combine medical knowledge with compassionate communication to deliver the patient experience your organization demands.",
+      "Healthcare customers need empathetic, knowledgeable support from people who understand their concerns. WingCX provides HIPAA-compliant healthcare support agents who assist patients with insurance navigation, appointment scheduling, prescription inquiries, and more. Our agents combine medical knowledge with compassionate communication to deliver the patient experience your organization demands.",
     features: [
       {
         title: "HIPAA Compliant",
@@ -344,7 +344,7 @@ export const services: Service[] = [
       "Health plan enrollment and member services",
     ],
     ctaTitle: "Improve Your Patient Experience",
-    ctaDescription: "Deliver compassionate, HIPAA-compliant patient support with CXware. Let's talk about your healthcare needs.",
+    ctaDescription: "Deliver compassionate, HIPAA-compliant patient support with WingCX. Let's talk about your healthcare needs.",
   },
 
   // ===== BY INDUSTRY =====
@@ -355,7 +355,7 @@ export const services: Service[] = [
     heroTitle: "Insurance Industry Solutions",
     heroSubtitle: "Claims support, policy service, and sales for insurance companies",
     description:
-      "Insurance companies face unique challenges: seasonal claim surges from natural disasters, complex policy questions, strict regulatory requirements, and the need for empathetic customer interactions during stressful events. CXware delivers specialized insurance support agents who handle everything from policy service to claims intake to sales conversions, all while maintaining compliance with industry regulations.",
+      "Insurance companies face unique challenges: seasonal claim surges from natural disasters, complex policy questions, strict regulatory requirements, and the need for empathetic customer interactions during stressful events. WingCX delivers specialized insurance support agents who handle everything from policy service to claims intake to sales conversions, all while maintaining compliance with industry regulations.",
     features: [
       {
         title: "Claims Support",
@@ -400,7 +400,7 @@ export const services: Service[] = [
       "Disaster/catastrophe claims surge support",
     ],
     ctaTitle: "Modernize Your Insurance Operations",
-    ctaDescription: "From claims surges to sales conversions, CXware has the agents your insurance company needs.",
+    ctaDescription: "From claims surges to sales conversions, WingCX has the agents your insurance company needs.",
   },
   {
     slug: "telecommunications",
@@ -409,7 +409,7 @@ export const services: Service[] = [
     heroTitle: "Telecommunications Solutions",
     heroSubtitle: "Customer support and technical assistance for telecom providers",
     description:
-      "Telecommunications companies deal with high volumes of technical support, billing inquiries, and service activation requests. CXware provides trained agents who understand telecom products, billing systems, and technical troubleshooting. Our agents help reduce churn, improve customer satisfaction, and handle the complex multi-step processes that telecom support requires.",
+      "Telecommunications companies deal with high volumes of technical support, billing inquiries, and service activation requests. WingCX provides trained agents who understand telecom products, billing systems, and technical troubleshooting. Our agents help reduce churn, improve customer satisfaction, and handle the complex multi-step processes that telecom support requires.",
     features: [
       {
         title: "Technical Support",
@@ -454,7 +454,7 @@ export const services: Service[] = [
       "Network outage communication and support",
     ],
     ctaTitle: "Elevate Your Telecom CX",
-    ctaDescription: "Reduce churn and improve satisfaction with CXware's specialized telecom support agents.",
+    ctaDescription: "Reduce churn and improve satisfaction with WingCX's specialized telecom support agents.",
   },
   {
     slug: "utilities",
@@ -463,7 +463,7 @@ export const services: Service[] = [
     heroTitle: "Utilities Industry Solutions",
     heroSubtitle: "Reliable customer support for energy and utility providers",
     description:
-      "Utility companies serve millions of customers who rely on essential services every day. CXware provides trained customer support agents who handle billing inquiries, service requests, outage reporting, and energy assistance programs with professionalism and accuracy. Our agents help utility companies maintain high customer satisfaction while managing costs during peak demand periods.",
+      "Utility companies serve millions of customers who rely on essential services every day. WingCX provides trained customer support agents who handle billing inquiries, service requests, outage reporting, and energy assistance programs with professionalism and accuracy. Our agents help utility companies maintain high customer satisfaction while managing costs during peak demand periods.",
     features: [
       {
         title: "Outage Support",
@@ -508,7 +508,7 @@ export const services: Service[] = [
       "Conservation program outreach",
     ],
     ctaTitle: "Power Up Your Customer Support",
-    ctaDescription: "Keep your customers informed and supported with CXware's utility-focused agents.",
+    ctaDescription: "Keep your customers informed and supported with WingCX's utility-focused agents.",
   },
   {
     slug: "finance-banking",
@@ -517,7 +517,7 @@ export const services: Service[] = [
     heroTitle: "Finance & Banking Solutions",
     heroSubtitle: "Secure, compliant customer support for financial institutions",
     description:
-      "Financial services require the highest levels of security, compliance, and customer trust. CXware provides agents trained in financial services regulations, PCI-DSS compliance, and secure data handling. Our agents help banks, credit unions, and fintech companies deliver exceptional customer experiences while maintaining the strict security standards the industry demands.",
+      "Financial services require the highest levels of security, compliance, and customer trust. WingCX provides agents trained in financial services regulations, PCI-DSS compliance, and secure data handling. Our agents help banks, credit unions, and fintech companies deliver exceptional customer experiences while maintaining the strict security standards the industry demands.",
     features: [
       {
         title: "PCI-DSS Compliant",
@@ -562,7 +562,7 @@ export const services: Service[] = [
       "Financial product information and sales",
     ],
     ctaTitle: "Secure Your Customer Experience",
-    ctaDescription: "Deliver exceptional financial services support with CXware's compliant, trained agents.",
+    ctaDescription: "Deliver exceptional financial services support with WingCX's compliant, trained agents.",
   },
   {
     slug: "travel-transportation",
@@ -571,7 +571,7 @@ export const services: Service[] = [
     heroTitle: "Travel & Transportation Solutions",
     heroSubtitle: "Support travelers and passengers when they need it most",
     description:
-      "Travel and transportation companies face unpredictable demand swings from weather events, holiday seasons, and disruptions. CXware provides flexible customer support that scales instantly to handle booking changes, cancellations, rebooking, and travel assistance. Our agents help keep travelers informed and supported, turning potential frustrations into positive experiences.",
+      "Travel and transportation companies face unpredictable demand swings from weather events, holiday seasons, and disruptions. WingCX provides flexible customer support that scales instantly to handle booking changes, cancellations, rebooking, and travel assistance. Our agents help keep travelers informed and supported, turning potential frustrations into positive experiences.",
     features: [
       {
         title: "Disruption Support",
@@ -616,7 +616,7 @@ export const services: Service[] = [
       "Loyalty program and rewards management",
     ],
     ctaTitle: "Support Travelers At Every Step",
-    ctaDescription: "From booking to arrival, CXware ensures your travelers always have expert support.",
+    ctaDescription: "From booking to arrival, WingCX ensures your travelers always have expert support.",
   },
   {
     slug: "retail",
@@ -625,7 +625,7 @@ export const services: Service[] = [
     heroTitle: "Retail Industry Solutions",
     heroSubtitle: "Exceptional customer support for retail and e-commerce brands",
     description:
-      "Retail brands live and die by customer experience. CXware provides trained agents who handle the full spectrum of retail support: order inquiries, returns and exchanges, product recommendations, and loyalty programs. Our agents represent your brand with professionalism, turning every interaction into an opportunity to build loyalty and drive revenue.",
+      "Retail brands live and die by customer experience. WingCX provides trained agents who handle the full spectrum of retail support: order inquiries, returns and exchanges, product recommendations, and loyalty programs. Our agents represent your brand with professionalism, turning every interaction into an opportunity to build loyalty and drive revenue.",
     features: [
       {
         title: "Order Support",
@@ -670,7 +670,7 @@ export const services: Service[] = [
       "Holiday and flash sale surge coverage",
     ],
     ctaTitle: "Scale Your Retail Support",
-    ctaDescription: "From everyday support to holiday surges, CXware has the agents your retail brand needs.",
+    ctaDescription: "From everyday support to holiday surges, WingCX has the agents your retail brand needs.",
   },
   {
     slug: "healthcare-industry",
@@ -679,7 +679,7 @@ export const services: Service[] = [
     heroTitle: "Healthcare Industry Solutions",
     heroSubtitle: "HIPAA-compliant support for healthcare organizations",
     description:
-      "Healthcare organizations need support partners who understand the unique requirements of the industry: HIPAA compliance, empathetic patient communication, insurance complexity, and the critical importance of accuracy. CXware's healthcare agents are certified in HIPAA protocols and trained to handle sensitive patient interactions with the care and professionalism your patients deserve.",
+      "Healthcare organizations need support partners who understand the unique requirements of the industry: HIPAA compliance, empathetic patient communication, insurance complexity, and the critical importance of accuracy. WingCX's healthcare agents are certified in HIPAA protocols and trained to handle sensitive patient interactions with the care and professionalism your patients deserve.",
     features: [
       {
         title: "HIPAA & HITRUST",
@@ -724,7 +724,7 @@ export const services: Service[] = [
       "Post-care follow-up and patient surveys",
     ],
     ctaTitle: "Transform Your Patient Experience",
-    ctaDescription: "Deliver compassionate, HIPAA-compliant patient support with CXware's healthcare agents.",
+    ctaDescription: "Deliver compassionate, HIPAA-compliant patient support with WingCX's healthcare agents.",
   },
 ];
 

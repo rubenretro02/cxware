@@ -4,8 +4,8 @@ import Link from "next/link";
 import { services } from "@/lib/services";
 
 export const metadata = {
-  title: "Our Services - CXware Agent Solutions",
-  description: "Explore CXware's full range of customer experience outsourcing solutions and industry-specific services.",
+  title: "Our Services - WingCX Agent Solutions",
+  description: "Explore WingCX's full range of customer experience outsourcing solutions and industry-specific services.",
 };
 
 export default function ServicesPage() {
@@ -29,7 +29,7 @@ export default function ServicesPage() {
             <span className="gradient-text">Services</span>
           </h1>
           <p className="text-xl text-[#8B92A5] max-w-3xl mx-auto">
-            From call center outsourcing to industry-specific solutions, CXware delivers expert agents trained for your exact needs.
+            From call center outsourcing to industry-specific solutions, WingCX delivers expert agents trained for your exact needs.
           </p>
         </div>
       </section>
@@ -109,7 +109,7 @@ export default function ServicesPage() {
                 {"Ready to Get Started?"}
               </h2>
               <p className="text-lg md:text-xl text-[#FFFFFF]/90 mb-8">
-                {"Let's discuss how CXware can transform your customer experience operations."}
+                {"Let's discuss how WingCX can transform your customer experience operations."}
               </p>
               <Link
                 href="/#contact"

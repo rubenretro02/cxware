@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CXware — Workforce Operations for Modern Contact Centers",
+  title: "WingCX — Workforce Operations for Modern Contact Centers",
   description:
-    "CXware synchronizes evolving AI agents and human teams into one automated, scalable workforce. Cut contact center cost by up to 45% without losing CSAT.",
+    "WingCX synchronizes evolving AI agents and human teams into one automated, scalable workforce. Cut contact center cost by up to 45% without losing CSAT.",
   keywords:
     "customer support, outsourcing, BPO, contact center, workforce operations, AI agents, 1099 agents",
   openGraph: {
-    title: "CXware — Workforce Operations for Modern Contact Centers",
+    title: "WingCX — Workforce Operations for Modern Contact Centers",
     description:
       "Synchronize AI and human agents into one automated, scalable workforce.",
     type: "website",

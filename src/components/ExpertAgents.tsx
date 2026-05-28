@@ -25,7 +25,7 @@ export default function ExpertAgents() {
             </h2>
 
             <p className="text-[16.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[52ch]">
-              CXware pairs brands with top 1099 contractor agents who value autonomy. The
+              WingCX pairs brands with top 1099 contractor agents who value autonomy. The
               platform verifies, certifies, schedules, and pays. You just take great calls.
             </p>
 
@@ -61,7 +61,7 @@ export default function ExpertAgents() {
 
               <img
                 src="/images/agent-male-headset.jpg"
-                alt="CXware agent"
+                alt="WingCX agent"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/85 via-[var(--bg)]/20 to-transparent" />

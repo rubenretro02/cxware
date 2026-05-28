@@ -424,7 +424,7 @@ export default function OpportunityPageContent({ opportunity }: { opportunity: O
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="mailto:support@cxwareagent.com"
+                    href="mailto:support@wingcxagent.com"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--agent-bg-card)] font-semibold rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
                     style={{ color: "#2047FF" }}
                   >

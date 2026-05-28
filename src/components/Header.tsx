@@ -80,7 +80,7 @@ export default function Header() {
         <div className="flex items-center justify-between gap-4 px-4 sm:px-5 lg:px-6 py-2.5">
           {/* Left — wordmark + Business/Agents toggle */}
           <div className="flex items-center gap-5">
-            <BrandMark brand={isAgentsPage ? "wingcx" : "cxware"} />
+            <BrandMark href={isAgentsPage ? "/agents" : "/"} />
 
             <div
               className="hidden md:flex items-center rounded-full p-[3px] border"

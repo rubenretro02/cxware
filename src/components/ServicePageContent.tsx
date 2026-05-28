@@ -224,7 +224,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
               <div>
                 <span className="section-label mb-4 block">Benefits</span>
                 <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
-                  Why Choose CXware for {service.title}
+                  Why Choose WingCX for {service.title}
                 </h2>
                 <p className="text-lg text-[#8B92A5] mb-8">
                   We deliver measurable improvements across cost, quality, and scalability.
@@ -291,7 +291,7 @@ export default function ServicePageContent({ service }: { service: Service }) {
                 Other Solutions & Industries
               </h2>
               <p className="text-lg text-[#8B92A5]">
-                CXware serves businesses across multiple industries and use cases.
+                WingCX serves businesses across multiple industries and use cases.
               </p>
             </div>
           </ScrollReveal>

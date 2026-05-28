@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
-export default function WhyCXware() {
+export default function WhyWingCX() {
   const rows = [
     {
       title: "Cost without premium markup",
@@ -33,7 +33,7 @@ export default function WhyCXware() {
               Reliability of <span className="gradient-text">people.</span>
             </h2>
             <p className="text-[16.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[42ch]">
-              Legacy BPOs are people without tech. WFM tools are tech without people. CXware ships both as a single product.
+              Legacy BPOs are people without tech. WFM tools are tech without people. WingCX ships both as a single product.
             </p>
             <Link href="/contact" className="btn btn-ghost btn-lg group">
               See it on your data

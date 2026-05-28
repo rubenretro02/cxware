@@ -32,7 +32,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-[17px] md:text-[19px] text-[var(--fg-muted)] max-w-[54ch] leading-[1.55] text-pretty">
-              CXware fuses your AI agents and human teams into one elastic workforce.
+              WingCX fuses your AI agents and human teams into one elastic workforce.
               Coverage scales with demand. You pay only for productive hours.
             </p>
 
@@ -95,7 +95,7 @@ export default function Hero() {
 
               <img
                 src="/images/call-center-agent-1.jpg"
-                alt="CXware agent at work"
+                alt="WingCX agent at work"
                 className="w-full h-full object-cover img-reveal is-visible"
                 loading="eager"
               />

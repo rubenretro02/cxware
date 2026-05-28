@@ -125,7 +125,7 @@ export default function OpportunitiesListing() {
                   New opportunities are added regularly. Apply now and we'll match you with the best programs based on your skills and experience.
                 </p>
                 <Link
-                  href="mailto:support@cxwareagent.com"
+                  href="mailto:support@wingcxagent.com"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--agent-bg-card)] font-semibold rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
                   style={{ color: "#2047FF" }}
                 >

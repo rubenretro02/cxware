@@ -16,7 +16,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!service) return { title: "Service Not Found" };
 
   return {
-    title: `${service.title} - CXware Agent Solutions`,
+    title: `${service.title} - WingCX Agent Solutions`,
     description: service.heroSubtitle + ". " + service.description.slice(0, 120),
   };
 }

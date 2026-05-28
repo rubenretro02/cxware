@@ -28,7 +28,7 @@ export const opportunities: Opportunity[] = [
     heroTitle: "Remote Customer Service Agent Opportunities",
     heroSubtitle: "Be the customer care voice of top brands",
     description:
-      "Customer service is the foundation of every successful business. As a CXware Remote Customer Service Agent, you'll be the first point of contact for customers who need help with orders, account inquiries, billing questions, product support, and more. You'll represent leading brands and deliver exceptional experiences that keep customers coming back. Equipped with comprehensive training, real-time support tools, and the freedom to work from home, you'll build a rewarding career that fits your life.",
+      "Customer service is the foundation of every successful business. As a WingCX Remote Customer Service Agent, you'll be the first point of contact for customers who need help with orders, account inquiries, billing questions, product support, and more. You'll represent leading brands and deliver exceptional experiences that keep customers coming back. Equipped with comprehensive training, real-time support tools, and the freedom to work from home, you'll build a rewarding career that fits your life.",
     image: "/images/opp-customer-service.jpg",
     type: "Independent Contractor",
     pay: "$14 to $20 per hour",
@@ -106,7 +106,7 @@ export const opportunities: Opportunity[] = [
     heroTitle: "Remote Inbound Sales Agent Opportunities",
     heroSubtitle: "Enjoy the thrill of the sale from home",
     description:
-      "Sales is so much more than taking an order - it's understanding the caller's needs, overcoming challenges, and dazzling them with enthusiasm for products they'll love. As a CXware Inbound Sales Agent, you'll be the voice of top brands, achieving sales goals and strengthening customer loyalty. You'll assist inbound callers who have already expressed interest in products or services, guiding them to make confident purchase decisions. These are fast-paced, high-energy calls with incentives that can quickly increase your earning potential.",
+      "Sales is so much more than taking an order - it's understanding the caller's needs, overcoming challenges, and dazzling them with enthusiasm for products they'll love. As a WingCX Inbound Sales Agent, you'll be the voice of top brands, achieving sales goals and strengthening customer loyalty. You'll assist inbound callers who have already expressed interest in products or services, guiding them to make confident purchase decisions. These are fast-paced, high-energy calls with incentives that can quickly increase your earning potential.",
     image: "/images/opp-inbound-sales.jpg",
     type: "Independent Contractor",
     pay: "$14 to $20+ per hour",
@@ -183,7 +183,7 @@ export const opportunities: Opportunity[] = [
     heroTitle: "Remote Healthcare Support Agent Opportunities",
     heroSubtitle: "Help patients navigate their healthcare",
     description:
-      "Healthcare concerns can make people feel vulnerable and overwhelmed. As a CXware Remote Healthcare Support Agent, you can provide relief and understanding by offering a sympathetic ear and compassionate, patient service. You'll help patients navigate insurance or pharmacy protocols, connect with critical resources, update records, and resolve their questions and concerns - all in a rewarding day's work from the comfort of your home.",
+      "Healthcare concerns can make people feel vulnerable and overwhelmed. As a WingCX Remote Healthcare Support Agent, you can provide relief and understanding by offering a sympathetic ear and compassionate, patient service. You'll help patients navigate insurance or pharmacy protocols, connect with critical resources, update records, and resolve their questions and concerns - all in a rewarding day's work from the comfort of your home.",
     image: "/images/opp-healthcare.jpg",
     type: "Independent Contractor",
     pay: "$15 to $20 per hour",
@@ -260,7 +260,7 @@ export const opportunities: Opportunity[] = [
     heroTitle: "Remote Insurance Sales Agent Opportunities",
     heroSubtitle: "Sell top insurance coverage from home",
     description:
-      "You don't have to spend your time traveling and chasing leads to build an insurance business. CXware connects you with some of the largest and most respected insurance companies in the nation, so you can feel proud to offer products customers can rely on. As an Independent Insurance Sales Agent, you'll convert warm, inbound calls to sales for well-known insurance brands. With no earning caps, the sky's the limit for your earning potential.",
+      "You don't have to spend your time traveling and chasing leads to build an insurance business. WingCX connects you with some of the largest and most respected insurance companies in the nation, so you can feel proud to offer products customers can rely on. As an Independent Insurance Sales Agent, you'll convert warm, inbound calls to sales for well-known insurance brands. With no earning caps, the sky's the limit for your earning potential.",
     image: "/images/opp-insurance.jpg",
     type: "Independent Contractor",
     pay: "$16 to $25+ per hour",
@@ -337,7 +337,7 @@ export const opportunities: Opportunity[] = [
     heroTitle: "Remote Bilingual Spanish Agent Opportunities",
     heroSubtitle: "Leverage your bilingual skills for premium pay",
     description:
-      "Your bilingual abilities are in high demand. As a CXware Bilingual Spanish Agent, you'll provide customer support, sales assistance, and healthcare navigation to both English and Spanish-speaking customers. Companies across industries need agents who can seamlessly switch between languages to serve their diverse customer base. Earn premium pay rates while working from home and using your unique language skills to make a real difference.",
+      "Your bilingual abilities are in high demand. As a WingCX Bilingual Spanish Agent, you'll provide customer support, sales assistance, and healthcare navigation to both English and Spanish-speaking customers. Companies across industries need agents who can seamlessly switch between languages to serve their diverse customer base. Earn premium pay rates while working from home and using your unique language skills to make a real difference.",
     image: "/images/opp-bilingual.jpg",
     type: "Independent Contractor",
     pay: "$17 to $20+ per hour",

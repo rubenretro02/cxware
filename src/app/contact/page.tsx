@@ -5,9 +5,9 @@ import ContactForm from "@/components/ContactForm";
 import MapSection from "@/components/MapSection";
 
 export const metadata: Metadata = {
-  title: "Contact Us - CXware Agent Solutions",
+  title: "Contact Us - WingCX Agent Solutions",
   description:
-    "Get in touch with CXware. Talk to our team about scaling your customer operations with intelligent workforce solutions.",
+    "Get in touch with WingCX. Talk to our team about scaling your customer operations with intelligent workforce solutions.",
 };
 
 export default function ContactPage() {
@@ -29,7 +29,7 @@ export default function ContactPage() {
             {/* Background Image */}
             <img
               src="/images/contact-hero.jpg"
-              alt="CXware contact"
+              alt="WingCX contact"
               className="w-full h-[400px] object-cover"
             />
             {/* Overlay gradient - darker on right for text readability */}
@@ -60,10 +60,10 @@ export default function ContactPage() {
 
             {/* Side Info - takes 2 cols */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Why CXware Card */}
+              {/* Why WingCX Card */}
               <div className="card-light p-6">
                 <h3 className="text-lg font-bold text-white mb-4">
-                  Why companies choose CXware
+                  Why companies choose WingCX
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -119,13 +119,13 @@ export default function ContactPage() {
                   Prefer to reach out directly?
                 </h3>
                 <a
-                  href="mailto:contact@cxwares.com"
+                  href="mailto:contact@wingcx.com"
                   className="flex items-center gap-3 text-[#C873E5] hover:text-white transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <span className="font-medium">contact@cxwares.com</span>
+                  <span className="font-medium">contact@wingcx.com</span>
                 </a>
               </div>
             </div>

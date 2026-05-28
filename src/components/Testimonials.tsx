@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote:
-      "CXware's remote support has been a game-changer. Professionalism and responsiveness lifted our CSAT.",
+      "WingCX's remote support has been a game-changer. Professionalism and responsiveness lifted our CSAT.",
     name: "Sarah M.",
     role: "Retail Business Owner",
   },
@@ -30,25 +30,25 @@ const testimonials = [
   },
   {
     quote:
-      "CXware absorbed a massive holiday surge without missing a beat. Their flexible staffing model is exactly right.",
+      "WingCX absorbed a massive holiday surge without missing a beat. Their flexible staffing model is exactly right.",
     name: "Angela R.",
     role: "Director of CX",
   },
   {
     quote:
-      "Quality of agents on CXware is unmatched. They integrate seamlessly with our tools from day one.",
+      "Quality of agents on WingCX is unmatched. They integrate seamlessly with our tools from day one.",
     name: "Jason K.",
     role: "SaaS Support Manager",
   },
   {
     quote:
-      "We reduced cost-per-contact by 35% and CSAT went up. CXware delivers real, measurable results.",
+      "We reduced cost-per-contact by 35% and CSAT went up. WingCX delivers real, measurable results.",
     name: "Maria L.",
     role: "VP Operations, FinTech",
   },
   {
     quote:
-      "Workforce management is effortless. We upload our forecast and CXware handles the rest.",
+      "Workforce management is effortless. We upload our forecast and WingCX handles the rest.",
     name: "Robert C.",
     role: "Call Center Director",
   },
@@ -89,7 +89,7 @@ export default function Testimonials() {
             <div className="col-span-12 lg:col-span-7 space-y-4">
               <span className="eyebrow-brand"><span>TESTIMONIALS</span></span>
               <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.04] tracking-[-0.025em] text-balance">
-                Why brands <span className="gradient-text">trust CXware</span> to keep queues moving.
+                Why brands <span className="gradient-text">trust WingCX</span> to keep queues moving.
               </h2>
             </div>
           </div>

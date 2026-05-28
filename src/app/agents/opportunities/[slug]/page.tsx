@@ -16,7 +16,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!opportunity) return { title: "Opportunity Not Found" };
 
   return {
-    title: `${opportunity.title} - Remote Opportunities | CXware Agent Solutions`,
+    title: `${opportunity.title} - Remote Opportunities | WingCX Agent Solutions`,
     description: opportunity.description.slice(0, 160),
   };
 }

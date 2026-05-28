@@ -7,8 +7,6 @@ import BrandMark from "./BrandMark";
 export default function Footer() {
   const pathname = usePathname();
   const isAgentsPage = pathname === "/agents" || pathname.startsWith("/agents/");
-  const brand = isAgentsPage ? "wingcx" : "cxware";
-  const brandName = isAgentsPage ? "WingCX" : "CXware";
 
   return (
     <footer className="border-t border-[var(--line)] pt-16 pb-10 bg-[var(--bg-inset)]">
@@ -16,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14">
           {/* Brand + newsletter */}
           <div className="col-span-12 lg:col-span-5 space-y-6">
-            <BrandMark brand={brand} className="!h-auto" />
+            <BrandMark href={isAgentsPage ? "/agents" : "/"} className="!h-auto" />
             <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[42ch]">
               {isAgentsPage
                 ? "Monthly notes on remote support careers, brand training, and the operational details that make great agents. No spam."
@@ -69,7 +67,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[var(--line)] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <p className="mono text-[12px] text-[var(--fg-faint)]">
-            © 2025 {brandName} Agent Solutions — All rights reserved.
+            © 2025 WingCX Agent Solutions — All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-[13px]">
             <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
@@ -86,7 +84,7 @@ export default function Footer() {
             <SocialIcon href="#" label="LinkedIn">
               <path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73C5.53 6.73 4.75 5.94 4.75 4.97s.78-1.76 1.75-1.76 1.75.79 1.75 1.76S7.47 6.73 6.5 6.73zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77c1.4-2.59 7-2.78 7 2.48V19z" />
             </SocialIcon>
-            <SocialIcon href="mailto:contact@cxwares.com" label="Email">
+            <SocialIcon href="mailto:contact@wingcx.com" label="Email">
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth={1.5} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round" />
             </SocialIcon>
           </div>

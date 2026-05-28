@@ -4,7 +4,7 @@ import ProblemSection from "@/components/ProblemSection";
 import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
-import WhyCXware from "@/components/WhyCXware";
+import WhyWingCX from "@/components/WhyWingCX";
 import ExpertAgents from "@/components/ExpertAgents";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -20,7 +20,7 @@ export default function Home() {
       <HowItWorks />
       <Stats />
       <Services />
-      <WhyCXware />
+      <WhyWingCX />
       <ExpertAgents />
       <Testimonials />
       <FAQ />

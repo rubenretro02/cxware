@@ -26,7 +26,7 @@ export default function CTA() {
                   Bring last quarter's volume curve. We'll show you the cost and SLA impact in 30 minutes.
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <Link href="mailto:contact@cxwares.com" className="btn btn-light btn-lg group">
+                  <Link href="mailto:contact@wingcx.com" className="btn btn-light btn-lg group">
                     Let's Talk
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                       <path d="M5 12h14M13 6l6 6-6 6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />

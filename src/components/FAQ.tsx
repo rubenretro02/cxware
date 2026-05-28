@@ -6,7 +6,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
   {
-    question: "What does CXware actually do?",
+    question: "What does WingCX actually do?",
     answer:
       "We run the workforce ops layer for customer support: forecasting, matching certified agents to your brand, scheduling, payments, and live quality monitoring — across voice, chat, and back-office.",
   },
