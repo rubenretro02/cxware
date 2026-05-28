@@ -69,10 +69,10 @@ export default function Footer() {
             © 2025 CXware Agent Solutions — All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-[13px]">
-            <Link href="#" className="text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+            <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
               Privacy
             </Link>
-            <Link href="#" className="text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+            <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
               Terms
             </Link>
           </div>
@@ -108,7 +108,7 @@ function FooterCol({
           <li key={it.label}>
             <Link
               href={it.href}
-              className="text-[13.5px] text-[var(--fg-muted)] hover:text-white transition-colors duration-200"
+              className="text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200"
             >
               {it.label}
             </Link>
@@ -132,7 +132,7 @@ function SocialIcon({
     <a
       href={href}
       aria-label={label}
-      className="w-9 h-9 rounded-full border border-[var(--line)] flex items-center justify-center text-[var(--fg-muted)] hover:text-white hover:border-[var(--brand-purple)] hover:bg-white/5 transition-all duration-200"
+      className="w-9 h-9 rounded-full border border-[var(--line)] flex items-center justify-center text-[var(--fg-muted)] hover:text-[var(--fg)] hover:border-[var(--brand-purple)] hover:bg-[var(--bg-elev-2)] transition-all duration-200"
     >
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
         {children}

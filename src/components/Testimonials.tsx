@@ -125,7 +125,7 @@ export default function Testimonials() {
                   fill={`url(#quote-grad-${i})`}
                 />
               </svg>
-              <blockquote className="text-[15.5px] text-white leading-[1.55] text-pretty flex-1">
+              <blockquote className="text-[15.5px] text-[var(--fg)] leading-[1.55] text-pretty flex-1">
                 {t.quote}
               </blockquote>
               <figcaption className="mt-6 pt-5 border-t border-[var(--line)] flex items-center gap-3">
@@ -136,7 +136,7 @@ export default function Testimonials() {
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="text-[14px] text-white font-semibold">{t.name}</div>
+                  <div className="text-[14px] text-[var(--fg)] font-semibold">{t.name}</div>
                   <div className="mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--fg-dim)]">
                     {t.role}
                   </div>

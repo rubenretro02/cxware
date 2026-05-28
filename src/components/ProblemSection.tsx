@@ -58,7 +58,7 @@ export default function ProblemSection() {
                 </span>
               </div>
               <div className="col-span-12 lg:col-span-5 mt-3 lg:mt-0">
-                <h3 className="text-[22px] lg:text-[26px] font-semibold leading-[1.15] tracking-[-0.015em] text-balance transition-colors duration-300 group-hover:text-white">
+                <h3 className="text-[22px] lg:text-[26px] font-semibold leading-[1.15] tracking-[-0.015em] text-balance transition-colors duration-300">
                   {p.headline}
                 </h3>
               </div>

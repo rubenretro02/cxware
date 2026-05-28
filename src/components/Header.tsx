@@ -66,10 +66,15 @@ export default function Header() {
       <nav
         className={`mx-auto max-w-[1320px] rounded-full border transition-all duration-300 ease-out ${
           scrolled
-            ? "bg-[rgba(15,19,34,0.78)] border-[var(--line-strong)] shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
-            : "bg-[rgba(15,19,34,0.5)] border-[var(--line)] shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
+            ? "shadow-[0_8px_32px_rgba(10,18,38,0.08)]"
+            : "shadow-[0_4px_18px_rgba(10,18,38,0.05)]"
         }`}
-        style={{ backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}
+        style={{
+          background: scrolled ? "var(--glass-bg-strong)" : "var(--glass-bg)",
+          borderColor: scrolled ? "var(--line-strong)" : "var(--line)",
+          backdropFilter: "blur(22px) saturate(180%)",
+          WebkitBackdropFilter: "blur(22px) saturate(180%)",
+        }}
       >
         <div className="flex items-center justify-between gap-4 px-4 sm:px-5 lg:px-6 py-2.5">
           {/* Left — wordmark + Business/Agents toggle */}
@@ -79,16 +84,23 @@ export default function Header() {
                 src="https://ext.same-assets.com/405996721/472180092.webp"
                 alt="CXware"
                 className="h-7 w-auto transition-transform duration-300 group-hover:scale-105"
+                style={isAgentsPage ? {} : { filter: "invert(0)" }}
               />
             </Link>
 
-            <div className="hidden md:flex items-center rounded-full p-[3px] border border-white/10 bg-white/5">
+            <div
+              className="hidden md:flex items-center rounded-full p-[3px] border"
+              style={{
+                borderColor: "var(--line)",
+                background: "var(--bg-elev-1)",
+              }}
+            >
               <Link
                 href="/"
                 className={`relative px-3.5 py-1.5 text-[11px] font-bold tracking-wide rounded-full transition-all duration-300 ${
                   !isAgentsPage
-                    ? "text-white shadow-[0_4px_14px_rgba(32,71,255,0.35)]"
-                    : "text-[var(--fg-muted)] hover:text-white"
+                    ? "text-white shadow-[0_4px_14px_rgba(32,71,255,0.32)]"
+                    : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
                 }`}
                 style={
                   !isAgentsPage
@@ -102,8 +114,8 @@ export default function Header() {
                 href="/agents"
                 className={`relative px-3.5 py-1.5 text-[11px] font-bold tracking-wide rounded-full transition-all duration-300 ${
                   isAgentsPage
-                    ? "text-white shadow-[0_4px_14px_rgba(32,71,255,0.35)]"
-                    : "text-[var(--fg-muted)] hover:text-white"
+                    ? "text-white shadow-[0_4px_14px_rgba(32,71,255,0.32)]"
+                    : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
                 }`}
                 style={
                   isAgentsPage
@@ -120,7 +132,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-0.5 text-[13px]">
             {!isAgentsPage ? (
               <>
-                <Link href="#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                <Link href="#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   How It Works
                 </Link>
 
@@ -132,7 +144,7 @@ export default function Header() {
                   <button
                     type="button"
                     className={`flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 ${
-                      isServicePage ? "text-white" : "text-[var(--fg-muted)] hover:text-white"
+                      isServicePage ? "text-[var(--fg)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
                     }`}
                   >
                     Services
@@ -153,8 +165,15 @@ export default function Header() {
                         : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
                   >
-                    <div className="rounded-2xl border border-[var(--line-strong)] bg-[rgba(20,24,41,0.92)] p-5 grid grid-cols-2 gap-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
-                         style={{ backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}>
+                    <div
+                      className="rounded-2xl border p-5 grid grid-cols-2 gap-6 shadow-[0_20px_60px_rgba(10,18,38,0.12)]"
+                      style={{
+                        borderColor: "var(--line-strong)",
+                        background: "var(--glass-bg-strong)",
+                        backdropFilter: "blur(22px) saturate(180%)",
+                        WebkitBackdropFilter: "blur(22px) saturate(180%)",
+                      }}
+                    >
                       <div>
                         <div className="label mb-3">By solution</div>
                         <ul className="space-y-px">
@@ -163,7 +182,7 @@ export default function Header() {
                               <Link
                                 href={item.href}
                                 onClick={() => setActiveDropdown(null)}
-                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
+                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-lg transition-all duration-200"
                               >
                                 {item.label}
                               </Link>
@@ -179,7 +198,7 @@ export default function Header() {
                               <Link
                                 href={item.href}
                                 onClick={() => setActiveDropdown(null)}
-                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
+                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-lg transition-all duration-200"
                               >
                                 {item.label}
                               </Link>
@@ -191,16 +210,16 @@ export default function Header() {
                   </div>
                 </div>
 
-                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   FAQs
                 </Link>
-                <Link href="/contact" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                <Link href="/contact" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   Contact
                 </Link>
               </>
             ) : (
               <>
-                <Link href="#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                <Link href="#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   How It Works
                 </Link>
 
@@ -211,7 +230,7 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200"
+                    className="flex items-center gap-1 px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200"
                   >
                     Opportunities
                     <svg
@@ -231,8 +250,15 @@ export default function Header() {
                         : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
                   >
-                    <div className="rounded-2xl border border-[var(--line-strong)] bg-[rgba(20,24,41,0.92)] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
-                         style={{ backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}>
+                    <div
+                      className="rounded-2xl border p-3 shadow-[0_20px_60px_rgba(34,22,8,0.16)]"
+                      style={{
+                        borderColor: "var(--line-strong)",
+                        background: "var(--glass-bg-strong)",
+                        backdropFilter: "blur(22px) saturate(180%)",
+                        WebkitBackdropFilter: "blur(22px) saturate(180%)",
+                      }}
+                    >
                       <div className="label px-2.5 mb-2">Remote roles</div>
                       <ul className="space-y-px">
                         {opportunities.map((item) => (
@@ -240,7 +266,7 @@ export default function Header() {
                             <Link
                               href={item.href}
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center justify-between gap-3 px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
+                              className="flex items-center justify-between gap-3 px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-lg transition-all duration-200"
                             >
                               <span>{item.label}</span>
                               <span className="mono text-[12px] gradient-text font-bold">{item.pay}</span>
@@ -248,7 +274,7 @@ export default function Header() {
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-2 pt-2 border-t border-white/8">
+                      <div className="mt-2 pt-2 border-t" style={{ borderColor: "var(--line)" }}>
                         <Link
                           href="/agents/opportunities"
                           onClick={() => setActiveDropdown(null)}
@@ -261,10 +287,10 @@ export default function Header() {
                   </div>
                 </div>
 
-                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   FAQs
                 </Link>
-                <Link href="#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                <Link href="#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   Requirements
                 </Link>
               </>
@@ -285,7 +311,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-white rounded-full hover:bg-white/5 transition-colors"
+            className="lg:hidden p-2 text-[var(--fg)] rounded-full hover:bg-[var(--bg-elev-2)] transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -307,7 +333,10 @@ export default function Header() {
           }`}
         >
           <div className="px-5 pb-5 pt-3 border-t border-[var(--line)]">
-            <div className="flex items-center rounded-full p-[3px] mb-4 border border-white/10 bg-white/5 w-fit">
+            <div
+              className="flex items-center rounded-full p-[3px] mb-4 border w-fit"
+              style={{ borderColor: "var(--line)", background: "var(--bg-elev-1)" }}
+            >
               <Link
                 href="/"
                 onClick={() => setIsOpen(false)}
@@ -349,7 +378,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-1 py-3 text-[15px] text-[var(--fg-muted)] hover:text-white border-b border-[var(--line)] transition-colors"
+                    className="block px-1 py-3 text-[15px] text-[var(--fg-muted)] hover:text-[var(--fg)] border-b border-[var(--line)] transition-colors"
                   >
                     {item.label}
                   </Link>

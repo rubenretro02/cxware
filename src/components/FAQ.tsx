@@ -67,7 +67,7 @@ export default function FAQ() {
                       onClick={() => setOpenIndex(open ? null : index)}
                       className="w-full flex items-start justify-between gap-6 py-6 text-left group"
                     >
-                      <span className="text-[17px] lg:text-[18px] font-semibold tracking-[-0.01em] text-white group-hover:gradient-text transition-all">
+                      <span className="text-[17px] lg:text-[18px] font-semibold tracking-[-0.01em] text-[var(--fg)] group-hover:gradient-text transition-all">
                         {faq.question}
                       </span>
                       <span

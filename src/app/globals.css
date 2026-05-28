@@ -3,43 +3,48 @@
 @tailwind utilities;
 
 /* ============================================================
-   Tokens — Brand gradient (blue→purple) restored,
-   layered surfaces, premium motion easing.
-   Inspired by ui-ux-pro-max "Modern Dark Cinema" guidance.
+   DEFAULT THEME — Business (light, cool, LiveOps/Arise vibe)
+   Off-white background, navy text, brand gradient as accent.
    ============================================================ */
 :root {
-  /* Surfaces — deep tinted near-black, not pure #000 */
-  --bg: oklch(0.165 0.012 265);
-  --bg-elev-1: oklch(0.205 0.014 265);
-  --bg-elev-2: oklch(0.245 0.016 265);
-  --bg-inset: oklch(0.135 0.010 265);
+  /* Surfaces — predominantly light, subtle cool tint */
+  --bg: #FBFBFD;
+  --bg-elev-1: #F4F6FB;
+  --bg-elev-2: #ECEFF6;
+  --bg-inset: #F8F9FC;
+  --bg-dark-feature: #0A0F1E;   /* for strategic dark sections */
 
-  /* Type */
-  --fg: oklch(0.965 0.008 265);
-  --fg-muted: oklch(0.72 0.014 265);
-  --fg-dim: oklch(0.52 0.014 265);
-  --fg-faint: oklch(0.38 0.012 265);
+  /* Type — navy near-black, never pure black */
+  --fg: #0A1226;
+  --fg-muted: #46506B;
+  --fg-dim: #6B7591;
+  --fg-faint: #9BA3B8;
 
   /* Borders / hairlines */
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
+  --line: rgba(10, 18, 38, 0.09);
+  --line-strong: rgba(10, 18, 38, 0.16);
+
+  /* Glass surfaces (theme-aware) */
+  --glass-bg: rgba(255, 255, 255, 0.70);
+  --glass-bg-strong: rgba(255, 255, 255, 0.85);
+  --glass-overlay: rgba(255, 255, 255, 0.55);
 
   /* Brand — gradient blue → purple. Load-bearing. */
   --brand-blue: #2047FF;
   --brand-purple: #C873E5;
-  --brand-blue-soft: rgba(32, 71, 255, 0.14);
-  --brand-purple-soft: rgba(200, 115, 229, 0.14);
+  --brand-blue-soft: rgba(32, 71, 255, 0.10);
+  --brand-purple-soft: rgba(200, 115, 229, 0.10);
   --grad: linear-gradient(90deg, #2047FF, #C873E5);
   --grad-135: linear-gradient(135deg, #2047FF 0%, #C873E5 100%);
-  --grad-radial: radial-gradient(circle at 30% 30%, rgba(32, 71, 255, 0.35), transparent 60%),
-                 radial-gradient(circle at 70% 70%, rgba(200, 115, 229, 0.30), transparent 60%);
+  --grad-radial: radial-gradient(circle at 30% 30%, rgba(32, 71, 255, 0.18), transparent 60%),
+                 radial-gradient(circle at 70% 70%, rgba(200, 115, 229, 0.16), transparent 60%);
 
-  /* Glow / shadow */
-  --shadow-brand: 0 8px 32px rgba(32, 71, 255, 0.35), 0 4px 16px rgba(200, 115, 229, 0.20);
-  --shadow-brand-soft: 0 4px 20px rgba(32, 71, 255, 0.18);
-  --shadow-elev-1: 0 1px 3px rgba(0, 0, 0, 0.20);
-  --shadow-elev-2: 0 4px 16px rgba(0, 0, 0, 0.30);
-  --shadow-elev-3: 0 10px 40px rgba(0, 0, 0, 0.40);
+  /* Shadows tuned for light theme */
+  --shadow-brand: 0 8px 32px rgba(32, 71, 255, 0.28), 0 4px 16px rgba(200, 115, 229, 0.18);
+  --shadow-brand-soft: 0 4px 18px rgba(32, 71, 255, 0.16);
+  --shadow-elev-1: 0 1px 3px rgba(10, 18, 38, 0.06), 0 1px 2px rgba(10, 18, 38, 0.04);
+  --shadow-elev-2: 0 8px 24px rgba(10, 18, 38, 0.08), 0 2px 6px rgba(10, 18, 38, 0.04);
+  --shadow-elev-3: 0 24px 60px rgba(10, 18, 38, 0.12), 0 8px 20px rgba(10, 18, 38, 0.06);
 
   /* Easing — premium cinema curves */
   --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
@@ -53,6 +58,36 @@
   --r-lg: 16px;
   --r-xl: 24px;
   --r-pill: 999px;
+}
+
+/* ============================================================
+   AGENTS THEME — warm cream, friendly, human
+   Applied via <body class="agent-theme"> or wrapping div.
+   ============================================================ */
+.agent-theme {
+  --bg: #F6F0E8;            /* warm cream */
+  --bg-elev-1: #FBF6EE;
+  --bg-elev-2: #EFE7DA;
+  --bg-inset: #F1EADD;
+  --bg-dark-feature: #2A1F12;
+
+  --fg: #221608;
+  --fg-muted: #5A4A36;
+  --fg-dim: #7B684E;
+  --fg-faint: #A9967C;
+
+  --line: rgba(34, 22, 8, 0.10);
+  --line-strong: rgba(34, 22, 8, 0.18);
+
+  --glass-bg: rgba(251, 246, 238, 0.72);
+  --glass-bg-strong: rgba(251, 246, 238, 0.88);
+  --glass-overlay: rgba(251, 246, 238, 0.55);
+
+  --shadow-brand: 0 8px 32px rgba(32, 71, 255, 0.20), 0 4px 16px rgba(200, 115, 229, 0.16);
+  --shadow-brand-soft: 0 4px 18px rgba(32, 71, 255, 0.12);
+  --shadow-elev-1: 0 1px 3px rgba(34, 22, 8, 0.06), 0 1px 2px rgba(34, 22, 8, 0.04);
+  --shadow-elev-2: 0 8px 24px rgba(34, 22, 8, 0.10), 0 2px 6px rgba(34, 22, 8, 0.04);
+  --shadow-elev-3: 0 24px 60px rgba(34, 22, 8, 0.14), 0 8px 20px rgba(34, 22, 8, 0.06);
 }
 
 @layer base {
@@ -103,13 +138,13 @@
             box-decoration-break: clone;
   }
 
-  /* Aurora-style backdrop blob — slow oscillation */
+  /* Aurora-style backdrop blob — subtle on light, slow oscillation */
   .aurora-blob {
     position: absolute;
     pointer-events: none;
     border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.6;
+    filter: blur(70px);
+    opacity: 0.35;
     background: var(--grad-135);
     will-change: transform;
     animation: aurora-float 14s var(--ease-in-out) infinite alternate;
@@ -162,14 +197,14 @@
   .btn-brand:active { transform: translateY(0) scale(0.97); }
 
   .btn-ghost {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--glass-bg);
     color: var(--fg);
     border-color: var(--line-strong);
     backdrop-filter: blur(8px);
   }
   .btn-ghost:hover {
     border-color: var(--brand-purple);
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--glass-bg-strong);
   }
 
   .btn-quiet {
@@ -179,6 +214,17 @@
   .btn-quiet:hover { color: var(--fg); }
 
   .btn-lg { padding: 0.95rem 1.4rem; font-size: 0.95rem; }
+
+  /* For use ON dark feature sections (Hero, CTA panel) */
+  .on-dark .btn-ghost {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border-color: rgba(255,255,255,0.20);
+  }
+  .on-dark .btn-ghost:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.40);
+  }
 
   /* ============================================================
      Mono + label helpers
@@ -198,7 +244,7 @@
     font-weight: 500;
   }
 
-  /* Gradient eyebrow — used sparingly */
+  /* Gradient eyebrow */
   .eyebrow-brand {
     display: inline-flex;
     align-items: center;
@@ -224,7 +270,7 @@
   }
 
   /* ============================================================
-     Surfaces — glassmorphic cards, premium edges
+     Surfaces
      ============================================================ */
   .panel {
     position: relative;
@@ -243,7 +289,7 @@
   }
 
   .panel-glass {
-    background: rgba(15, 19, 34, 0.55);
+    background: var(--glass-bg);
     backdrop-filter: blur(22px) saturate(160%);
     -webkit-backdrop-filter: blur(22px) saturate(160%);
     border: 1px solid var(--line);
@@ -253,6 +299,10 @@
     background: var(--bg-inset);
     border: 1px solid var(--line);
     border-radius: var(--r-md);
+  }
+
+  .hairline-row {
+    border-top: 1px solid var(--line);
   }
 
   /* Subtle gradient border via mask trick */
@@ -274,12 +324,29 @@
     pointer-events: none;
   }
 
-  .hairline-row {
-    border-top: 1px solid var(--line);
+  /* ============================================================
+     Dark feature section — for hero on Business, CTA, etc.
+     Inverts colors locally. Wrap any chunk with .on-dark.
+     ============================================================ */
+  .on-dark {
+    background: var(--bg-dark-feature);
+    color: #fff;
+    --fg: #fff;
+    --fg-muted: rgba(255, 255, 255, 0.78);
+    --fg-dim: rgba(255, 255, 255, 0.55);
+    --fg-faint: rgba(255, 255, 255, 0.38);
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-strong: rgba(255, 255, 255, 0.10);
+    --glass-overlay: rgba(11, 15, 30, 0.65);
+    --bg-elev-1: rgba(255, 255, 255, 0.03);
+    --bg-elev-2: rgba(255, 255, 255, 0.06);
+    --bg-inset: rgba(0, 0, 0, 0.20);
   }
 
   /* ============================================================
-     Live status dot (kept from prior pass — works for both)
+     Live status dot
      ============================================================ */
   .live-dot {
     position: relative;
@@ -294,7 +361,7 @@
     position: absolute;
     inset: -4px;
     border-radius: 999px;
-    border: 1px solid rgba(200, 115, 229, 0.45);
+    border: 1px solid rgba(200, 115, 229, 0.55);
     animation: live-pulse 2.4s var(--ease-out) infinite;
   }
   @keyframes live-pulse {
@@ -304,16 +371,14 @@
   }
 
   /* ============================================================
-     Marquee mask
+     Marquee mask (theme-aware via currentColor not needed — just mask)
      ============================================================ */
   .marquee-mask {
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
             mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   }
 
-  /* ============================================================
-     Image reveal — clip-path slide in on scroll
-     ============================================================ */
+  /* Image reveal — clip-path slide in */
   .img-reveal {
     clip-path: inset(0 0 100% 0);
     transition: clip-path 1100ms var(--ease-cinema);
@@ -334,14 +399,13 @@
     background-size: 64px 64px;
   }
 
-  /* Glow utility for gradient borders / focus */
   .glow-brand {
     box-shadow: var(--shadow-brand-soft);
   }
 }
 
 /* ============================================================
-   Motion helper classes (used by ScrollReveal client component)
+   Motion helper classes (used by ScrollReveal)
    ============================================================ */
 .reveal-up {
   opacity: 0;
@@ -407,8 +471,18 @@
   }
 }
 
+/* Legacy scroll-reveal classes */
+.scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.scroll-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+.scroll-reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+.scroll-reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+
 /* ============================================================
-   Legacy bridge — keeps subpages rendering with brand palette
+   Legacy token bridge — keeps subpages compiling on the new palette
    ============================================================ */
 :root {
   --bg-light: var(--bg);
@@ -416,8 +490,8 @@
   --bg-muted: var(--bg-elev-1);
   --bg-card: var(--bg-elev-2);
   --bg-card-hover: var(--bg-elev-2);
-  --bg-dark: var(--bg-inset);
-  --bg-dark-card: var(--bg-elev-2);
+  --bg-dark: var(--bg-dark-feature);
+  --bg-dark-card: rgba(255, 255, 255, 0.06);
 
   --accent-blue: var(--brand-blue);
   --accent-purple: var(--brand-purple);
@@ -435,19 +509,18 @@
   --border-light: var(--line);
   --border-dark: var(--line);
 
-  /* Agent theme — same dark base */
-  --agent-bg-primary: var(--bg-elev-1);
-  --agent-bg-secondary: var(--bg-elev-2);
-  --agent-bg-card: var(--bg-elev-1);
-  --agent-bg-card-hover: var(--bg-elev-2);
-  --agent-bg-muted: var(--bg-elev-1);
-  --agent-bg-accent: var(--bg-elev-2);
-  --agent-text-heading: var(--fg);
-  --agent-text-primary: var(--fg);
-  --agent-text-secondary: var(--fg-muted);
-  --agent-text-muted: var(--fg-dim);
-  --agent-border: var(--line);
-  --agent-card-shadow: rgba(0, 0, 0, 0.25);
+  --agent-bg-primary: #FBF6EE;
+  --agent-bg-secondary: #EFE7DA;
+  --agent-bg-card: #FFFFFF;
+  --agent-bg-card-hover: #F8F2E8;
+  --agent-bg-muted: #F1EADD;
+  --agent-bg-accent: #FBF6EE;
+  --agent-text-heading: #221608;
+  --agent-text-primary: #221608;
+  --agent-text-secondary: #5A4A36;
+  --agent-text-muted: #7B684E;
+  --agent-border: rgba(34, 22, 8, 0.10);
+  --agent-card-shadow: rgba(34, 22, 8, 0.08);
 }
 
 @layer components {
@@ -488,14 +561,14 @@
     padding: 0.85rem 1.25rem;
     border-radius: var(--r-md);
     font-weight: 600; font-size: 0.875rem; line-height: 1;
-    background: rgba(255,255,255,0.04); color: var(--fg);
+    background: var(--glass-bg); color: var(--fg);
     border: 1px solid var(--line-strong);
     backdrop-filter: blur(8px);
     transition: border-color 220ms var(--ease-out), background-color 220ms var(--ease-out), transform 220ms var(--ease-spring);
   }
   .btn-secondary:hover, .agent-btn-secondary:hover {
     border-color: var(--brand-purple);
-    background: rgba(255,255,255,0.06);
+    background: var(--glass-bg-strong);
   }
   .btn-secondary:active, .agent-btn-secondary:active { transform: scale(0.97); }
 
@@ -503,10 +576,10 @@
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 0.85rem 1.25rem; border-radius: var(--r-md);
     font-weight: 600; font-size: 0.875rem;
-    background: #fff; color: #0B0F1A;
+    background: #fff; color: #0A1226;
     transition: transform 220ms var(--ease-spring), box-shadow 220ms var(--ease-out);
   }
-  .btn-light:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
+  .btn-light:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
   .btn-light:active { transform: scale(0.97); }
 
   .card-light, .agent-card {
@@ -588,18 +661,8 @@
   .section-light, .section-white, .section-muted, .section-purple, .agent-section-primary, .agent-section-secondary, .agent-section-muted {
     background: var(--bg);
   }
-  .section-dark { background: var(--bg-inset); color: var(--fg); }
+  .section-dark { background: var(--bg-dark-feature); color: #fff; }
 }
-
-/* legacy scroll-reveal classes (still used by some subpages) */
-.scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
-.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
-.scroll-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
-.scroll-reveal-left.is-visible { opacity: 1; transform: translateX(0); }
-.scroll-reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
-.scroll-reveal-right.is-visible { opacity: 1; transform: translateX(0); }
-.scroll-reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
-.scroll-reveal-scale.is-visible { opacity: 1; transform: scale(1); }
 
 /* legacy animations — keep gentle, no-op the gimmicky ones */
 .animate-spin-slow { animation: none; }

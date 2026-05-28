@@ -67,11 +67,13 @@ export default function ExpertAgents() {
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/85 via-[var(--bg)]/20 to-transparent" />
 
               <div
-                className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-4 rounded-[var(--r-md)] p-5 border border-white/10"
+                className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-4 rounded-[var(--r-md)] p-5 border"
                 style={{
-                  background: "rgba(11, 15, 26, 0.65)",
-                  backdropFilter: "blur(22px) saturate(160%)",
-                  WebkitBackdropFilter: "blur(22px) saturate(160%)",
+                  borderColor: "rgba(255,255,255,0.4)",
+                  background: "rgba(255, 255, 255, 0.82)",
+                  backdropFilter: "blur(22px) saturate(180%)",
+                  WebkitBackdropFilter: "blur(22px) saturate(180%)",
+                  boxShadow: "0 10px 30px rgba(10,18,38,0.18)",
                 }}
               >
                 <StatCell value="1,247" label="Agents online" />

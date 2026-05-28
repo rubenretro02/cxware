@@ -54,7 +54,7 @@ export default function WhyCXware() {
                     0{i + 1}
                   </span>
                   <div className="col-span-10">
-                    <h3 className="text-[18px] lg:text-[20px] font-semibold tracking-[-0.01em] mb-2 transition-colors duration-300 group-hover:text-white">
+                    <h3 className="text-[18px] lg:text-[20px] font-semibold tracking-[-0.01em] mb-2 transition-colors duration-300">
                       {row.title}
                     </h3>
                     <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.55] text-pretty max-w-[52ch]">
