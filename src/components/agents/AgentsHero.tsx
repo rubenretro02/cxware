@@ -6,26 +6,29 @@ import ScrollReveal from "@/components/ScrollReveal";
 export default function AgentsHero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center pt-24 overflow-hidden">
-      {/* Full-bleed background photo */}
+      {/* Full-bleed background photo — visible across the whole hero */}
       <div className="absolute inset-0 -z-10">
         <img
           src="/images/agent-hero-banner.jpg"
           alt="WingCX agent working remotely"
           className="w-full h-full object-cover"
           loading="eager"
+          style={{ filter: "brightness(1.05) saturate(0.95)" }}
         />
-        {/* Left → right light gradient overlay so navy text reads on the left */}
+        {/* Soft white scrim across the entire photo to brighten it */}
+        <div className="absolute inset-0 bg-[rgba(251,251,253,0.18)]" />
+        {/* Stronger white wash on the left so the navy headline reads */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, var(--bg) 0%, var(--bg) 35%, rgba(251,251,253,0.85) 55%, rgba(251,251,253,0.15) 80%, rgba(251,251,253,0) 100%)",
+              "linear-gradient(90deg, rgba(251,251,253,0.92) 0%, rgba(251,251,253,0.78) 28%, rgba(251,251,253,0.45) 55%, rgba(251,251,253,0.10) 82%, rgba(251,251,253,0) 100%)",
           }}
         />
-        {/* Bottom → up fade into the next section */}
-        <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-[var(--bg)] to-transparent" />
-        {/* Subtle aurora wash for premium feel */}
-        <div className="aurora-blob w-[520px] h-[520px] -top-32 -left-24" style={{ opacity: 0.22 }} />
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-[18vh] bg-gradient-to-t from-[var(--bg)] to-transparent" />
+        {/* Subtle aurora for premium feel */}
+        <div className="aurora-blob w-[460px] h-[460px] -top-28 -left-20" style={{ opacity: 0.22 }} />
       </div>
 
       <div className="relative mx-auto w-full max-w-[1400px] px-5 lg:px-8">
