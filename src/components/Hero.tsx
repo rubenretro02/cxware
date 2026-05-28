@@ -4,135 +4,87 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden" style={{ background: 'var(--bg-light)' }}>
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#2047FF]/5 via-[#C873E5]/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#2047FF]/3 to-[#C873E5]/3 rounded-full blur-3xl" />
-      </div>
+    <section className="relative min-h-[100dvh] flex items-end pt-24 pb-12 overflow-hidden">
+      {/* subtle grid backdrop */}
+      <div className="pointer-events-none absolute inset-0 grid-noise opacity-[0.35]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[60vh] bg-gradient-to-b from-[var(--bg-elev-1)] to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="space-y-4">
-              <span className="section-label">Agentic Workforce Delivery Platform</span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="text-white">Intelligent</span>
-                <br />
-                <span className="gradient-text">Customer</span>
-                <br />
-                <span className="text-white">Operations</span>
-              </h1>
+      <div className="relative mx-auto w-full max-w-[1400px] px-5 lg:px-8">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-end">
+          {/* Left — copy */}
+          <div className="col-span-12 lg:col-span-7 space-y-7">
+            <div className="flex items-center gap-2.5 mono text-[11px] text-[var(--fg-dim)]">
+              <span className="live-dot" />
+              <span>WORKFORCE.OPS / v3.2</span>
+              <span className="text-[var(--fg-faint)]">·</span>
+              <span>1,247 agents online now</span>
             </div>
 
-            <p className="text-lg md:text-xl text-[#8B92A5] max-w-xl leading-relaxed">
-              The only platform that synchronizes your evolving AI agents and internal team with an automated, scalable human workforce that saves time and money.
+            <h1 className="text-[clamp(2.4rem,5.4vw,4.5rem)] font-medium leading-[1.02] tracking-[-0.025em] text-balance">
+              Workforce operations,
+              <br />
+              fully synchronized.
+            </h1>
+
+            <p className="text-[17px] md:text-[18px] text-[var(--fg-muted)] max-w-[52ch] leading-[1.55] text-pretty">
+              CXware fuses your AI agents and human teams into one elastic workforce.
+              Coverage scales with demand. You pay only for productive hours.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link href="#contact" className="btn-primary text-base py-4 px-8">
-                Let's Talk
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <div className="flex items-center gap-3 pt-1">
+              <Link href="/contact" className="btn btn-accent btn-lg">
+                Talk to us
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M5 12h14M13 6l6 6-6 6" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              <Link href="#how-it-works" className="btn-secondary text-base py-4 px-8">
-                See How It Works
+              <Link href="#how-it-works" className="btn btn-quiet">
+                See the platform
               </Link>
-            </div>
-
-            {/* Social Proof */}
-            <div className="flex items-center gap-4 pt-4">
-              <div className="flex -space-x-3">
-                <img
-                  src="/images/call-center-agent-2.jpg"
-                  alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
-                />
-                <img
-                  src="/images/call-center-agent-1.jpg"
-                  alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
-                />
-                <img
-                  src="/images/woman-laptop.jpg"
-                  alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
-                />
-                <img
-                  src="/images/agent-headset-woman.jpg"
-                  alt="Agent"
-                  className="w-11 h-11 rounded-full border-3 border-[#1A1E30] object-cover shadow-md"
-                />
-                <div className="w-11 h-11 rounded-full border-3 border-[#1A1E30] bg-gradient-to-r from-[#2047FF] to-[#C873E5] flex items-center justify-center text-white text-xs font-bold shadow-md">
-                  +1K
-                </div>
-              </div>
-              <p className="text-sm text-[#8B92A5]">
-                <span className="text-white font-semibold">1,000+ Agents</span> and growing
-              </p>
             </div>
           </div>
 
-          {/* Right Content - Feature Cards Grid */}
-          <div className="relative lg:pl-8 animate-fade-in-up delay-200">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="card-light p-6 space-y-3 hover:shadow-xl transition-all">
-                <div className="icon-box">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-white font-semibold">Say goodbye to shrinkage</h3>
-                <p className="text-sm text-[#8B92A5]">Cover any channel at any time with the best global agents</p>
-              </div>
-
-              <div className="card-light p-6 space-y-3 hover:shadow-xl transition-all">
-                <div className="icon-box-secondary">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <h3 className="text-white font-semibold">Built-in surge capacity</h3>
-                <p className="text-sm text-[#8B92A5]">Ramp up coverage in real-time for surges and seasonality</p>
-              </div>
-
-              <div className="card-light p-6 space-y-3 hover:shadow-xl transition-all">
-                <div className="icon-box">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <h3 className="text-white font-semibold">Automated workforce ops</h3>
-                <p className="text-sm text-[#8B92A5]">Define ideal agents and upload forecasts, the platform does the rest</p>
-              </div>
-
-              <div className="card-light p-6 space-y-3 hover:shadow-xl transition-all">
-                <div className="icon-box-secondary">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-white font-semibold">Cut costs by 25-55%</h3>
-                <p className="text-sm text-[#8B92A5]">Only pay for productive hours and save on management overhead</p>
-              </div>
-            </div>
-
-            {/* Globe Image */}
-            <div className="relative mt-8 flex justify-center">
+          {/* Right — single anchored visual + status overlay */}
+          <div className="col-span-12 lg:col-span-5 relative">
+            <div className="relative aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden rounded-[var(--r-xl)] border border-[var(--line)]">
               <img
-                src="/images/globe.webp"
-                alt="Global CX operations"
-                className="w-72 h-72 object-contain animate-spin-slow"
+                src="/images/call-center-agent-1.jpg"
+                alt="CXware agent at work"
+                className="w-full h-full object-cover"
+                loading="eager"
               />
-              {/* Shadow underneath for 3D effect */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-8 bg-[#2047FF]/10 blur-xl rounded-full" />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/30 to-transparent" />
 
+              {/* mono status panel — bottom left */}
+              <div className="absolute left-4 right-4 bottom-4 panel-inset p-4 backdrop-blur-md bg-[oklch(0.165_0.012_255/0.75)]">
+                <div className="flex items-center justify-between mono text-[10.5px] text-[var(--fg-dim)] mb-3">
+                  <span>LIVE QUEUE · NA-EAST</span>
+                  <span className="text-[var(--accent)]">ALL GREEN</span>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  <Stat label="Coverage" value="99.8" unit="%" />
+                  <Stat label="Avg wait" value="11" unit="s" />
+                  <Stat label="Cost vs BPO" value="−45" unit="%" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Stat({ label, value, unit }: { label: string; value: string; unit: string }) {
+  return (
+    <div>
+      <div className="mono text-[10.5px] text-[var(--fg-faint)] uppercase tracking-[0.12em]">
+        {label}
+      </div>
+      <div className="mono text-[var(--fg)] text-[18px] tabular-nums mt-0.5">
+        {value}
+        <span className="text-[var(--fg-dim)] text-[13px] ml-0.5">{unit}</span>
+      </div>
+    </div>
   );
 }

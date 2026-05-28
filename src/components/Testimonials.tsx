@@ -2,146 +2,124 @@
 
 import { useRef, useEffect, useCallback } from "react";
 
-export default function Testimonials() {
-  const testimonials = [
-    {
-      quote: "Thanks to CXware, our inbound sales conversion rates have improved dramatically. Their expert agents handle leads efficiently and close deals with care.",
-      name: "Priya S.",
-      role: "Insurance Agency Director",
-    },
-    {
-      quote: "CXware's remote support team has been a game-changer for our business. Their professionalism and responsiveness have boosted our customer satisfaction significantly.",
-      name: "Sarah M.",
-      role: "Retail Business Owner",
-    },
-    {
-      quote: "Partnering with CXware allowed us to scale our customer service quickly without sacrificing quality. Their agents truly feel like an extension of our own team.",
-      name: "David L.",
-      role: "Healthcare Services Manager",
-    },
-    {
-      quote: "We saw a 40% reduction in response times within the first month. CXware agents are well-trained, professional, and genuinely care about our customers.",
-      name: "Michael T.",
-      role: "E-Commerce Operations Lead",
-    },
-    {
-      quote: "CXware helped us handle a massive holiday surge without missing a beat. Their flexible staffing model is exactly what modern businesses need.",
-      name: "Angela R.",
-      role: "Director of Customer Experience",
-    },
-    {
-      quote: "The quality of agents on CXware is unmatched. They integrate seamlessly with our tools and workflows from day one.",
-      name: "Jason K.",
-      role: "SaaS Support Manager",
-    },
-    {
-      quote: "We reduced our cost-per-contact by 35% while actually improving CSAT scores. CXware delivers real results.",
-      name: "Maria L.",
-      role: "VP of Operations, FinTech",
-    },
-    {
-      quote: "Their platform makes workforce management effortless. We simply upload our forecast and CXware handles the rest.",
-      name: "Robert C.",
-      role: "Call Center Director",
-    },
-  ];
+const testimonials = [
+  {
+    quote:
+      "Inbound sales conversion improved dramatically. Their agents handle leads efficiently and close with care.",
+    name: "Priya S.",
+    role: "Insurance Agency Director",
+  },
+  {
+    quote:
+      "CXware's remote support has been a game-changer. Professionalism and responsiveness lifted our CSAT.",
+    name: "Sarah M.",
+    role: "Retail Business Owner",
+  },
+  {
+    quote:
+      "We scaled support quickly without sacrificing quality. The agents feel like an extension of our own team.",
+    name: "David L.",
+    role: "Healthcare Services Manager",
+  },
+  {
+    quote:
+      "40% reduction in response times within the first month. The agents are well-trained and genuinely care.",
+    name: "Michael T.",
+    role: "E-Commerce Operations Lead",
+  },
+  {
+    quote:
+      "CXware absorbed a massive holiday surge without missing a beat. Their flexible staffing model is exactly right.",
+    name: "Angela R.",
+    role: "Director of CX",
+  },
+  {
+    quote:
+      "Quality of agents on CXware is unmatched. They integrate seamlessly with our tools from day one.",
+    name: "Jason K.",
+    role: "SaaS Support Manager",
+  },
+  {
+    quote:
+      "We reduced cost-per-contact by 35% and CSAT went up. CXware delivers real, measurable results.",
+    name: "Maria L.",
+    role: "VP Operations, FinTech",
+  },
+  {
+    quote:
+      "Workforce management is effortless. We upload our forecast and CXware handles the rest.",
+    name: "Robert C.",
+    role: "Call Center Director",
+  },
+];
 
-  // Duplicate testimonials for seamless infinite loop
+export default function Testimonials() {
   const doubled = [...testimonials, ...testimonials];
 
   const scrollRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number | null>(null);
-  const isPausedRef = useRef(false);
-  const speedRef = useRef(0.6); // pixels per frame
+  const rafRef = useRef<number | null>(null);
+  const pausedRef = useRef(false);
+  const speedRef = useRef(0.45);
 
   const animate = useCallback(() => {
     const el = scrollRef.current;
-    if (!el) return;
-
-    if (!isPausedRef.current) {
+    if (el && !pausedRef.current) {
       el.scrollLeft += speedRef.current;
-
-      // When we've scrolled past the first set, jump back seamlessly
-      const halfWidth = el.scrollWidth / 2;
-      if (el.scrollLeft >= halfWidth) {
-        el.scrollLeft -= halfWidth;
-      }
+      const half = el.scrollWidth / 2;
+      if (el.scrollLeft >= half) el.scrollLeft -= half;
     }
-
-    animationRef.current = requestAnimationFrame(animate);
+    rafRef.current = requestAnimationFrame(animate);
   }, []);
 
   useEffect(() => {
-    animationRef.current = requestAnimationFrame(animate);
+    rafRef.current = requestAnimationFrame(animate);
     return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [animate]);
 
-  const handleMouseEnter = () => {
-    isPausedRef.current = true;
-  };
-
-  const handleMouseLeave = () => {
-    isPausedRef.current = false;
-  };
-
   return (
-    <section className="py-24 section-purple">
-      <div className="max-w-7xl mx-auto px-6 mb-16">
-        <div className="max-w-3xl">
-          <span className="section-label mb-4 block">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-            <span className="text-[#FFFFFF]">Why Brands </span>
-            <span className="gradient-text">Trust</span>
-            <span className="text-[#FFFFFF]"> CXware</span>
-          </h2>
-          <p className="text-lg text-[#8B92A5]">
-            See what keeps the best brands working on our platform
-          </p>
+    <section className="py-28 lg:py-32 bg-[var(--bg-elev-1)] border-y border-[var(--line)]">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-8 mb-14">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-6">
+          <div className="col-span-12 lg:col-span-7">
+            <h2 className="text-[clamp(1.8rem,3.8vw,3rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
+              Brands that trust CXware to keep their queues moving.
+            </h2>
+          </div>
         </div>
       </div>
 
-      {/* Full-width auto-scrolling strip */}
       <div
-        className="relative overflow-hidden"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onTouchStart={handleMouseEnter}
-        onTouchEnd={handleMouseLeave}
+        className="relative marquee-mask"
+        onMouseEnter={() => (pausedRef.current = true)}
+        onMouseLeave={() => (pausedRef.current = false)}
+        onTouchStart={() => (pausedRef.current = true)}
+        onTouchEnd={() => (pausedRef.current = false)}
       >
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0F1322] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0F1322] to-transparent z-10 pointer-events-none" />
-
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-hidden px-6"
+          className="flex gap-4 lg:gap-5 overflow-x-hidden px-5 lg:px-8"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {doubled.map((testimonial, i) => (
-            <div
-              key={`${testimonial.name}-${i}`}
-              className="bg-[#141829] rounded-2xl p-8 shadow-lg transition-all border border-white/10 flex-shrink-0 w-[350px] flex flex-col hover:border-white/20"
+          {doubled.map((t, i) => (
+            <figure
+              key={`${t.name}-${i}`}
+              className="flex-shrink-0 w-[320px] lg:w-[380px] panel p-7 flex flex-col"
             >
-              <div className="mb-6">
-                <svg className="w-10 h-10 text-[#C873E5]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              <p className="text-[#FFFFFF] text-lg mb-6 leading-relaxed flex-1">
-                {testimonial.quote}
-              </p>
-              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#2047FF] to-[#C873E5] flex items-center justify-center text-[#FFFFFF] font-bold text-lg flex-shrink-0">
-                  {testimonial.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-semibold text-[#FFFFFF]">{testimonial.name}</p>
-                  <p className="text-sm text-[#8B92A5]">{testimonial.role}</p>
-                </div>
-              </div>
-            </div>
+              <svg className="w-6 h-6 text-[var(--accent)] mb-5 opacity-90" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.1c-2.4.9-4 3.6-4 5.9h4v10h-10zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.1c-2.4.9-4 3.6-4 5.9h4v10h-10z" />
+              </svg>
+              <blockquote className="text-[15.5px] text-[var(--fg)] leading-[1.55] text-pretty flex-1">
+                {t.quote}
+              </blockquote>
+              <figcaption className="mt-6 pt-5 border-t border-[var(--line)] flex items-baseline justify-between gap-4">
+                <span className="text-[14px] text-[var(--fg)] font-medium">{t.name}</span>
+                <span className="mono text-[11px] uppercase tracking-[0.12em] text-[var(--fg-dim)] text-right">
+                  {t.role}
+                </span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

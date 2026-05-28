@@ -1,16 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const isAgentsPage = pathname === "/agents" || pathname.startsWith("/agents/");
   const isServicePage = pathname.startsWith("/services");
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleMouseEnter = useCallback((dropdown: string) => {
     if (closeTimeoutRef.current) {
@@ -21,109 +29,86 @@ export default function Header() {
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 300);
+    closeTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 250);
   }, []);
 
-  const handleToggleDropdown = useCallback((dropdown: string) => {
-    setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
-  }, []);
-
-  // Business page navigation items
-  const businessSolutionItems = [
-    { icon: "phone", label: "Call Center Outsourcing", href: "/services/call-center-outsourcing" },
-    { icon: "users", label: "Customer Service Outsourcing", href: "/services/customer-service-outsourcing" },
-    { icon: "chat", label: "Live Chat Support", href: "/services/live-chat-support" },
-    { icon: "clock", label: "24/7 Help Desk", href: "/services/help-desk" },
-    { icon: "file", label: "Tax Support", href: "/services/tax-support" },
-    { icon: "heart", label: "Healthcare Support", href: "/services/healthcare-support" },
+  const solutions = [
+    { label: "Call Center Outsourcing", href: "/services/call-center-outsourcing" },
+    { label: "Customer Service", href: "/services/customer-service-outsourcing" },
+    { label: "Live Chat Support", href: "/services/live-chat-support" },
+    { label: "24/7 Help Desk", href: "/services/help-desk" },
+    { label: "Tax Support", href: "/services/tax-support" },
+    { label: "Healthcare Support", href: "/services/healthcare-support" },
   ];
-
-  const businessIndustryItems = [
+  const industries = [
     { label: "Insurance", href: "/services/insurance" },
     { label: "Telecommunications", href: "/services/telecommunications" },
     { label: "Utilities", href: "/services/utilities" },
-    { label: "Finance/Banking", href: "/services/finance-banking" },
-    { label: "Travel/Transportation", href: "/services/travel-transportation" },
+    { label: "Finance & Banking", href: "/services/finance-banking" },
+    { label: "Travel & Transport", href: "/services/travel-transportation" },
     { label: "Retail", href: "/services/retail" },
     { label: "Healthcare", href: "/services/healthcare-industry" },
   ];
-
-  // Agents page navigation items
-  const agentOpportunityItems = [
-    { label: "Customer Service", pay: "$14-$20/hr", href: "/agents/opportunities/customer-service" },
-    { label: "Inbound Sales", pay: "$14-$20+/hr", href: "/agents/opportunities/inbound-sales" },
-    { label: "Healthcare Support", pay: "$15-$20/hr", href: "/agents/opportunities/healthcare" },
-    { label: "Insurance Sales", pay: "$16-$25+/hr", href: "/agents/opportunities/insurance-sales" },
-    { label: "Bilingual Spanish", pay: "$17-$20+/hr", href: "/agents/opportunities/bilingual-spanish" },
+  const opportunities = [
+    { label: "Customer Service", pay: "$14–20/hr", href: "/agents/opportunities/customer-service" },
+    { label: "Inbound Sales", pay: "$14–20+/hr", href: "/agents/opportunities/inbound-sales" },
+    { label: "Healthcare Support", pay: "$15–20/hr", href: "/agents/opportunities/healthcare" },
+    { label: "Insurance Sales", pay: "$16–25+/hr", href: "/agents/opportunities/insurance-sales" },
+    { label: "Bilingual Spanish", pay: "$17–20+/hr", href: "/agents/opportunities/bilingual-spanish" },
   ];
 
-  // Colors based on page context
-  const navBg = isAgentsPage
-    ? "bg-[#F5F0EB]/90 border-[#E0D8CF]"
-    : "bg-[#0B0F1A]/90 border-white/10";
-
-  const dropdownBg = isAgentsPage ? "bg-[#F5F0EB]" : "bg-[#141829]";
-  const dropdownBorder = isAgentsPage ? "border-[#E0D8CF]" : "border-white/10";
-  const hoverBg = isAgentsPage ? "hover:bg-[#EAE3DB]" : "hover:bg-[#1A1E30]";
-  const navText = isAgentsPage ? "text-[#5C5550]" : "text-[#8B92A5]";
-  const navTextHover = isAgentsPage ? "hover:text-[#1A1714]" : "hover:text-white";
-  const navTextActive = isAgentsPage ? "text-[#1A1714]" : "text-white";
-
   return (
-    <header className="relative z-50 px-4 pt-4">
-      <nav
-        className={`max-w-7xl mx-auto px-6 py-2.5 rounded-full border backdrop-blur-xl ${navBg} ${isAgentsPage ? "shadow-lg shadow-black/5" : "shadow-lg shadow-black/20"}`}
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div
+        className={`mx-auto max-w-[1400px] px-5 lg:px-8 transition-colors duration-200 ${
+          scrolled
+            ? "backdrop-blur-md bg-[oklch(0.165_0.012_255/0.78)] border-b border-[var(--line)]"
+            : "border-b border-transparent"
+        }`}
       >
-        <div className="flex items-center justify-between">
-          {/* Left: Logo + Toggle */}
+        <nav className="h-16 flex items-center justify-between gap-6">
+          {/* Left — wordmark + toggle */}
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center shrink-0">
+            <Link href="/" className="flex items-center gap-2 shrink-0">
               <img
                 src="https://ext.same-assets.com/405996721/472180092.webp"
                 alt="CXware"
-                className="h-8 w-auto"
+                className="h-7 w-auto"
               />
             </Link>
 
-            {/* For Business / For Agents Toggle Pills */}
-            <div className={`hidden md:flex items-center rounded-full p-0.5 border ${isAgentsPage ? "border-[#D6CFC6] bg-[#EAE3DB]" : "border-white/10 bg-white/5"}`}>
+            <div className="hidden md:flex items-center gap-px text-[12px] mono">
               <Link
                 href="/"
-                className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all ${
+                className={`px-2.5 py-1 rounded-[var(--r-sm)] transition-colors ${
                   !isAgentsPage
-                    ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md shadow-[#2047FF]/25"
-                    : isAgentsPage ? "text-[#5C5550] hover:text-[#1A1714]" : "text-[#8B92A5] hover:text-white"
+                    ? "bg-[var(--bg-elev-2)] text-[var(--fg)]"
+                    : "text-[var(--fg-dim)] hover:text-[var(--fg)]"
                 }`}
               >
-                For Business
+                Business
               </Link>
               <Link
                 href="/agents"
-                className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all ${
+                className={`px-2.5 py-1 rounded-[var(--r-sm)] transition-colors ${
                   isAgentsPage
-                    ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white shadow-md shadow-[#2047FF]/25"
-                    : "text-[#8B92A5] hover:text-white"
+                    ? "bg-[var(--bg-elev-2)] text-[var(--fg)]"
+                    : "text-[var(--fg-dim)] hover:text-[var(--fg)]"
                 }`}
               >
-                For Agents
+                Agents
               </Link>
             </div>
           </div>
 
-          {/* Center/Right: Navigation Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Center — nav links */}
+          <div className="hidden lg:flex items-center gap-1 text-[13.5px]">
             {!isAgentsPage ? (
               <>
-                <Link
-                  href="#how-it-works"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
-                >
-                  How It Works
+                <Link href="#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+                  Platform
                 </Link>
 
-                {/* Services Dropdown */}
                 <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("services")}
@@ -131,93 +116,67 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    onClick={() => handleToggleDropdown("services")}
-                    className={`flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium transition-colors ${
-                      isServicePage ? "text-white" : "text-[#8B92A5] hover:text-white"
+                    className={`flex items-center gap-1 px-3 py-1.5 transition-colors ${
+                      isServicePage ? "text-[var(--fg)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
                     }`}
                   >
                     Services
-                    <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "services" ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <svg className={`w-3 h-3 transition-transform ${activeDropdown === "services" ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M6 9l6 6 6-6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
 
                   {activeDropdown === "services" && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[520px] ${dropdownBg} rounded-2xl border ${dropdownBorder} shadow-2xl shadow-black/40 p-6 grid grid-cols-2 gap-8`}>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[560px] panel p-5 grid grid-cols-2 gap-6 shadow-2xl shadow-black/40">
                       <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#C873E5] mb-3">
-                          By Solution
-                        </h4>
-                        <div className="space-y-0.5">
-                          {businessSolutionItems.map((item) => (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[#8B92A5] hover:text-white ${hoverBg} transition-all`}
-                            >
-                              <span className="text-sm font-medium">{item.label}</span>
-                            </Link>
+                        <div className="label mb-3">By solution</div>
+                        <ul className="space-y-px">
+                          {solutions.map((item) => (
+                            <li key={item.label}>
+                              <Link
+                                href={item.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-[var(--r-sm)] transition-colors"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                       <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#C873E5] mb-3">
-                          By Industry
-                        </h4>
-                        <div className="space-y-0.5">
-                          {businessIndustryItems.map((item) => (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[#8B92A5] hover:text-white ${hoverBg} transition-all`}
-                            >
-                              <span className="text-sm font-medium">{item.label}</span>
-                            </Link>
+                        <div className="label mb-3">By industry</div>
+                        <ul className="space-y-px">
+                          {industries.map((item) => (
+                            <li key={item.label}>
+                              <Link
+                                href={item.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-[var(--r-sm)] transition-colors"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </div>
                     </div>
                   )}
                 </div>
 
-                <Link
-                  href="#faq"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
-                >
-                  FAQs
+                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+                  FAQ
                 </Link>
-
-                <Link
-                  href="#contact"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
-                >
-                  About
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="px-3.5 py-1.5 text-[13px] font-medium text-[#8B92A5] hover:text-white transition-colors"
-                >
+                <Link href="/contact" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
                   Contact
                 </Link>
               </>
             ) : (
               <>
-                <Link
-                  href="#how-to-start"
-                  className={`px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
-                >
-                  How It Works
+                <Link href="#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+                  How it works
                 </Link>
 
-                {/* Opportunities Dropdown */}
                 <div
                   className="relative"
                   onMouseEnter={() => handleMouseEnter("opportunities")}
@@ -225,193 +184,147 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    onClick={() => handleToggleDropdown("opportunities")}
-                    className={`flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
+                    className="flex items-center gap-1 px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
                   >
                     Opportunities
-                    <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "opportunities" ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <svg className={`w-3 h-3 transition-transform ${activeDropdown === "opportunities" ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M6 9l6 6 6-6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
 
                   {activeDropdown === "opportunities" && (
-                    <div className={`absolute top-full left-0 mt-4 w-[340px] ${dropdownBg} rounded-2xl border ${dropdownBorder} shadow-2xl shadow-black/40 p-5`}>
-                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#C873E5] mb-3">
-                        Remote Opportunities
-                      </h4>
-                      <div className="space-y-1">
-                        {agentOpportunityItems.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            onClick={() => setActiveDropdown(null)}
-                            className={`flex items-center justify-between px-3 py-2.5 rounded-lg ${navText} ${navTextHover} ${hoverBg} transition-all`}
-                          >
-                            <span className="text-sm font-medium">{item.label}</span>
-                            <span className="text-xs font-semibold text-[#C873E5]">{item.pay}</span>
-                          </Link>
+                    <div className="absolute top-full left-0 mt-3 w-[360px] panel p-3 shadow-2xl shadow-black/40">
+                      <div className="label px-2.5 mb-2">Remote roles</div>
+                      <ul className="space-y-px">
+                        {opportunities.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className="flex items-center justify-between gap-3 px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-[var(--r-sm)] transition-colors"
+                            >
+                              <span>{item.label}</span>
+                              <span className="mono text-[12px] text-[var(--accent)]">{item.pay}</span>
+                            </Link>
+                          </li>
                         ))}
-                      </div>
-                      <div className={`mt-3 pt-3 border-t ${isAgentsPage ? "border-[#D6CFC6]" : "border-white/10"}`}>
+                      </ul>
+                      <div className="hairline-row mt-2 pt-2">
                         <Link
                           href="/agents/opportunities"
                           onClick={() => setActiveDropdown(null)}
-                          className={`flex items-center justify-center gap-2 text-sm font-medium text-[#C873E5] ${navTextHover} transition-colors`}
+                          className="block px-2.5 py-1.5 text-[13px] text-[var(--accent)] hover:underline underline-offset-4"
                         >
-                          View All Opportunities
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
+                          View all roles →
                         </Link>
                       </div>
                     </div>
                   )}
                 </div>
 
-                <Link
-                  href="#faq"
-                  className={`px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
-                >
-                  FAQs
+                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+                  FAQ
                 </Link>
-
-                <Link
-                  href="#requirements"
-                  className={`px-3.5 py-1.5 text-[13px] font-medium ${navText} ${navTextHover} transition-colors`}
-                >
+                <Link href="#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
                   Requirements
                 </Link>
               </>
             )}
           </div>
 
-          {/* Right: CTA */}
-          <div className="hidden md:flex items-center">
+          {/* Right — single CTA per page register */}
+          <div className="hidden md:flex items-center gap-3">
             {!isAgentsPage ? (
-              <Link
-                href="/contact"
-                className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
-              >
-                {"Let's Talk"}
+              <Link href="/contact" className="btn btn-accent">
+                Talk to us
               </Link>
             ) : (
-              <Link
-                href="#apply"
-                className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
-              >
-                Apply Now
+              <Link href="#apply" className="btn btn-accent">
+                Apply now
               </Link>
             )}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu button */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 ${isAgentsPage ? "text-[#1A1714]" : "text-white"}`}
+            className="lg:hidden p-2 text-[var(--fg)]"
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M6 18L18 6M6 6l12 12" strokeWidth={1.75} strokeLinecap="round" />
               </svg>
             ) : (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M4 7h16M4 12h16M4 17h16" strokeWidth={1.75} strokeLinecap="round" />
               </svg>
             )}
           </button>
-        </div>
+        </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {isOpen && (
-          <div className={`lg:hidden mt-3 pb-3 border-t pt-3 ${isAgentsPage ? "border-[#D6CFC6]" : "border-white/10"}`}>
-            {/* Mobile Toggle */}
-            <div className={`flex items-center rounded-full p-0.5 mb-4 border ${isAgentsPage ? "border-[#D6CFC6] bg-[#EAE3DB]" : "border-white/10 bg-white/5"}`}>
+          <div className="lg:hidden pb-5 border-t border-[var(--line)] pt-4">
+            <div className="flex items-center gap-px mono text-[12px] mb-4 w-fit">
               <Link
                 href="/"
-                className={`flex-1 px-4 py-2 text-xs font-semibold rounded-full text-center transition-all ${
-                  !isAgentsPage
-                    ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : isAgentsPage ? "text-[#5C5550]" : "text-[#8B92A5]"
+                onClick={() => setIsOpen(false)}
+                className={`px-3 py-1.5 rounded-[var(--r-sm)] ${
+                  !isAgentsPage ? "bg-[var(--bg-elev-2)] text-[var(--fg)]" : "text-[var(--fg-dim)]"
                 }`}
               >
-                For Business
+                Business
               </Link>
               <Link
                 href="/agents"
-                className={`flex-1 px-4 py-2 text-xs font-semibold rounded-full text-center transition-all ${
-                  isAgentsPage
-                    ? "bg-gradient-to-r from-[#2047FF] to-[#C873E5] text-white"
-                    : "text-[#8B92A5]"
+                onClick={() => setIsOpen(false)}
+                className={`px-3 py-1.5 rounded-[var(--r-sm)] ${
+                  isAgentsPage ? "bg-[var(--bg-elev-2)] text-[var(--fg)]" : "text-[var(--fg-dim)]"
                 }`}
               >
-                For Agents
+                Agents
               </Link>
             </div>
 
-            <div className="flex flex-col gap-1">
-              {!isAgentsPage ? (
-                <>
-                  <Link href="#how-it-works" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-white ${hoverBg} rounded-lg transition-colors`}>
-                    How It Works
+            <ul className="flex flex-col">
+              {(!isAgentsPage
+                ? [
+                    { label: "Platform", href: "#how-it-works" },
+                    { label: "Services", href: "/services/call-center-outsourcing" },
+                    { label: "FAQ", href: "#faq" },
+                    { label: "Contact", href: "/contact" },
+                  ]
+                : [
+                    { label: "How it works", href: "#how-to-start" },
+                    { label: "Opportunities", href: "/agents/opportunities" },
+                    { label: "FAQ", href: "#faq" },
+                    { label: "Requirements", href: "#requirements" },
+                  ]
+              ).map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-1 py-3 text-[15px] text-[var(--fg-muted)] hover:text-[var(--fg)] border-b border-[var(--line)] transition-colors"
+                  >
+                    {item.label}
                   </Link>
-                  <Link href="/services/call-center-outsourcing" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-white ${hoverBg} rounded-lg transition-colors`}>
-                    Services
-                  </Link>
-                  <Link href="#faq" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-[#8B92A5] ${hoverBg} rounded-lg transition-colors`}>
-                    FAQs
-                  </Link>
-                  <Link href="#contact" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-[#8B92A5] ${hoverBg} rounded-lg transition-colors`}>
-                    About
-                  </Link>
-                  <Link href="/contact" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm text-[#8B92A5] ${hoverBg} rounded-lg transition-colors`}>
-                    Contact
-                  </Link>
-                  <div className="mt-3 px-2">
-                    <Link
-                      href="/contact"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
-                    >
-                      {"Let's Talk"}
-                    </Link>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <Link href="#how-to-start" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navTextActive} ${hoverBg} rounded-lg transition-colors`}>
-                    How It Works
-                  </Link>
-                  <Link href="/agents/opportunities" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navTextActive} ${hoverBg} rounded-lg transition-colors`}>
-                    Opportunities
-                  </Link>
-                  <Link href="#faq" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navText} ${hoverBg} rounded-lg transition-colors`}>
-                    FAQs
-                  </Link>
-                  <Link href="#requirements" onClick={() => setIsOpen(false)} className={`px-4 py-2.5 text-sm ${navText} ${hoverBg} rounded-lg transition-colors`}>
-                    Requirements
-                  </Link>
-                  <div className="mt-3 px-2">
-                    <Link
-                      href="#apply"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white rounded-full bg-gradient-to-r from-[#2047FF] to-[#C873E5] hover:shadow-lg hover:shadow-[#2047FF]/30 transition-all"
-                    >
-                      Apply Now
-                    </Link>
-                  </div>
-                </>
-              )}
-            </div>
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href={isAgentsPage ? "#apply" : "/contact"}
+              onClick={() => setIsOpen(false)}
+              className="btn btn-accent btn-lg w-full justify-center mt-5"
+            >
+              {isAgentsPage ? "Apply now" : "Talk to us"}
+            </Link>
           </div>
         )}
-      </nav>
+      </div>
     </header>
   );
 }

@@ -1,14 +1,30 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClientBody } from "./ClientBody";
 
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "CXware Agent Solutions - Smart Support Starts Here",
-  description: "At CXware, we combine human expertise with strong values to deliver support that goes beyond the script. Cut costs by up to 45% with our expert outsourcing solutions.",
-  keywords: "customer support, outsourcing, BPO, contact center, remote agents, US-based agents, 1099 contractors",
+  title: "CXware — Workforce Operations for Modern Contact Centers",
+  description:
+    "CXware synchronizes evolving AI agents and human teams into one automated, scalable workforce. Cut contact center cost by up to 45% without losing CSAT.",
+  keywords:
+    "customer support, outsourcing, BPO, contact center, workforce operations, AI agents, 1099 agents",
   openGraph: {
-    title: "CXware Agent Solutions",
-    description: "Smart Support Starts with CXware. Cut operational costs by up to 45% with expert customer service outsourcing.",
+    title: "CXware — Workforce Operations for Modern Contact Centers",
+    description:
+      "Synchronize AI and human agents into one automated, scalable workforce.",
     type: "website",
   },
 };
@@ -19,7 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} dark`}
+    >
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>

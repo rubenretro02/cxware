@@ -1,47 +1,38 @@
 export default function Stats() {
   const stats = [
-    { value: "1,000+", label: "Trusted Partners" },
-    { value: "99.8%", label: "Customer Satisfaction" },
-    { value: "500K", label: "Handled Interactions" },
-    { value: "45%", label: "Cost Savings" },
+    { value: "1,247", unit: "", label: "Vetted agents online" },
+    { value: "99.8", unit: "%", label: "Customer satisfaction" },
+    { value: "500K", unit: "", label: "Interactions handled" },
+    { value: "−45", unit: "%", label: "Cost vs. legacy BPO" },
   ];
 
   return (
-    <section className="py-20 gradient-bg relative overflow-hidden">
-      {/* Decorative circles */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-white/10" />
-        <div className="absolute bottom-10 right-20 w-32 h-32 rounded-full bg-white/10" />
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 rounded-full bg-white/10" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-              Award-Winning
-              <br />
-              Workforce Innovation
-            </h2>
-          </div>
-          <div>
-            <p className="text-lg text-white/90">
-              Our partners slash costs by 35%+, sustain 98%+ quality scores, and crush SLAs—even during seasonal peaks.
-            </p>
-          </div>
+    <section className="py-24 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+        <div className="grid grid-cols-12 gap-x-8 mb-12">
+          <p className="col-span-12 lg:col-span-7 text-[17px] text-[var(--fg-muted)] leading-[1.55] max-w-[55ch]">
+            Partners cut cost 35%+, sustain 98%+ quality scores, and clear SLAs through seasonal peaks. The numbers don't depend on heroics.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {stats.map((stat) => (
+        <dl className="grid grid-cols-2 lg:grid-cols-4 border-t border-[var(--line)]">
+          {stats.map((s, i) => (
             <div
-              key={stat.label}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20"
+              key={s.label}
+              className={`py-8 lg:py-12 px-5 lg:px-8 border-b border-[var(--line)] ${
+                i !== 0 ? "lg:border-l border-l border-[var(--line)]" : ""
+              } ${i % 2 !== 0 ? "border-l border-[var(--line)] lg:border-l" : ""}`}
             >
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</div>
-              <p className="text-white/80 text-sm uppercase tracking-wider">{stat.label}</p>
+              <dt className="mono text-[11.5px] uppercase tracking-[0.16em] text-[var(--fg-dim)] mb-4">
+                {s.label}
+              </dt>
+              <dd className="mono text-[clamp(2.2rem,4.2vw,3.2rem)] tabular-nums leading-none tracking-[-0.02em]">
+                {s.value}
+                <span className="text-[var(--fg-dim)] text-[0.55em] ml-1">{s.unit}</span>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

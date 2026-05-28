@@ -1,79 +1,70 @@
 export default function ProblemSection() {
+  const problems = [
+    {
+      tag: "Overstaffed",
+      headline: "Idle agents quietly burn margin.",
+      body: "Payroll keeps running. Coverage doesn't change. The cost lands at month-end.",
+    },
+    {
+      tag: "Understaffed",
+      headline: "Hold times push CSAT off a cliff.",
+      body: "Queues stretch, customers walk, churn shows up two quarters later.",
+    },
+    {
+      tag: "Temp agencies",
+      headline: "Generic temps never close the gap.",
+      body: "Light skills, weak engagement, and a compliance posture you can't underwrite.",
+    },
+  ];
+
   return (
-    <section className="py-24" style={{ background: 'var(--bg-muted)' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Problem Statement */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="text-[#FFFFFF]">Traditional Workforce</span>
-                <br />
-                <span className="text-[#FFFFFF]">Ops is </span>
-                <span className="gradient-text">Broken</span>
-              </h2>
-              <p className="text-lg text-[#8B92A5]">
-                Fluctuating call volumes force you to choose between expensive idle time or angry customers stuck on hold.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="border-b border-white/10 pb-6">
-                <span className="section-label mb-2 block">Problem</span>
-                <h3 className="text-xl font-semibold text-[#FFFFFF] mb-2">
-                  Overstaffed? You're Burning Budget
-                </h3>
-                <p className="text-[#8B92A5]">Idle agents drain payroll and erode margins.</p>
-              </div>
-
-              <div className="border-b border-white/10 pb-6">
-                <span className="section-label mb-2 block">Problem</span>
-                <h3 className="text-xl font-semibold text-[#FFFFFF] mb-2">
-                  Understaffed? Customers Walk Away
-                </h3>
-                <p className="text-[#8B92A5]">Hold times skyrocket, CSAT plummets, churn rises.</p>
-              </div>
-
-              <div className="pb-6">
-                <span className="section-label mb-2 block">Problem</span>
-                <h3 className="text-xl font-semibold text-[#FFFFFF] mb-2">
-                  Temp Agencies Can't Close the Gap
-                </h3>
-                <p className="text-[#8B92A5]">Generic temps lack the skill, engagement, and compliance modern CX demands.</p>
-              </div>
-            </div>
+    <section className="py-28 lg:py-36 border-t border-[var(--line)]">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-10">
+          <div className="col-span-12 lg:col-span-5">
+            <h2 className="text-[clamp(2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
+              Traditional workforce
+              <br />
+              ops is broken.
+            </h2>
           </div>
-
-          {/* Right - Solution Preview */}
-          <div className="relative">
-            <div className="card-light p-8 space-y-6">
-              <h3 className="text-2xl font-bold text-[#FFFFFF]">
-                <span className="gradient-text">Perfectly Staff</span> Your Contact Center, Automatically
-              </h3>
-              <p className="text-[#8B92A5]">
-                A single platform that synchronizes your evolving AI agents and internal team with an automated, scalable human workforce that saves time and money.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-[#0B0F1A] rounded-xl p-4 border border-white/10">
-                  <div className="stat-number text-2xl">45%</div>
-                  <p className="text-sm text-[#8B92A5]">Cost Reduction</p>
-                </div>
-                <div className="bg-[#0B0F1A] rounded-xl p-4 border border-white/10">
-                  <div className="stat-number text-2xl">99.8%</div>
-                  <p className="text-sm text-[#8B92A5]">CSAT Score</p>
-                </div>
-                <div className="bg-[#0B0F1A] rounded-xl p-4 border border-white/10">
-                  <div className="stat-number text-2xl">24/7</div>
-                  <p className="text-sm text-[#8B92A5]">Coverage</p>
-                </div>
-                <div className="bg-[#0B0F1A] rounded-xl p-4 border border-white/10">
-                  <div className="stat-number text-2xl">3+</div>
-                  <p className="text-sm text-[#8B92A5]">Years Experience</p>
-                </div>
-              </div>
-            </div>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7 self-end">
+            <p className="text-[17px] text-[var(--fg-muted)] max-w-[55ch] leading-[1.55]">
+              Volume swings every hour. Static staffing forces a trade between idle payroll
+              and angry queues. Both quietly tax the business.
+            </p>
           </div>
         </div>
+
+        <ol className="mt-20 lg:mt-28">
+          {problems.map((p, i) => (
+            <li
+              key={p.tag}
+              className="grid grid-cols-12 gap-x-8 py-10 lg:py-12 border-t border-[var(--line)] last:border-b"
+            >
+              <div className="col-span-2 lg:col-span-1">
+                <span className="mono text-[12px] text-[var(--fg-faint)] tabular-nums">
+                  0{i + 1}
+                </span>
+              </div>
+              <div className="col-span-10 lg:col-span-3">
+                <span className="mono text-[11.5px] uppercase tracking-[0.16em] text-[var(--fg-dim)]">
+                  {p.tag}
+                </span>
+              </div>
+              <div className="col-span-12 lg:col-span-5 mt-3 lg:mt-0">
+                <h3 className="text-[22px] lg:text-[26px] font-medium leading-[1.15] tracking-[-0.015em] text-balance">
+                  {p.headline}
+                </h3>
+              </div>
+              <div className="col-span-12 lg:col-span-3 mt-3 lg:mt-0">
+                <p className="text-[15px] text-[var(--fg-muted)] leading-[1.55] text-pretty">
+                  {p.body}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

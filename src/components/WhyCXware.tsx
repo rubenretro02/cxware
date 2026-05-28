@@ -1,60 +1,65 @@
 import Link from "next/link";
 
 export default function WhyCXware() {
-  const benefits = [
+  const rows = [
     {
-      label: "Benefit",
-      title: "Incredibly cost-effective workforce ops",
-      description: "Provide your customers with exceptional service without premium BPO markups.",
+      title: "Cost without premium markup",
+      body: "Pay productive hours, not roster overhead. Exceptional service, sane unit economics.",
     },
     {
-      label: "Benefit",
-      title: "Scale on-demand",
-      description: "Flex 3-5x agents right when your customers need them most, and back down when they don't.",
+      title: "Scale 3-5× on demand",
+      body: "Flex coverage right when volume spikes, scale back without the bench.",
     },
     {
-      label: "Benefit",
-      title: "Pay only for productive time",
-      description: "Never pay for shrinkage again. That means zero spend on idle time and attrition.",
+      title: "Zero spend on shrinkage",
+      body: "Productive time only. Idle and attrition stay off your P&L.",
     },
     {
-      label: "Benefit",
-      title: "Built-in compliance",
-      description: "PCI-DSS, HIPAA, SOC II, HITRUST, GDPR—all baked in with certified agents.",
+      title: "Compliance built in",
+      body: "PCI-DSS, HIPAA, SOC II, HITRUST, GDPR. Agents are certified before they go live.",
     },
   ];
 
   return (
-    <section className="py-24" style={{ background: 'var(--bg-light)' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="lg:sticky lg:top-32">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-[#FFFFFF]">Why </span>
-              <span className="gradient-text">CXware</span>
+    <section className="py-28 lg:py-36 bg-[var(--bg-elev-1)] border-y border-[var(--line)]">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-12">
+          <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-32 lg:self-start space-y-6">
+            <h2 className="text-[clamp(2rem,4.4vw,3.4rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
+              Precision of technology. Reliability of people.
             </h2>
-            <p className="text-lg text-[#8B92A5] mb-8">
-              CXware delivers the precision of technology and the reliability of people—outperforming legacy BPOs (people without tech) and WFM solutions (tech without people).
+            <p className="text-[16.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[42ch]">
+              Legacy BPOs are people without tech. WFM tools are tech without people. CXware ships both as a single product.
             </p>
-            <Link href="#contact" className="btn-primary">
-              Learn More
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <Link href="/contact" className="btn btn-ghost">
+              See it on your data
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M13 6l6 6-6 6" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="card-light p-6 space-y-3 hover:shadow-xl transition-all"
-              >
-                <span className="section-label">{benefit.label}</span>
-                <h3 className="text-lg font-semibold text-[#FFFFFF]">{benefit.title}</h3>
-                <p className="text-sm text-[#8B92A5]">{benefit.description}</p>
-              </div>
-            ))}
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+            <ul className="border-t border-[var(--line)]">
+              {rows.map((row, i) => (
+                <li
+                  key={row.title}
+                  className="py-7 lg:py-8 border-b border-[var(--line)] grid grid-cols-12 gap-x-6 items-baseline"
+                >
+                  <span className="col-span-2 mono text-[12px] tabular-nums text-[var(--fg-faint)]">
+                    0{i + 1}
+                  </span>
+                  <div className="col-span-10">
+                    <h3 className="text-[18px] lg:text-[20px] font-medium tracking-[-0.01em] mb-2">
+                      {row.title}
+                    </h3>
+                    <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.55] text-pretty max-w-[52ch]">
+                      {row.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

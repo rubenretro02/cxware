@@ -1,63 +1,68 @@
 export default function HowItWorks() {
   const steps = [
     {
-      number: "01",
-      title: "Discovery & Data Audit",
-      description: "We review your current service levels, call volumes, and seasonal spikes to identify optimal staffing needs.",
+      title: "Discovery & data audit",
+      body: "We review your service levels, call volumes, and seasonal spikes to pin the real staffing curve.",
+      meta: "Week 1",
     },
     {
-      number: "02",
-      title: "Workforce Forecast & Optimization",
-      description: "Define ideal agent profiles and upload forecasts. Our platform matches you with pre-vetted, certified professionals.",
+      title: "Forecast & match",
+      body: "You define ideal agent profiles. The platform matches pre-vetted certified professionals against your forecast.",
+      meta: "Week 1–2",
     },
     {
-      number: "03",
-      title: "Rapid Certification",
-      description: "Agents complete brand-specific training with average completion time of 2 days. Quality verified before going live.",
+      title: "Brand certification",
+      body: "Agents complete your brand-specific training. Average time to certification: 2 days. Quality verified before going live.",
+      meta: "Week 2",
     },
     {
-      number: "04",
-      title: "Launch & Monitor",
-      description: "Go live with real-time dashboards, AI-powered analytics, and automated quality monitoring.",
+      title: "Launch & monitor",
+      body: "Live in dashboards day one. AI-assisted analytics and automated QA from the first interaction.",
+      meta: "Week 3",
     },
   ];
 
   return (
-    <section id="how-it-works" className="py-24" style={{ background: 'var(--bg-white)' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-[#FFFFFF]">How to </span>
-            <span className="gradient-text">Get Started</span>
-          </h2>
-          <p className="text-lg text-[#8B92A5]">
-            Here's a look at what you can expect.
-          </p>
+    <section id="how-it-works" className="py-28 lg:py-36 bg-[var(--bg-elev-1)] border-y border-[var(--line)]">
+      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+        <div className="grid grid-cols-12 gap-x-8 gap-y-6 mb-16 lg:mb-24">
+          <div className="col-span-12 lg:col-span-7">
+            <h2 className="text-[clamp(2rem,4.4vw,3.4rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
+              From discovery to live coverage in under three weeks.
+            </h2>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className="relative group"
-            >
-              {/* Card with gradient background on hover */}
-              <div className="card-light p-6 h-full transition-all group-hover:shadow-xl">
-                {/* Big Number */}
-                <div className="big-number text-6xl mb-6">{step.number}</div>
-
-                {/* Step Label */}
-                <span className="section-label mb-2 block">Step {index + 1}</span>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-[#FFFFFF] mb-3">{step.title}</h3>
-
-                {/* Description */}
-                <p className="text-[#8B92A5] text-sm leading-relaxed">{step.description}</p>
+        <ol className="relative">
+          {/* vertical rail */}
+          <div className="hidden lg:block absolute left-[7.5%] top-2 bottom-2 w-px bg-[var(--line)]" />
+          {steps.map((step, i) => (
+            <li key={step.title} className="grid grid-cols-12 gap-x-8 py-8 lg:py-12 relative">
+              <div className="col-span-12 lg:col-span-2 flex lg:block items-baseline gap-3">
+                <span className="mono text-[12px] text-[var(--fg-faint)] tabular-nums uppercase tracking-[0.14em]">
+                  Step 0{i + 1}
+                </span>
+                <span className="mono text-[12px] text-[var(--accent)] lg:block lg:mt-2">{step.meta}</span>
               </div>
-            </div>
+
+              {/* node on rail */}
+              <div className="hidden lg:flex col-span-1 justify-center">
+                <span className="mt-[10px] w-2 h-2 rounded-full bg-[var(--accent)] ring-4 ring-[var(--bg-elev-1)]" />
+              </div>
+
+              <div className="col-span-12 lg:col-span-5 mt-3 lg:mt-0">
+                <h3 className="text-[24px] lg:text-[28px] font-medium leading-[1.15] tracking-[-0.015em]">
+                  {step.title}
+                </h3>
+              </div>
+              <div className="col-span-12 lg:col-span-4 mt-3 lg:mt-0">
+                <p className="text-[15.5px] text-[var(--fg-muted)] leading-[1.55] text-pretty">
+                  {step.body}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
