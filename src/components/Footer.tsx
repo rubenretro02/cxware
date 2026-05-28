@@ -9,11 +9,11 @@ export default function Footer() {
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14">
           {/* Brand + newsletter */}
           <div className="col-span-12 lg:col-span-5 space-y-6">
-            <Link href="/" className="inline-flex items-center">
+            <Link href="/" className="inline-flex items-center group">
               <img
                 src="https://ext.same-assets.com/405996721/472180092.webp"
                 alt="CXware"
-                className="h-8 w-auto"
+                className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
             <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[42ch]">
@@ -24,9 +24,9 @@ export default function Footer() {
                 type="email"
                 required
                 placeholder="you@company.com"
-                className="flex-1 bg-[var(--bg)] border border-[var(--line-strong)] rounded-[var(--r-md)] px-4 py-2.5 text-[14px] text-[var(--fg)] placeholder:text-[var(--fg-faint)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                className="flex-1 bg-[var(--bg)] border border-[var(--line-strong)] rounded-[var(--r-md)] px-4 py-2.5 text-[14px] text-[var(--fg)] placeholder:text-[var(--fg-faint)] focus:outline-none focus:border-[var(--brand-purple)] transition-colors duration-200"
               />
-              <button type="submit" className="btn btn-accent">
+              <button type="submit" className="btn btn-brand">
                 Subscribe
               </button>
             </form>
@@ -69,10 +69,10 @@ export default function Footer() {
             © 2025 CXware Agent Solutions — All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-[13px]">
-            <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+            <Link href="#" className="text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
               Privacy
             </Link>
-            <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+            <Link href="#" className="text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
               Terms
             </Link>
           </div>
@@ -108,7 +108,7 @@ function FooterCol({
           <li key={it.label}>
             <Link
               href={it.href}
-              className="text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
+              className="text-[13.5px] text-[var(--fg-muted)] hover:text-white transition-colors duration-200"
             >
               {it.label}
             </Link>
@@ -132,7 +132,7 @@ function SocialIcon({
     <a
       href={href}
       aria-label={label}
-      className="w-9 h-9 rounded-[var(--r-md)] border border-[var(--line)] flex items-center justify-center text-[var(--fg-muted)] hover:text-[var(--fg)] hover:border-[var(--line-strong)] transition-colors"
+      className="w-9 h-9 rounded-full border border-[var(--line)] flex items-center justify-center text-[var(--fg-muted)] hover:text-white hover:border-[var(--brand-purple)] hover:bg-white/5 transition-all duration-200"
     >
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
         {children}

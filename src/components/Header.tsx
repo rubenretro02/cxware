@@ -14,7 +14,7 @@ export default function Header() {
   const isServicePage = pathname.startsWith("/services");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -57,56 +57,71 @@ export default function Header() {
     { label: "Bilingual Spanish", pay: "$17–20+/hr", href: "/agents/opportunities/bilingual-spanish" },
   ];
 
+  const cta = isAgentsPage
+    ? { label: "Apply Now", href: "#apply" }
+    : { label: "Let's Talk", href: "/contact" };
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div
-        className={`mx-auto max-w-[1400px] px-5 lg:px-8 transition-colors duration-200 ${
+    <header className="fixed top-0 inset-x-0 z-50 px-3 sm:px-5 pt-3 sm:pt-4">
+      <nav
+        className={`mx-auto max-w-[1320px] rounded-full border transition-all duration-300 ease-out ${
           scrolled
-            ? "backdrop-blur-md bg-[oklch(0.165_0.012_255/0.78)] border-b border-[var(--line)]"
-            : "border-b border-transparent"
+            ? "bg-[rgba(15,19,34,0.78)] border-[var(--line-strong)] shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
+            : "bg-[rgba(15,19,34,0.5)] border-[var(--line)] shadow-[0_4px_16px_rgba(0,0,0,0.25)]"
         }`}
+        style={{ backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}
       >
-        <nav className="h-16 flex items-center justify-between gap-6">
-          {/* Left — wordmark + toggle */}
-          <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center justify-between gap-4 px-4 sm:px-5 lg:px-6 py-2.5">
+          {/* Left — wordmark + Business/Agents toggle */}
+          <div className="flex items-center gap-5">
+            <Link href="/" className="flex items-center shrink-0 group">
               <img
                 src="https://ext.same-assets.com/405996721/472180092.webp"
                 alt="CXware"
-                className="h-7 w-auto"
+                className="h-7 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
 
-            <div className="hidden md:flex items-center gap-px text-[12px] mono">
+            <div className="hidden md:flex items-center rounded-full p-[3px] border border-white/10 bg-white/5">
               <Link
                 href="/"
-                className={`px-2.5 py-1 rounded-[var(--r-sm)] transition-colors ${
+                className={`relative px-3.5 py-1.5 text-[11px] font-bold tracking-wide rounded-full transition-all duration-300 ${
                   !isAgentsPage
-                    ? "bg-[var(--bg-elev-2)] text-[var(--fg)]"
-                    : "text-[var(--fg-dim)] hover:text-[var(--fg)]"
+                    ? "text-white shadow-[0_4px_14px_rgba(32,71,255,0.35)]"
+                    : "text-[var(--fg-muted)] hover:text-white"
                 }`}
+                style={
+                  !isAgentsPage
+                    ? { backgroundImage: "var(--grad)", backgroundSize: "200% 100%" }
+                    : undefined
+                }
               >
-                Business
+                FOR BUSINESS
               </Link>
               <Link
                 href="/agents"
-                className={`px-2.5 py-1 rounded-[var(--r-sm)] transition-colors ${
+                className={`relative px-3.5 py-1.5 text-[11px] font-bold tracking-wide rounded-full transition-all duration-300 ${
                   isAgentsPage
-                    ? "bg-[var(--bg-elev-2)] text-[var(--fg)]"
-                    : "text-[var(--fg-dim)] hover:text-[var(--fg)]"
+                    ? "text-white shadow-[0_4px_14px_rgba(32,71,255,0.35)]"
+                    : "text-[var(--fg-muted)] hover:text-white"
                 }`}
+                style={
+                  isAgentsPage
+                    ? { backgroundImage: "var(--grad)", backgroundSize: "200% 100%" }
+                    : undefined
+                }
               >
-                Agents
+                FOR AGENTS
               </Link>
             </div>
           </div>
 
           {/* Center — nav links */}
-          <div className="hidden lg:flex items-center gap-1 text-[13.5px]">
+          <div className="hidden lg:flex items-center gap-0.5 text-[13px]">
             {!isAgentsPage ? (
               <>
-                <Link href="#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
-                  Platform
+                <Link href="#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                  How It Works
                 </Link>
 
                 <div
@@ -116,18 +131,30 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className={`flex items-center gap-1 px-3 py-1.5 transition-colors ${
-                      isServicePage ? "text-[var(--fg)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
+                    className={`flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 ${
+                      isServicePage ? "text-white" : "text-[var(--fg-muted)] hover:text-white"
                     }`}
                   >
                     Services
-                    <svg className={`w-3 h-3 transition-transform ${activeDropdown === "services" ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === "services" ? "rotate-180" : ""}`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
                       <path d="M6 9l6 6 6-6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
 
-                  {activeDropdown === "services" && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[560px] panel p-5 grid grid-cols-2 gap-6 shadow-2xl shadow-black/40">
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[560px] origin-top transition-all duration-300 ${
+                      activeDropdown === "services"
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    <div className="rounded-2xl border border-[var(--line-strong)] bg-[rgba(20,24,41,0.92)] p-5 grid grid-cols-2 gap-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+                         style={{ backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}>
                       <div>
                         <div className="label mb-3">By solution</div>
                         <ul className="space-y-px">
@@ -136,7 +163,7 @@ export default function Header() {
                               <Link
                                 href={item.href}
                                 onClick={() => setActiveDropdown(null)}
-                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-[var(--r-sm)] transition-colors"
+                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
                               >
                                 {item.label}
                               </Link>
@@ -152,7 +179,7 @@ export default function Header() {
                               <Link
                                 href={item.href}
                                 onClick={() => setActiveDropdown(null)}
-                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-[var(--r-sm)] transition-colors"
+                                className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
                               >
                                 {item.label}
                               </Link>
@@ -161,20 +188,20 @@ export default function Header() {
                         </ul>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
-                  FAQ
+                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                  FAQs
                 </Link>
-                <Link href="/contact" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+                <Link href="/contact" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
                   Contact
                 </Link>
               </>
             ) : (
               <>
-                <Link href="#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
-                  How it works
+                <Link href="#how-to-start" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                  How It Works
                 </Link>
 
                 <div
@@ -184,16 +211,28 @@ export default function Header() {
                 >
                   <button
                     type="button"
-                    className="flex items-center gap-1 px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
+                    className="flex items-center gap-1 px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200"
                   >
                     Opportunities
-                    <svg className={`w-3 h-3 transition-transform ${activeDropdown === "opportunities" ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === "opportunities" ? "rotate-180" : ""}`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
                       <path d="M6 9l6 6 6-6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
 
-                  {activeDropdown === "opportunities" && (
-                    <div className="absolute top-full left-0 mt-3 w-[360px] panel p-3 shadow-2xl shadow-black/40">
+                  <div
+                    className={`absolute top-full left-0 mt-3 w-[360px] origin-top transition-all duration-300 ${
+                      activeDropdown === "opportunities"
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    <div className="rounded-2xl border border-[var(--line-strong)] bg-[rgba(20,24,41,0.92)] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+                         style={{ backdropFilter: "blur(22px) saturate(160%)", WebkitBackdropFilter: "blur(22px) saturate(160%)" }}>
                       <div className="label px-2.5 mb-2">Remote roles</div>
                       <ul className="space-y-px">
                         {opportunities.map((item) => (
@@ -201,55 +240,52 @@ export default function Header() {
                             <Link
                               href={item.href}
                               onClick={() => setActiveDropdown(null)}
-                              className="flex items-center justify-between gap-3 px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-[var(--r-sm)] transition-colors"
+                              className="flex items-center justify-between gap-3 px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
                             >
                               <span>{item.label}</span>
-                              <span className="mono text-[12px] text-[var(--accent)]">{item.pay}</span>
+                              <span className="mono text-[12px] gradient-text font-bold">{item.pay}</span>
                             </Link>
                           </li>
                         ))}
                       </ul>
-                      <div className="hairline-row mt-2 pt-2">
+                      <div className="mt-2 pt-2 border-t border-white/8">
                         <Link
                           href="/agents/opportunities"
                           onClick={() => setActiveDropdown(null)}
-                          className="block px-2.5 py-1.5 text-[13px] text-[var(--accent)] hover:underline underline-offset-4"
+                          className="block px-2.5 py-1.5 text-[13px] gradient-text font-semibold hover:underline underline-offset-4"
                         >
                           View all roles →
                         </Link>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
-                  FAQ
+                <Link href="#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
+                  FAQs
                 </Link>
-                <Link href="#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors">
+                <Link href="#requirements" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-white transition-colors duration-200">
                   Requirements
                 </Link>
               </>
             )}
           </div>
 
-          {/* Right — single CTA per page register */}
-          <div className="hidden md:flex items-center gap-3">
-            {!isAgentsPage ? (
-              <Link href="/contact" className="btn btn-accent">
-                Talk to us
-              </Link>
-            ) : (
-              <Link href="#apply" className="btn btn-accent">
-                Apply now
-              </Link>
-            )}
+          {/* Right — single brand CTA */}
+          <div className="hidden md:flex items-center">
+            <Link href={cta.href} className="btn btn-brand">
+              {cta.label}
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M13 6l6 6-6 6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-[var(--fg)]"
+            className="lg:hidden p-2 text-white rounded-full hover:bg-white/5 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? (
@@ -262,44 +298,50 @@ export default function Header() {
               </svg>
             )}
           </button>
-        </nav>
+        </div>
 
         {/* Mobile menu */}
-        {isOpen && (
-          <div className="lg:hidden pb-5 border-t border-[var(--line)] pt-4">
-            <div className="flex items-center gap-px mono text-[12px] mb-4 w-fit">
+        <div
+          className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-400 ease-out ${
+            isOpen ? "max-h-[640px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="px-5 pb-5 pt-3 border-t border-[var(--line)]">
+            <div className="flex items-center rounded-full p-[3px] mb-4 border border-white/10 bg-white/5 w-fit">
               <Link
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className={`px-3 py-1.5 rounded-[var(--r-sm)] ${
-                  !isAgentsPage ? "bg-[var(--bg-elev-2)] text-[var(--fg)]" : "text-[var(--fg-dim)]"
+                className={`px-3.5 py-1.5 text-[11px] font-bold tracking-wide rounded-full transition-all ${
+                  !isAgentsPage ? "text-white" : "text-[var(--fg-muted)]"
                 }`}
+                style={!isAgentsPage ? { backgroundImage: "var(--grad)" } : undefined}
               >
-                Business
+                FOR BUSINESS
               </Link>
               <Link
                 href="/agents"
                 onClick={() => setIsOpen(false)}
-                className={`px-3 py-1.5 rounded-[var(--r-sm)] ${
-                  isAgentsPage ? "bg-[var(--bg-elev-2)] text-[var(--fg)]" : "text-[var(--fg-dim)]"
+                className={`px-3.5 py-1.5 text-[11px] font-bold tracking-wide rounded-full transition-all ${
+                  isAgentsPage ? "text-white" : "text-[var(--fg-muted)]"
                 }`}
+                style={isAgentsPage ? { backgroundImage: "var(--grad)" } : undefined}
               >
-                Agents
+                FOR AGENTS
               </Link>
             </div>
 
             <ul className="flex flex-col">
               {(!isAgentsPage
                 ? [
-                    { label: "Platform", href: "#how-it-works" },
+                    { label: "How It Works", href: "#how-it-works" },
                     { label: "Services", href: "/services/call-center-outsourcing" },
-                    { label: "FAQ", href: "#faq" },
+                    { label: "FAQs", href: "#faq" },
                     { label: "Contact", href: "/contact" },
                   ]
                 : [
-                    { label: "How it works", href: "#how-to-start" },
+                    { label: "How It Works", href: "#how-to-start" },
                     { label: "Opportunities", href: "/agents/opportunities" },
-                    { label: "FAQ", href: "#faq" },
+                    { label: "FAQs", href: "#faq" },
                     { label: "Requirements", href: "#requirements" },
                   ]
               ).map((item) => (
@@ -307,7 +349,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-1 py-3 text-[15px] text-[var(--fg-muted)] hover:text-[var(--fg)] border-b border-[var(--line)] transition-colors"
+                    className="block px-1 py-3 text-[15px] text-[var(--fg-muted)] hover:text-white border-b border-[var(--line)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -316,15 +358,15 @@ export default function Header() {
             </ul>
 
             <Link
-              href={isAgentsPage ? "#apply" : "/contact"}
+              href={cta.href}
               onClick={() => setIsOpen(false)}
-              className="btn btn-accent btn-lg w-full justify-center mt-5"
+              className="btn btn-brand btn-lg w-full justify-center mt-5"
             >
-              {isAgentsPage ? "Apply now" : "Talk to us"}
+              {cta.label}
             </Link>
           </div>
-        )}
-      </div>
+        </div>
+      </nav>
     </header>
   );
 }

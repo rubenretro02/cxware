@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useCallback } from "react";
+import ScrollReveal from "./ScrollReveal";
 
 const testimonials = [
   {
@@ -79,15 +80,20 @@ export default function Testimonials() {
   }, [animate]);
 
   return (
-    <section className="py-28 lg:py-32 bg-[var(--bg-elev-1)] border-y border-[var(--line)]">
-      <div className="mx-auto max-w-[1400px] px-5 lg:px-8 mb-14">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-6">
-          <div className="col-span-12 lg:col-span-7">
-            <h2 className="text-[clamp(1.8rem,3.8vw,3rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
-              Brands that trust CXware to keep their queues moving.
-            </h2>
+    <section className="py-28 lg:py-32 bg-[var(--bg-elev-1)] border-y border-[var(--line)] relative overflow-hidden">
+      <div className="aurora-blob w-[480px] h-[480px] top-[20%] right-[-120px]" style={{ opacity: 0.16 }} />
+
+      <div className="relative mx-auto max-w-[1400px] px-5 lg:px-8 mb-14">
+        <ScrollReveal variant="up">
+          <div className="grid grid-cols-12 gap-x-8 gap-y-4">
+            <div className="col-span-12 lg:col-span-7 space-y-4">
+              <span className="eyebrow-brand"><span>TESTIMONIALS</span></span>
+              <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.04] tracking-[-0.025em] text-balance">
+                Why brands <span className="gradient-text">trust CXware</span> to keep queues moving.
+              </h2>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       <div
@@ -105,19 +111,36 @@ export default function Testimonials() {
           {doubled.map((t, i) => (
             <figure
               key={`${t.name}-${i}`}
-              className="flex-shrink-0 w-[320px] lg:w-[380px] panel p-7 flex flex-col"
+              className="flex-shrink-0 w-[320px] lg:w-[380px] rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--bg)] p-7 flex flex-col hover:border-[var(--line-strong)] hover:-translate-y-1 transition-all duration-500 ease-[var(--ease-cinema)]"
             >
-              <svg className="w-6 h-6 text-[var(--accent)] mb-5 opacity-90" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.1c-2.4.9-4 3.6-4 5.9h4v10h-10zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.1c-2.4.9-4 3.6-4 5.9h4v10h-10z" />
+              <svg className="w-7 h-7 mb-5" viewBox="0 0 24 24">
+                <defs>
+                  <linearGradient id={`quote-grad-${i}`} x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#2047FF" />
+                    <stop offset="100%" stopColor="#C873E5" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.1c-2.4.9-4 3.6-4 5.9h4v10h-10zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.1c-2.4.9-4 3.6-4 5.9h4v10h-10z"
+                  fill={`url(#quote-grad-${i})`}
+                />
               </svg>
-              <blockquote className="text-[15.5px] text-[var(--fg)] leading-[1.55] text-pretty flex-1">
+              <blockquote className="text-[15.5px] text-white leading-[1.55] text-pretty flex-1">
                 {t.quote}
               </blockquote>
-              <figcaption className="mt-6 pt-5 border-t border-[var(--line)] flex items-baseline justify-between gap-4">
-                <span className="text-[14px] text-[var(--fg)] font-medium">{t.name}</span>
-                <span className="mono text-[11px] uppercase tracking-[0.12em] text-[var(--fg-dim)] text-right">
-                  {t.role}
-                </span>
+              <figcaption className="mt-6 pt-5 border-t border-[var(--line)] flex items-center gap-3">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0"
+                  style={{ background: "var(--grad)" }}
+                >
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-[14px] text-white font-semibold">{t.name}</div>
+                  <div className="mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--fg-dim)]">
+                    {t.role}
+                  </div>
+                </div>
               </figcaption>
             </figure>
           ))}

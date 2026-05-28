@@ -3,41 +3,56 @@
 @tailwind utilities;
 
 /* ============================================================
-   Tokens — OKLCH, restrained palette, one accent.
+   Tokens — Brand gradient (blue→purple) restored,
+   layered surfaces, premium motion easing.
+   Inspired by ui-ux-pro-max "Modern Dark Cinema" guidance.
    ============================================================ */
 :root {
-  /* Surface — deep tinted near-black, not pure black */
-  --bg: oklch(0.165 0.012 255);
-  --bg-elev-1: oklch(0.205 0.014 255);
-  --bg-elev-2: oklch(0.245 0.016 255);
-  --bg-inset: oklch(0.135 0.010 255);
+  /* Surfaces — deep tinted near-black, not pure #000 */
+  --bg: oklch(0.165 0.012 265);
+  --bg-elev-1: oklch(0.205 0.014 265);
+  --bg-elev-2: oklch(0.245 0.016 265);
+  --bg-inset: oklch(0.135 0.010 265);
 
   /* Type */
-  --fg: oklch(0.965 0.008 255);
-  --fg-muted: oklch(0.72 0.014 255);
-  --fg-dim: oklch(0.52 0.014 255);
-  --fg-faint: oklch(0.38 0.012 255);
+  --fg: oklch(0.965 0.008 265);
+  --fg-muted: oklch(0.72 0.014 265);
+  --fg-dim: oklch(0.52 0.014 265);
+  --fg-faint: oklch(0.38 0.012 265);
 
   /* Borders / hairlines */
-  --line: oklch(1 0 0 / 0.07);
-  --line-strong: oklch(1 0 0 / 0.13);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
 
-  /* Single accent — electric lime-green. Live/healthy/monitoring vibe. */
-  --accent: oklch(0.86 0.175 142);
-  --accent-press: oklch(0.78 0.175 142);
-  --accent-fg: oklch(0.22 0.05 142);
-  --accent-soft: oklch(0.86 0.175 142 / 0.12);
-  --accent-line: oklch(0.86 0.175 142 / 0.32);
+  /* Brand — gradient blue → purple. Load-bearing. */
+  --brand-blue: #2047FF;
+  --brand-purple: #C873E5;
+  --brand-blue-soft: rgba(32, 71, 255, 0.14);
+  --brand-purple-soft: rgba(200, 115, 229, 0.14);
+  --grad: linear-gradient(90deg, #2047FF, #C873E5);
+  --grad-135: linear-gradient(135deg, #2047FF 0%, #C873E5 100%);
+  --grad-radial: radial-gradient(circle at 30% 30%, rgba(32, 71, 255, 0.35), transparent 60%),
+                 radial-gradient(circle at 70% 70%, rgba(200, 115, 229, 0.30), transparent 60%);
 
-  /* Easing curves — strong, intentional. From easing.dev. */
+  /* Glow / shadow */
+  --shadow-brand: 0 8px 32px rgba(32, 71, 255, 0.35), 0 4px 16px rgba(200, 115, 229, 0.20);
+  --shadow-brand-soft: 0 4px 20px rgba(32, 71, 255, 0.18);
+  --shadow-elev-1: 0 1px 3px rgba(0, 0, 0, 0.20);
+  --shadow-elev-2: 0 4px 16px rgba(0, 0, 0, 0.30);
+  --shadow-elev-3: 0 10px 40px rgba(0, 0, 0, 0.40);
+
+  /* Easing — premium cinema curves */
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Radii */
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 14px;
-  --r-xl: 20px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
 }
 
 @layer base {
@@ -62,57 +77,100 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    letter-spacing: -0.022em;
     color: var(--fg);
     line-height: 1.05;
   }
 
   ::selection {
-    background: var(--accent);
-    color: var(--accent-fg);
+    background: var(--brand-purple);
+    color: white;
   }
 }
 
 @layer components {
   /* ============================================================
-     Buttons — single :active feedback, strong ease-out.
-     Never animate `all`. Never gradient. Never glow.
+     Gradient text — brand moment, selective use
+     ============================================================ */
+  .gradient-text {
+    background: var(--grad);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+  }
+
+  /* Aurora-style backdrop blob — slow oscillation */
+  .aurora-blob {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    background: var(--grad-135);
+    will-change: transform;
+    animation: aurora-float 14s var(--ease-in-out) infinite alternate;
+  }
+  @keyframes aurora-float {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(-30px, 20px) scale(1.08); }
+    100% { transform: translate(20px, -10px) scale(0.96); }
+  }
+
+  /* ============================================================
+     Buttons — gradient brand, glow on hover, tactile press
      ============================================================ */
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1rem;
+    padding: 0.7rem 1.15rem;
     border-radius: var(--r-md);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: -0.005em;
     line-height: 1;
     border: 1px solid transparent;
     cursor: pointer;
     user-select: none;
-    transition: transform 140ms var(--ease-out),
-                background-color 140ms var(--ease-out),
-                border-color 140ms var(--ease-out),
-                color 140ms var(--ease-out);
+    will-change: transform;
+    transition:
+      transform 220ms var(--ease-spring),
+      box-shadow 350ms var(--ease-cinema),
+      border-color 220ms var(--ease-out),
+      color 220ms var(--ease-out),
+      background-color 220ms var(--ease-out);
   }
-  .btn:active {
-    transform: scale(0.97);
-  }
+  .btn:active { transform: scale(0.97); }
 
-  .btn-accent {
-    background: var(--accent);
-    color: var(--accent-fg);
+  .btn-brand {
+    color: #fff;
+    background: var(--grad);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    box-shadow: var(--shadow-brand-soft);
   }
-  .btn-accent:hover { background: var(--accent-press); }
+  .btn-brand:hover {
+    background-position: 100% 50%;
+    box-shadow: var(--shadow-brand);
+    transform: translateY(-1px);
+  }
+  .btn-brand:active { transform: translateY(0) scale(0.97); }
 
   .btn-ghost {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.04);
     color: var(--fg);
     border-color: var(--line-strong);
+    backdrop-filter: blur(8px);
   }
-  .btn-ghost:hover { border-color: var(--fg-muted); }
+  .btn-ghost:hover {
+    border-color: var(--brand-purple);
+    background: rgba(255, 255, 255, 0.06);
+  }
 
   .btn-quiet {
     background: transparent;
@@ -120,10 +178,10 @@
   }
   .btn-quiet:hover { color: var(--fg); }
 
-  .btn-lg { padding: 0.85rem 1.25rem; font-size: 0.95rem; }
+  .btn-lg { padding: 0.95rem 1.4rem; font-size: 0.95rem; }
 
   /* ============================================================
-     Mono text — for stats, codes, tech labels.
+     Mono + label helpers
      ============================================================ */
   .mono {
     font-family: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
@@ -135,18 +193,60 @@
     font-family: var(--font-mono), ui-monospace, monospace;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     color: var(--fg-dim);
     font-weight: 500;
   }
 
+  /* Gradient eyebrow — used sparingly */
+  .eyebrow-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 600;
+  }
+  .eyebrow-brand::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--grad);
+  }
+  .eyebrow-brand > span {
+    background: var(--grad);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
   /* ============================================================
-     Surfaces
+     Surfaces — glassmorphic cards, premium edges
      ============================================================ */
   .panel {
+    position: relative;
     background: var(--bg-elev-1);
     border: 1px solid var(--line);
     border-radius: var(--r-lg);
+    transition:
+      border-color 280ms var(--ease-cinema),
+      transform 280ms var(--ease-cinema),
+      box-shadow 280ms var(--ease-cinema);
+  }
+  .panel-hover:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elev-2);
+  }
+
+  .panel-glass {
+    background: rgba(15, 19, 34, 0.55);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    border: 1px solid var(--line);
   }
 
   .panel-inset {
@@ -155,41 +255,71 @@
     border-radius: var(--r-md);
   }
 
+  /* Subtle gradient border via mask trick */
+  .border-gradient {
+    position: relative;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--grad);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   .hairline-row {
     border-top: 1px solid var(--line);
   }
 
   /* ============================================================
-     Live dot — used in hero status panel, navigation
+     Live status dot (kept from prior pass — works for both)
      ============================================================ */
   .live-dot {
     position: relative;
     width: 6px;
     height: 6px;
     border-radius: 999px;
-    background: var(--accent);
-    box-shadow: 0 0 0 0 var(--accent);
+    background: var(--brand-purple);
+    box-shadow: 0 0 12px var(--brand-purple);
   }
   .live-dot::after {
     content: "";
     position: absolute;
     inset: -4px;
     border-radius: 999px;
-    border: 1px solid var(--accent-line);
+    border: 1px solid rgba(200, 115, 229, 0.45);
     animation: live-pulse 2.4s var(--ease-out) infinite;
   }
   @keyframes live-pulse {
     0%   { transform: scale(0.5); opacity: 0; }
     40%  { opacity: 1; }
-    100% { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(1.7); opacity: 0; }
   }
 
   /* ============================================================
-     Marquee track — for testimonial strip
+     Marquee mask
      ============================================================ */
   .marquee-mask {
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  }
+
+  /* ============================================================
+     Image reveal — clip-path slide in on scroll
+     ============================================================ */
+  .img-reveal {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1100ms var(--ease-cinema);
+  }
+  .img-reveal.is-visible {
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -203,36 +333,82 @@
       linear-gradient(to bottom, var(--line) 1px, transparent 1px);
     background-size: 64px 64px;
   }
+
+  /* Glow utility for gradient borders / focus */
+  .glow-brand {
+    box-shadow: var(--shadow-brand-soft);
+  }
 }
 
 /* ============================================================
-   Entry / scroll-reveal — restrained, single curve.
+   Motion helper classes (used by ScrollReveal client component)
    ============================================================ */
-.reveal {
+.reveal-up {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  transform: translateY(28px);
+  transition:
+    opacity 800ms var(--ease-cinema),
+    transform 800ms var(--ease-cinema);
 }
-.reveal.is-visible {
+.reveal-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 900ms var(--ease-cinema);
+}
+.reveal-fade.is-visible { opacity: 1; }
+
+.reveal-blur {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(20px);
+  transition:
+    opacity 900ms var(--ease-cinema),
+    filter 900ms var(--ease-cinema),
+    transform 900ms var(--ease-cinema);
+}
+.reveal-blur.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 700ms var(--ease-cinema),
+    transform 700ms var(--ease-cinema);
+}
+.stagger.is-visible > *:nth-child(1)  { opacity: 1; transform: translateY(0); transition-delay: 0ms; }
+.stagger.is-visible > *:nth-child(2)  { opacity: 1; transform: translateY(0); transition-delay: 70ms; }
+.stagger.is-visible > *:nth-child(3)  { opacity: 1; transform: translateY(0); transition-delay: 140ms; }
+.stagger.is-visible > *:nth-child(4)  { opacity: 1; transform: translateY(0); transition-delay: 210ms; }
+.stagger.is-visible > *:nth-child(5)  { opacity: 1; transform: translateY(0); transition-delay: 280ms; }
+.stagger.is-visible > *:nth-child(6)  { opacity: 1; transform: translateY(0); transition-delay: 350ms; }
+.stagger.is-visible > *:nth-child(7)  { opacity: 1; transform: translateY(0); transition-delay: 420ms; }
+.stagger.is-visible > *:nth-child(8)  { opacity: 1; transform: translateY(0); transition-delay: 490ms; }
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal.is-visible {
+  .reveal-up, .reveal-fade, .reveal-blur,
+  .reveal-up.is-visible, .reveal-fade.is-visible, .reveal-blur.is-visible,
+  .stagger > *, .stagger.is-visible > * {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
-  .live-dot::after {
+  .live-dot::after, .aurora-blob, .img-reveal {
     animation: none;
+    clip-path: inset(0 0 0 0);
   }
 }
 
 /* ============================================================
-   Legacy token + class bridge — keeps subpages (services,
-   agents, contact) rendering on the new palette without
-   needing a full rewrite. Aliases only, no new patterns.
+   Legacy bridge — keeps subpages rendering with brand palette
    ============================================================ */
 :root {
   --bg-light: var(--bg);
@@ -243,11 +419,11 @@
   --bg-dark: var(--bg-inset);
   --bg-dark-card: var(--bg-elev-2);
 
-  --accent-blue: var(--accent);
-  --accent-purple: var(--accent);
-  --accent-purple-hover: var(--accent-press);
-  --gradient-start: var(--accent);
-  --gradient-end: var(--accent);
+  --accent-blue: var(--brand-blue);
+  --accent-purple: var(--brand-purple);
+  --accent-purple-hover: #9562C7;
+  --gradient-start: var(--brand-blue);
+  --gradient-end: var(--brand-purple);
 
   --text-heading: var(--fg);
   --text-dark: var(--fg);
@@ -259,7 +435,7 @@
   --border-light: var(--line);
   --border-dark: var(--line);
 
-  /* Agent theme — same palette, single accent */
+  /* Agent theme — same dark base */
   --agent-bg-primary: var(--bg-elev-1);
   --agent-bg-secondary: var(--bg-elev-2);
   --agent-bg-card: var(--bg-elev-1);
@@ -271,122 +447,177 @@
   --agent-text-secondary: var(--fg-muted);
   --agent-text-muted: var(--fg-dim);
   --agent-border: var(--line);
-  --agent-card-shadow: oklch(0 0 0 / 0.25);
+  --agent-card-shadow: rgba(0, 0, 0, 0.25);
 }
 
 @layer components {
-  /* solid accent — no more gradient text */
-  .gradient-text {
-    color: var(--accent);
-    -webkit-text-fill-color: var(--accent);
-    background: none;
-  }
   .agent-gradient-text {
-    color: var(--accent);
-    -webkit-text-fill-color: var(--accent);
-    background: none;
+    background: var(--grad);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
-  .gradient-bg {
-    background: var(--bg-elev-1);
+  .gradient-bg, .agent-section-accent {
+    background: var(--grad-135);
   }
   .gradient-bg-subtle {
-    background: var(--bg-elev-1);
+    background: var(--brand-blue-soft);
   }
 
   .btn-primary, .agent-btn-primary {
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 0.85rem 1.25rem;
     border-radius: var(--r-md);
-    font-weight: 500; font-size: 0.875rem; line-height: 1;
-    background: var(--accent); color: var(--accent-fg);
+    font-weight: 600; font-size: 0.875rem; line-height: 1;
+    background: var(--grad); color: #fff;
     border: 1px solid transparent;
-    transition: transform 140ms var(--ease-out), background-color 140ms var(--ease-out);
+    box-shadow: var(--shadow-brand-soft);
+    transition:
+      transform 220ms var(--ease-spring),
+      box-shadow 350ms var(--ease-cinema);
   }
-  .btn-primary:hover, .agent-btn-primary:hover { background: var(--accent-press); transform: none; box-shadow: none; }
+  .btn-primary:hover, .agent-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-brand);
+  }
   .btn-primary:active, .agent-btn-primary:active { transform: scale(0.97); }
 
   .btn-secondary, .agent-btn-secondary {
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 0.85rem 1.25rem;
     border-radius: var(--r-md);
-    font-weight: 500; font-size: 0.875rem; line-height: 1;
-    background: transparent; color: var(--fg);
+    font-weight: 600; font-size: 0.875rem; line-height: 1;
+    background: rgba(255,255,255,0.04); color: var(--fg);
     border: 1px solid var(--line-strong);
-    transition: transform 140ms var(--ease-out), border-color 140ms var(--ease-out);
+    backdrop-filter: blur(8px);
+    transition: border-color 220ms var(--ease-out), background-color 220ms var(--ease-out), transform 220ms var(--ease-spring);
   }
-  .btn-secondary:hover, .agent-btn-secondary:hover { border-color: var(--fg-muted); background: transparent; }
+  .btn-secondary:hover, .agent-btn-secondary:hover {
+    border-color: var(--brand-purple);
+    background: rgba(255,255,255,0.06);
+  }
   .btn-secondary:active, .agent-btn-secondary:active { transform: scale(0.97); }
 
   .btn-light {
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 0.85rem 1.25rem; border-radius: var(--r-md);
-    font-weight: 500; font-size: 0.875rem;
-    background: var(--accent); color: var(--accent-fg);
-    transition: transform 140ms var(--ease-out), background-color 140ms var(--ease-out);
+    font-weight: 600; font-size: 0.875rem;
+    background: #fff; color: #0B0F1A;
+    transition: transform 220ms var(--ease-spring), box-shadow 220ms var(--ease-out);
   }
-  .btn-light:hover { background: var(--accent-press); transform: none; box-shadow: none; }
+  .btn-light:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
   .btn-light:active { transform: scale(0.97); }
 
   .card-light, .agent-card {
     background: var(--bg-elev-1);
     border: 1px solid var(--line);
     border-radius: var(--r-lg);
-    transition: border-color 200ms var(--ease-out);
-    box-shadow: none;
+    transition: border-color 280ms var(--ease-cinema), transform 280ms var(--ease-cinema), box-shadow 280ms var(--ease-cinema);
   }
   .card-light:hover, .agent-card:hover {
     border-color: var(--line-strong);
-    transform: none;
-    box-shadow: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elev-2);
   }
   .card-dark { background: var(--bg-inset); border: 1px solid var(--line); border-radius: var(--r-lg); }
   .testimonial-card, .agent-testimonial-card {
     padding: 1.75rem; border-radius: var(--r-lg);
     background: var(--bg-elev-1); border: 1px solid var(--line);
-    box-shadow: none;
   }
 
   .section-label, .agent-section-label {
     font-family: var(--font-mono), ui-monospace, monospace;
-    font-size: 11px; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--fg-dim);
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
   }
 
-  .icon-box, .icon-box-secondary, .agent-icon-box {
-    width: 2.5rem; height: 2.5rem;
+  .icon-box {
+    width: 2.75rem; height: 2.75rem;
     border-radius: var(--r-md);
     display: flex; align-items: center; justify-content: center;
-    background: var(--accent-soft);
-    color: var(--accent);
+    background: var(--grad-135);
+    color: #fff;
+    box-shadow: var(--shadow-brand-soft);
+  }
+  .icon-box-secondary {
+    width: 2.75rem; height: 2.75rem;
+    border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--brand-blue-soft);
+    color: var(--brand-blue);
+    border: 1px solid var(--brand-blue-soft);
+  }
+  .agent-icon-box {
+    width: 3rem; height: 3rem;
+    border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--grad-135);
+    color: #fff;
+    box-shadow: var(--shadow-brand-soft);
   }
 
   .big-number, .agent-big-number {
     font-family: var(--font-mono), ui-monospace, monospace;
     font-size: clamp(48px, 8vw, 96px);
-    font-weight: 400; line-height: 1;
-    color: var(--fg-faint);
-    background: none; -webkit-text-fill-color: currentColor;
+    font-weight: 600; line-height: 1;
+    background: var(--grad);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
     letter-spacing: -0.03em;
   }
 
   .stat-number, .agent-stat-number {
     font-family: var(--font-mono), ui-monospace, monospace;
-    font-size: 2rem; font-weight: 400;
-    color: var(--accent);
+    font-size: 2rem; font-weight: 600;
+    background: var(--grad);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
   }
 
-  .section-light, .section-white, .section-muted, .section-purple, .agent-section-primary, .agent-section-secondary, .agent-section-muted, .agent-section-accent {
+  .section-light, .section-white, .section-muted, .section-purple, .agent-section-primary, .agent-section-secondary, .agent-section-muted {
     background: var(--bg);
   }
   .section-dark { background: var(--bg-inset); color: var(--fg); }
 }
 
-/* legacy animations — keep no-op or reduced */
+/* legacy scroll-reveal classes (still used by some subpages) */
+.scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.scroll-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+.scroll-reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+.scroll-reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 800ms var(--ease-cinema), transform 800ms var(--ease-cinema); }
+.scroll-reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+
+/* legacy animations — keep gentle, no-op the gimmicky ones */
 .animate-spin-slow { animation: none; }
 .animate-glow-pulse { animation: none; }
 .animate-shimmer { background: none; animation: none; }
 .animate-breathe { animation: none; }
-.animate-float, .animate-float-slow { animation: none; }
-
+.animate-float, .animate-float-slow { animation: aurora-float 12s var(--ease-in-out) infinite alternate; }
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-up 800ms var(--ease-cinema) forwards;
+}
+@keyframes fade-in-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }

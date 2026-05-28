@@ -2,58 +2,82 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
+type Variant = "up" | "fade" | "blur" | "stagger";
+
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
+  variant?: Variant;
+  /** Legacy alias kept so older sub-pages keep compiling */
   direction?: "up" | "left" | "right" | "scale";
   delay?: number;
   threshold?: number;
+  once?: boolean;
+  as?: React.ElementType;
 }
 
 export default function ScrollReveal({
   children,
   className = "",
-  direction = "up",
+  variant,
+  direction,
   delay = 0,
   threshold = 0.15,
+  once = true,
+  as: Tag = "div",
 }: ScrollRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+    const el = ref.current;
+    if (!el) return;
 
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("is-visible");
-            }, delay);
-            observer.unobserve(entry.target);
+            if (delay > 0) {
+              setTimeout(() => el.classList.add("is-visible"), delay);
+            } else {
+              el.classList.add("is-visible");
+            }
+            if (once) io.unobserve(el);
+          } else if (!once) {
+            el.classList.remove("is-visible");
           }
         }
       },
       { threshold, rootMargin: "0px 0px -50px 0px" }
     );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [delay, once, threshold]);
 
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, [delay, threshold]);
-
-  const revealClass =
-    direction === "left"
-      ? "scroll-reveal-left"
+  // Resolve which class to use: new `variant` first, fall back to legacy `direction`
+  const resolved: Variant | "legacy-left" | "legacy-right" | "legacy-scale" =
+    variant ??
+    (direction === "left"
+      ? "legacy-left"
       : direction === "right"
-        ? "scroll-reveal-right"
+        ? "legacy-right"
         : direction === "scale"
-          ? "scroll-reveal-scale"
-          : "scroll-reveal";
+          ? "legacy-scale"
+          : "up");
+
+  const baseClass =
+    resolved === "stagger"
+      ? "stagger"
+      : resolved === "legacy-left"
+        ? "scroll-reveal-left"
+        : resolved === "legacy-right"
+          ? "scroll-reveal-right"
+          : resolved === "legacy-scale"
+            ? "scroll-reveal-scale"
+            : `reveal-${resolved}`;
 
   return (
-    <div ref={ref} className={`${revealClass} ${className}`}>
+    <Tag ref={ref} className={`${baseClass} ${className}`}>
       {children}
-    </div>
+    </Tag>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
   {
@@ -35,25 +36,27 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-28 lg:py-36 border-t border-[var(--line)]">
-      <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
+    <section id="faq" className="py-28 lg:py-36 border-t border-[var(--line)] relative overflow-hidden">
+      <div className="aurora-blob w-[400px] h-[400px] top-[10%] left-[20%]" style={{ opacity: 0.10 }} />
+
+      <div className="relative mx-auto max-w-[1400px] px-5 lg:px-8">
         <div className="grid grid-cols-12 gap-x-8 gap-y-12">
-          <div className="col-span-12 lg:col-span-4 lg:sticky lg:top-32 lg:self-start space-y-5">
-            <h2 className="text-[clamp(1.8rem,3.4vw,2.8rem)] font-medium leading-[1.04] tracking-[-0.025em] text-balance">
-              Frequently asked.
+          <ScrollReveal variant="up" className="col-span-12 lg:col-span-4 lg:sticky lg:top-32 lg:self-start space-y-5">
+            <h2 className="text-[clamp(1.9rem,3.6vw,2.8rem)] font-bold leading-[1.04] tracking-[-0.025em] text-balance">
+              Frequently <span className="gradient-text">asked.</span>
             </h2>
             <p className="text-[15.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[36ch]">
               Couldn't find your answer? Talk to us — we usually reply same-day.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-[14px] text-[var(--accent)] hover:underline underline-offset-4"
+              className="inline-flex items-center gap-2 text-[14px] gradient-text font-semibold hover:underline underline-offset-4"
             >
               Contact the team →
             </Link>
-          </div>
+          </ScrollReveal>
 
-          <div className="col-span-12 lg:col-span-7 lg:col-start-6">
+          <ScrollReveal as="div" variant="stagger" className="col-span-12 lg:col-span-7 lg:col-start-6">
             <ul className="border-t border-[var(--line)]">
               {faqs.map((faq, index) => {
                 const open = openIndex === index;
@@ -62,22 +65,26 @@ export default function FAQ() {
                     <button
                       type="button"
                       onClick={() => setOpenIndex(open ? null : index)}
-                      className="w-full flex items-start justify-between gap-6 py-6 text-left"
+                      className="w-full flex items-start justify-between gap-6 py-6 text-left group"
                     >
-                      <span className="text-[17px] lg:text-[18px] font-medium tracking-[-0.01em] text-[var(--fg)]">
+                      <span className="text-[17px] lg:text-[18px] font-semibold tracking-[-0.01em] text-white group-hover:gradient-text transition-all">
                         {faq.question}
                       </span>
                       <span
-                        className={`shrink-0 mt-1 w-6 h-6 flex items-center justify-center text-[var(--fg-muted)] transition-transform duration-200`}
-                        style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
+                        className="shrink-0 mt-1 w-8 h-8 rounded-full flex items-center justify-center text-white transition-transform duration-300 ease-[var(--ease-cinema)]"
+                        style={{
+                          background: open ? "var(--grad)" : "rgba(255,255,255,0.05)",
+                          boxShadow: open ? "0 4px 16px rgba(32,71,255,0.3)" : "none",
+                          transform: open ? "rotate(45deg)" : "rotate(0deg)",
+                        }}
                       >
-                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                          <path d="M12 5v14M5 12h14" strokeWidth={1.5} strokeLinecap="round" />
+                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <path d="M12 5v14M5 12h14" strokeWidth={1.75} strokeLinecap="round" />
                         </svg>
                       </span>
                     </button>
                     <div
-                      className="grid transition-[grid-template-rows] duration-300"
+                      className="grid transition-[grid-template-rows] duration-400 ease-[var(--ease-cinema)]"
                       style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
                     >
                       <div className="overflow-hidden">
@@ -90,7 +97,7 @@ export default function FAQ() {
                 );
               })}
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
