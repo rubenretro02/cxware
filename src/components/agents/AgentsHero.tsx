@@ -5,19 +5,33 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AgentsHero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-end pt-32 pb-12 overflow-hidden">
-      {/* Aurora backdrop */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="aurora-blob w-[640px] h-[640px] top-[-160px] right-[-120px]" style={{ animationDelay: "0s", opacity: 0.30 }} />
-        <div className="aurora-blob w-[420px] h-[420px] bottom-[-80px] left-[-60px]" style={{ animationDelay: "-6s", opacity: 0.20 }} />
-        <div className="absolute inset-0 grid-noise opacity-[0.5]" />
-        <div className="absolute inset-x-0 bottom-0 h-[20vh] bg-gradient-to-t from-[var(--bg)] to-transparent" />
+    <section className="relative min-h-[100dvh] flex items-center pt-24 overflow-hidden">
+      {/* Full-bleed background photo */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src="/images/agent-hero-banner.jpg"
+          alt="WingCX agent working remotely"
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        {/* Left → right light gradient overlay so navy text reads on the left */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, var(--bg) 0%, var(--bg) 35%, rgba(251,251,253,0.85) 55%, rgba(251,251,253,0.15) 80%, rgba(251,251,253,0) 100%)",
+          }}
+        />
+        {/* Bottom → up fade into the next section */}
+        <div className="absolute inset-x-0 bottom-0 h-[25vh] bg-gradient-to-t from-[var(--bg)] to-transparent" />
+        {/* Subtle aurora wash for premium feel */}
+        <div className="aurora-blob w-[520px] h-[520px] -top-32 -left-24" style={{ opacity: 0.22 }} />
       </div>
 
       <div className="relative mx-auto w-full max-w-[1400px] px-5 lg:px-8">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-end">
-          {/* Left — copy */}
-          <ScrollReveal as="div" variant="stagger" className="col-span-12 lg:col-span-7 space-y-7">
+        <div className="grid grid-cols-12 gap-x-8">
+          {/* Copy block — left, capped at 7/12 so the photo breathes on the right */}
+          <ScrollReveal as="div" variant="stagger" className="col-span-12 lg:col-span-7 space-y-7 py-12">
             <span className="eyebrow-brand">
               <span>REMOTE CUSTOMER SERVICE · WORK YOUR HOURS</span>
             </span>
@@ -46,8 +60,22 @@ export default function AgentsHero() {
               </Link>
             </div>
 
+            {/* Inline stat strip — replaces the floating card */}
+            <div className="flex flex-wrap items-end gap-x-8 gap-y-4 pt-6">
+              <Stat label="Top hourly" value="$25" unit="+" />
+              <span className="hidden sm:block w-px h-10 bg-[var(--line)]" />
+              <Stat label="Time to live" value="48" unit="hr" />
+              <span className="hidden sm:block w-px h-10 bg-[var(--line)]" />
+              <Stat label="Open roles" value="120" unit="" />
+              <span className="hidden md:block w-px h-10 bg-[var(--line)]" />
+              <div className="flex items-center gap-2.5 mono text-[11px] text-[var(--fg-dim)] uppercase tracking-[0.16em]">
+                <span className="live-dot" />
+                <span>HIRING NOW</span>
+              </div>
+            </div>
+
             {/* Social proof */}
-            <div className="flex items-center gap-4 pt-3">
+            <div className="flex items-center gap-4 pt-4">
               <div className="flex -space-x-2.5">
                 {[
                   "/images/call-center-agent-2.jpg",
@@ -75,51 +103,6 @@ export default function AgentsHero() {
               </p>
             </div>
           </ScrollReveal>
-
-          {/* Right — photo with light glass earnings panel */}
-          <ScrollReveal as="div" variant="fade" delay={200} className="col-span-12 lg:col-span-5 relative">
-            <div
-              className="relative aspect-[4/5] lg:aspect-[3/4] w-full overflow-hidden rounded-[var(--r-xl)] border"
-              style={{
-                borderColor: "var(--line-strong)",
-                boxShadow: "var(--shadow-elev-3)",
-              }}
-            >
-              <div
-                className="absolute -inset-2 rounded-[var(--r-xl)] opacity-40 pointer-events-none"
-                style={{ background: "var(--grad)", filter: "blur(24px)", zIndex: -1 }}
-              />
-
-              <img
-                src="/images/agent-hero-banner.jpg"
-                alt="WingCX agent working remotely"
-                className="w-full h-full object-cover img-reveal is-visible"
-                loading="eager"
-              />
-
-              {/* light glass earnings panel */}
-              <div
-                className="absolute left-4 right-4 bottom-4 rounded-[var(--r-md)] p-4 border"
-                style={{
-                  borderColor: "rgba(255,255,255,0.4)",
-                  background: "rgba(255, 255, 255, 0.82)",
-                  backdropFilter: "blur(22px) saturate(180%)",
-                  WebkitBackdropFilter: "blur(22px) saturate(180%)",
-                  boxShadow: "0 10px 30px rgba(10,18,38,0.18)",
-                }}
-              >
-                <div className="flex items-center justify-between mono text-[10.5px] uppercase tracking-[0.14em] text-[#46506B] mb-3">
-                  <span className="flex items-center gap-2"><span className="live-dot" /> APPLICATIONS · OPEN</span>
-                  <span className="gradient-text font-bold">HIRING NOW</span>
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  <Stat label="Top hourly" value="$25" unit="+" />
-                  <Stat label="Time to live" value="48" unit="hr" />
-                  <Stat label="Roles open" value="120" unit="" />
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </div>
     </section>
@@ -129,12 +112,12 @@ export default function AgentsHero() {
 function Stat({ label, value, unit }: { label: string; value: string; unit: string }) {
   return (
     <div>
-      <div className="mono text-[10px] text-[#9BA3B8] uppercase tracking-[0.14em]">
+      <div className="mono text-[10.5px] text-[var(--fg-dim)] uppercase tracking-[0.16em] mb-1">
         {label}
       </div>
-      <div className="mono text-[#0A1226] text-[20px] tabular-nums mt-1 font-bold">
+      <div className="mono text-[var(--fg)] text-[28px] tabular-nums leading-none font-bold">
         {value}
-        <span className="text-[#6B7591] text-[12px] ml-0.5 font-normal">{unit}</span>
+        <span className="text-[var(--fg-dim)] text-[14px] ml-0.5 font-normal">{unit}</span>
       </div>
     </div>
   );
