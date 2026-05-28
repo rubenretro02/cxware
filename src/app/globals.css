@@ -484,18 +484,20 @@
   --border-light: var(--line);
   --border-dark: var(--line);
 
-  --agent-bg-primary: #FBF6EE;
-  --agent-bg-secondary: #EFE7DA;
-  --agent-bg-card: #FFFFFF;
-  --agent-bg-card-hover: #F8F2E8;
-  --agent-bg-muted: #F1EADD;
-  --agent-bg-accent: #FBF6EE;
-  --agent-text-heading: #221608;
-  --agent-text-primary: #221608;
-  --agent-text-secondary: #5A4A36;
-  --agent-text-muted: #7B684E;
-  --agent-border: rgba(34, 22, 8, 0.10);
-  --agent-card-shadow: rgba(34, 22, 8, 0.08);
+  /* Agent-side variables now mirror the Business light theme so every
+     legacy agent-* class renders on off-white, not warm cream. */
+  --agent-bg-primary: var(--bg);
+  --agent-bg-secondary: var(--bg-elev-1);
+  --agent-bg-card: var(--bg-elev-1);
+  --agent-bg-card-hover: var(--bg-elev-2);
+  --agent-bg-muted: var(--bg-elev-1);
+  --agent-bg-accent: var(--bg-elev-1);
+  --agent-text-heading: var(--fg);
+  --agent-text-primary: var(--fg);
+  --agent-text-secondary: var(--fg-muted);
+  --agent-text-muted: var(--fg-dim);
+  --agent-border: var(--line);
+  --agent-card-shadow: rgba(10, 18, 38, 0.06);
 }
 
 @layer components {
@@ -506,8 +508,15 @@
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
-  .gradient-bg, .agent-section-accent {
+  /* `.gradient-bg` keeps the brand gradient for intentional uses
+     (CTA panel, hero badges). `.agent-section-accent` is forced to
+     a neutral elev surface so it stops painting whole sections in
+     blue→purple. */
+  .gradient-bg {
     background: var(--grad-135);
+  }
+  .agent-section-accent {
+    background: var(--bg-elev-1);
   }
   .gradient-bg-subtle {
     background: var(--brand-blue-soft);
