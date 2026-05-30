@@ -16,36 +16,39 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 overflow-hidden" style={{ background: "var(--bg-light)" }}>
-        {/* Background elements */}
+      <section className="relative pt-32 pb-16 overflow-hidden bg-[var(--bg)]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#2047FF]/[0.04] blur-3xl animate-breathe" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#C873E5]/[0.04] blur-3xl animate-breathe" style={{ animationDelay: "2s" }} />
+          <div className="aurora-blob w-[520px] h-[520px] -top-32 -right-32" style={{ opacity: 0.22 }} />
+          <div className="aurora-blob w-[420px] h-[420px] bottom-0 left-0" style={{ opacity: 0.18, animationDelay: "-6s" }} />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
           {/* Hero with background image */}
-          <div className="relative rounded-3xl overflow-hidden mb-16">
-            {/* Background Image */}
+          <div className="relative rounded-3xl overflow-hidden mb-16 border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
             <img
               src="/images/contact-hero.jpg"
               alt="WingCX contact"
               className="w-full h-[400px] object-cover"
             />
-            {/* Overlay gradient - darker on right for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-l from-[var(--bg)] via-[var(--bg)]/40 to-transparent" />
+            {/* light overlay so navy text reads on the right */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(270deg, rgba(251,251,253,0.92) 0%, rgba(251,251,253,0.78) 28%, rgba(251,251,253,0.42) 58%, rgba(251,251,253,0.05) 100%)",
+              }}
+            />
 
-            {/* Text on the right side */}
             <div className="absolute inset-0 flex items-center justify-end">
               <div className="max-w-lg text-right pr-12">
-                <span className="section-label">Get In Touch</span>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
-                  {"Let's Build Your "}
-                  <span className="gradient-text">Ideal CX Team</span>
+                <span className="eyebrow-brand"><span>GET IN TOUCH</span></span>
+                <h1 className="text-4xl md:text-5xl font-bold text-[var(--fg)] mt-4 mb-4">
+                  {"Let's build your "}
+                  <span className="gradient-text">ideal CX team</span>
                 </h1>
                 <p className="text-[var(--fg-muted)] text-lg">
                   {
-                    "Ready to scale your customer operations? Fill out the form below and we'll get back to you within one business day."
+                    "Ready to scale your customer operations? Fill out the form and we'll get back to you within one business day."
                   }
                 </p>
               </div>
@@ -62,7 +65,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-6">
               {/* Why WingCX Card */}
               <div className="card-light p-6">
-                <h3 className="text-lg font-bold text-white mb-4">
+                <h3 className="text-lg font-bold text-[var(--fg)] mb-4">
                   Why companies choose WingCX
                 </h3>
                 <div className="space-y-4">
@@ -73,7 +76,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">Fast Onboarding</p>
+                      <p className="text-[var(--fg)] font-semibold text-sm">Fast Onboarding</p>
                       <p className="text-[var(--fg-muted)] text-xs">Get your CX team live in days, not months</p>
                     </div>
                   </div>
@@ -84,7 +87,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">Cut Costs 25-55%</p>
+                      <p className="text-[var(--fg)] font-semibold text-sm">Cut Costs 25-55%</p>
                       <p className="text-[var(--fg-muted)] text-xs">Pay only for productive hours with flexible scaling</p>
                     </div>
                   </div>
@@ -95,7 +98,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">Global Talent Pool</p>
+                      <p className="text-[var(--fg)] font-semibold text-sm">Global Talent Pool</p>
                       <p className="text-[var(--fg-muted)] text-xs">Access 1,000+ pre-vetted agents worldwide</p>
                     </div>
                   </div>
@@ -106,7 +109,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">Enterprise Security</p>
+                      <p className="text-[var(--fg)] font-semibold text-sm">Enterprise Security</p>
                       <p className="text-[var(--fg-muted)] text-xs">SOC 2 compliant with end-to-end encryption</p>
                     </div>
                   </div>
@@ -115,12 +118,12 @@ export default function ContactPage() {
 
               {/* Direct Contact Card */}
               <div className="card-light p-6">
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-lg font-bold text-[var(--fg)] mb-3">
                   Prefer to reach out directly?
                 </h3>
                 <a
                   href="mailto:contact@wingcx.com"
-                  className="flex items-center gap-3 text-[#C873E5] hover:text-white transition-colors"
+                  className="flex items-center gap-3 text-[var(--brand-purple)] hover:text-[var(--fg)] transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

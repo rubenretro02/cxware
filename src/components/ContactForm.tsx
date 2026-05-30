@@ -252,7 +252,7 @@ export default function ContactForm() {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="John"
           />
           {errors.firstName && (
@@ -268,7 +268,7 @@ export default function ContactForm() {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="Smith"
           />
           {errors.lastName && (
@@ -289,7 +289,7 @@ export default function ContactForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="john@company.com"
           />
           {errors.email && (
@@ -306,7 +306,7 @@ export default function ContactForm() {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="+1 (555) 000-0000"
           />
         </div>
@@ -323,7 +323,7 @@ export default function ContactForm() {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="Acme Inc."
           />
           {errors.company && (
@@ -339,7 +339,7 @@ export default function ContactForm() {
             name="jobTitle"
             value={formData.jobTitle}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors"
             placeholder="VP of Customer Experience"
           />
           {errors.jobTitle && (
@@ -358,7 +358,7 @@ export default function ContactForm() {
           name="contactReason"
           value={formData.contactReason}
           onChange={handleChange}
-          className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
+          className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] focus:outline-none focus:border-[#2047FF] transition-colors"
         >
           <option value="">Please Select One</option>
           {CONTACT_REASONS.map((reason) => (
@@ -383,7 +383,7 @@ export default function ContactForm() {
             name="teamSize"
             value={formData.teamSize}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] focus:outline-none focus:border-[#2047FF] transition-colors"
           >
             <option value="">Please Select</option>
             {TEAM_SIZE_OPTIONS.map((size) => (
@@ -405,7 +405,7 @@ export default function ContactForm() {
             name="howHeard"
             value={formData.howHeard}
             onChange={handleChange}
-            className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#2047FF] transition-colors"
+            className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] focus:outline-none focus:border-[#2047FF] transition-colors"
           >
             <option value="">Please Select</option>
             {HOW_HEARD_OPTIONS.map((option) => (
@@ -428,7 +428,7 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className="w-full bg-[var(--bg-elev-1)] border border-white/10 rounded-lg px-4 py-3 text-white placeholder-[#64748B] focus:outline-none focus:border-[#2047FF] transition-colors resize-none"
+          className="w-full bg-[var(--bg-elev-1)] border border-[var(--line-strong)] rounded-lg px-4 py-3 text-[var(--fg)] placeholder-[var(--fg-faint)] focus:outline-none focus:border-[#2047FF] transition-colors resize-none"
           placeholder="Tell us about your customer service needs, volume, channels, etc."
         />
         {errors.message && (
