@@ -110,12 +110,21 @@ export default function EligibleStates() {
           {/* Tile map */}
           <ScrollReveal variant="fade" delay={120} className="col-span-12 lg:col-span-7">
             <div className="card-light p-6 sm:p-8">
-              <svg
-                viewBox={`0 0 ${COLS * PITCH - GAP} ${ROWS * PITCH - GAP}`}
-                className="w-full h-auto"
-                role="img"
-                aria-label="Map of U.S. states where WingCX is actively sourcing agents"
-              >
+              <div className="relative">
+                {/* Real US silhouette as a soft backdrop behind the tiles */}
+                <img
+                  src="/images/us-map-outline.svg"
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-contain scale-110 pointer-events-none select-none"
+                  style={{ opacity: 0.12 }}
+                />
+                <svg
+                  viewBox={`0 0 ${COLS * PITCH - GAP} ${ROWS * PITCH - GAP}`}
+                  className="relative w-full h-auto"
+                  role="img"
+                  aria-label="Map of U.S. states where WingCX is actively sourcing agents"
+                >
                 <defs>
                   <linearGradient id="state-grad" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="#2047FF" />
@@ -152,7 +161,8 @@ export default function EligibleStates() {
                     </g>
                   );
                 })}
-              </svg>
+                </svg>
+              </div>
 
               <div className="flex items-center gap-6 mt-6 pt-5 border-t border-[var(--line)]">
                 <span className="flex items-center gap-2.5 text-[13px] text-[var(--fg-muted)]">
