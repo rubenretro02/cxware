@@ -70,8 +70,8 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden mb-16 border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
             <img
-              src="/images/real-team-collab.jpg"
-              alt="WingCX team all-hands"
+              src="/images/real-hands-together.jpg"
+              alt="WingCX team joining hands"
               className="w-full h-[420px] object-cover"
             />
             <div

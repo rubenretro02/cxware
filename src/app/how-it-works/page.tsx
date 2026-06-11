@@ -88,11 +88,18 @@ export default function HowItWorksPage() {
           </div>
 
           <div className="relative rounded-3xl overflow-hidden border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
-            <img
-              src="/images/real-two-colleagues.jpg"
-              alt="WingCX agents collaborating on a program"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/images/real-meeting-discussion.jpg"
+              aria-hidden="true"
               className="w-full h-[380px] object-cover"
-            />
+            >
+              <source src="/videos/support-team-broll.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>
