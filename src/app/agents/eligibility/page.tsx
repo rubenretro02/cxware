@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import AgentCTA from "@/components/agents/AgentCTA";
+import EligibleStates from "@/components/agents/EligibleStates";
 
 export const metadata: Metadata = {
   title: "Agent Eligibility Requirements - WingCX Agents",
@@ -28,21 +29,6 @@ const basics = [
     title: "Customer service experience",
     body: "Most programs ask for 2–3 years of customer-facing experience. Strong communicators with less experience can qualify for entry programs.",
   },
-];
-
-const office = [
-  "A quiet, distraction-free workspace — no background noise during live interactions",
-  "A door you can close. Customers should never hear the rest of your household",
-  "Reliable electricity and a workspace where your equipment can stay set up",
-];
-
-const tech = [
-  { label: "Internet", value: "Hard-wired Ethernet connection, 25 Mbps download / 5 Mbps upload minimum. Wi-Fi and hotspots don't qualify for live programs." },
-  { label: "Computer", value: "Modern multi-core processor (6 cores recommended), 16 GB RAM, Windows 11 Home, Pro, or Workstations. Some programs support macOS." },
-  { label: "Displays", value: "1920 × 1080 resolution or higher. Several programs require dual monitors — you'll see this in the program listing before you commit." },
-  { label: "Headset", value: "Corded, noise-cancelling USB headset. Bluetooth and analog headsets aren't supported on voice programs." },
-  { label: "Browser", value: "Latest version of Chrome or Edge, kept up to date." },
-  { label: "Security", value: "Active firewall and antivirus, automatic OS updates enabled, full-disk encryption, screen lock, and two-factor authentication on your phone." },
 ];
 
 const checkFacts = [
@@ -97,8 +83,8 @@ export default function EligibilityPage() {
             </div>
             <div className="rounded-3xl overflow-hidden border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
               <img
-                src="/images/agent-headset-woman.jpg"
-                alt="WingCX agent working from a home office"
+                src="/images/real-headset-man-office.jpg"
+                alt="WingCX agent taking a call from her home office"
                 className="w-full h-[420px] object-cover"
               />
             </div>
@@ -162,55 +148,25 @@ export default function EligibilityPage() {
         </div>
       </section>
 
-      {/* Home office + tech */}
-      <section className="py-24 lg:py-32 bg-[var(--bg-elev-1)] border-y border-[var(--line)] relative overflow-hidden">
-        <div className="relative mx-auto max-w-[1400px] px-5 lg:px-8">
-          <ScrollReveal variant="up" className="mb-14 max-w-3xl">
-            <span className="eyebrow-brand"><span>YOUR SETUP</span></span>
-            <h2 className="text-[clamp(2rem,4.6vw,3.2rem)] font-bold leading-[1.05] tracking-[-0.025em] mt-4 text-balance">
-              A home office that <span className="gradient-text">sounds professional</span>
-            </h2>
-            <p className="text-[16px] text-[var(--fg-muted)] leading-[1.6] mt-4 max-w-[56ch]">
-              Customers can't see your office, but they can hear it. These are the workspace and
-              equipment standards every live program requires.
-            </p>
+      {/* Eligible states map */}
+      <EligibleStates />
+
+      {/* Setup pointer + contractor note */}
+      <section className="py-16 bg-[var(--bg-elev-1)] border-y border-[var(--line)] relative overflow-hidden">
+        <div className="relative mx-auto max-w-[1400px] px-5 lg:px-8 space-y-5">
+          <ScrollReveal variant="fade">
+            <div className="panel-inset p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <p className="text-[14.5px] text-[var(--fg-muted)] max-w-[68ch]">
+                <strong className="text-[var(--fg)]">Wondering about equipment?</strong>{" "}
+                Workspace, internet, computer, headset, and security standards live on the
+                requirements section — expand each card to see exactly what every program needs.
+              </p>
+              <Link href="/agents#requirements" className="btn btn-brand flex-shrink-0">
+                See setup requirements
+              </Link>
+            </div>
           </ScrollReveal>
-
-          <div className="grid lg:grid-cols-12 gap-8">
-            <ScrollReveal variant="up" className="lg:col-span-4">
-              <div className="card-light p-7 h-full">
-                <h3 className="text-[19px] font-semibold tracking-[-0.01em] mb-4">Workspace</h3>
-                <ul className="space-y-3.5">
-                  {office.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-[14.5px] text-[var(--fg-muted)] leading-[1.55]">
-                      <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-[var(--brand-purple)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="up" delay={100} className="lg:col-span-8">
-              <div className="card-light p-7">
-                <h3 className="text-[19px] font-semibold tracking-[-0.01em] mb-4">Equipment & security</h3>
-                <ul className="divide-y divide-[var(--line)]">
-                  {tech.map((row) => (
-                    <li key={row.label} className="py-3.5 grid sm:grid-cols-12 gap-x-6 gap-y-1">
-                      <span className="sm:col-span-3 mono text-[12px] uppercase tracking-[0.12em] gradient-text font-bold pt-0.5">
-                        {row.label}
-                      </span>
-                      <span className="sm:col-span-9 text-[14.5px] text-[var(--fg-muted)] leading-[1.55]">{row.value}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal variant="fade" className="mt-10">
+          <ScrollReveal variant="fade" delay={100}>
             <div className="panel-inset p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <p className="text-[14.5px] text-[var(--fg-muted)] max-w-[68ch]">
                 <strong className="text-[var(--fg)]">You're an independent professional.</strong>{" "}

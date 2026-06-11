@@ -127,7 +127,7 @@ export default function AvoidScamsPage() {
               </p>
               <div className="rounded-2xl overflow-hidden border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
                 <img
-                  src="/images/woman-laptop.jpg"
+                  src="/images/real-woman-desk-notes.jpg"
                   alt="Agent reviewing an opportunity carefully"
                   className="w-full h-[240px] object-cover"
                 />

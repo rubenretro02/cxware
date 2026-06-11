@@ -64,8 +64,8 @@ export default function AgentExperiencePage() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden mb-16 border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
             <img
-              src="/images/agent-hero-banner.jpg"
-              alt="WingCX agent at her home workspace"
+              src="/images/real-team-hands.jpg"
+              alt="WingCX agents working at their own pace"
               className="w-full h-[420px] object-cover"
             />
             <div

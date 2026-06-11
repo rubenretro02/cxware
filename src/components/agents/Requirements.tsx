@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import SetupAccordion from "./SetupAccordion";
 
 export default function Requirements() {
   const requirements = [
@@ -60,7 +61,7 @@ export default function Requirements() {
               {/* Image collage instead of plain gradient box */}
               <div className="rounded-3xl overflow-hidden relative aspect-square shadow-2xl">
                 <img
-                  src="/images/call-center-team.jpg"
+                  src="/images/real-man-laptop-call.jpg"
                   alt="WingCX agents working together"
                   className="w-full h-full object-cover"
                 />
@@ -73,6 +74,25 @@ export default function Requirements() {
 
 
             </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Home office & equipment — collapsible cards */}
+        <div className="mt-20">
+          <ScrollReveal>
+            <div className="max-w-3xl mb-10">
+              <span className="agent-section-label mb-4 block">Your Setup</span>
+              <h3 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: "var(--agent-text-heading)" }}>
+                A home office that <span className="agent-gradient-text">sounds professional</span>
+              </h3>
+              <p className="text-lg" style={{ color: "var(--agent-text-secondary)" }}>
+                Customers can't see your office, but they can hear it. Expand each card to see the
+                workspace and equipment standards every live program requires.
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <SetupAccordion />
           </ScrollReveal>
         </div>
       </div>
