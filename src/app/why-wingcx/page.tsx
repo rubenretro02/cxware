@@ -88,11 +88,11 @@ export default function WhyWingCXPage() {
               loop
               playsInline
               preload="metadata"
-              poster="/images/real-meeting-discussion.jpg"
+              poster="/images/contact-hero.jpg"
               aria-hidden="true"
               className="w-full h-[420px] object-cover"
             >
-              <source src="/videos/support-team-broll.mp4" type="video/mp4" />
+              <source src="/videos/call-center-broll.mp4" type="video/mp4" />
             </video>
             <div
               className="absolute inset-0"
