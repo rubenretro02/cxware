@@ -70,19 +70,19 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden mb-16 border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
             <img
-              src="/images/globe-network.jpg"
-              alt="WingCX global network"
+              src="/images/real-team-collab.jpg"
+              alt="WingCX team all-hands"
               className="w-full h-[420px] object-cover"
             />
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(251,251,253,0.94) 0%, rgba(251,251,253,0.80) 30%, rgba(251,251,253,0.40) 60%, rgba(251,251,253,0.05) 100%)",
+                  "linear-gradient(90deg, rgba(251,251,253,0.97) 0%, rgba(251,251,253,0.90) 35%, rgba(251,251,253,0.62) 65%, rgba(251,251,253,0.25) 100%)",
               }}
             />
             <div className="absolute inset-0 flex items-center">
-              <div className="max-w-xl pl-10 md:pl-14">
+              <div className="max-w-xl pl-10 md:pl-14 animate-fade-in-up">
                 <span className="eyebrow-brand"><span>ABOUT WINGCX</span></span>
                 <h1 className="text-4xl md:text-5xl font-bold text-[var(--fg)] mt-4 mb-4 leading-[1.05]">
                   Improving lives through <span className="gradient-text">meaningful connections</span>

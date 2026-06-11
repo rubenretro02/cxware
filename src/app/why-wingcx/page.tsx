@@ -82,20 +82,27 @@ export default function WhyWingCXPage() {
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="relative rounded-3xl overflow-hidden mb-16 border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
-            <img
-              src="/images/business-meeting.jpg"
-              alt="WingCX consultative partnership"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/images/real-meeting-discussion.jpg"
+              aria-hidden="true"
               className="w-full h-[420px] object-cover"
-            />
+            >
+              <source src="/videos/support-team-broll.mp4" type="video/mp4" />
+            </video>
             <div
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(251,251,253,0.94) 0%, rgba(251,251,253,0.80) 30%, rgba(251,251,253,0.40) 60%, rgba(251,251,253,0.05) 100%)",
+                  "linear-gradient(90deg, rgba(251,251,253,0.97) 0%, rgba(251,251,253,0.90) 35%, rgba(251,251,253,0.62) 65%, rgba(251,251,253,0.25) 100%)",
               }}
             />
             <div className="absolute inset-0 flex items-center">
-              <div className="max-w-xl pl-10 md:pl-14">
+              <div className="max-w-xl pl-10 md:pl-14 animate-fade-in-up">
                 <span className="eyebrow-brand"><span>WHY WINGCX</span></span>
                 <h1 className="text-4xl md:text-5xl font-bold text-[var(--fg)] mt-4 mb-4 leading-[1.05]">
                   {"It's not outsourcing. "}
@@ -220,7 +227,7 @@ export default function WhyWingCXPage() {
           <ScrollReveal variant="up" delay={120} className="col-span-12 lg:col-span-5 lg:col-start-8">
             <div className="rounded-3xl overflow-hidden border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
               <img
-                src="/images/call-center-team.jpg"
+                src="/images/real-happy-team-laptop.jpg"
                 alt="WingCX certified agent network"
                 className="w-full h-[420px] object-cover"
               />

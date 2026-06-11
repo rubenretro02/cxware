@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-3xl mb-14 animate-fade-in-up">
             <span className="eyebrow-brand"><span>HOW IT WORKS</span></span>
             <h1 className="text-4xl md:text-6xl font-bold text-[var(--fg)] mt-4 mb-5 leading-[1.04] tracking-[-0.025em]">
               Running your workforce should feel like <span className="gradient-text">one click</span>
@@ -89,8 +89,8 @@ export default function HowItWorksPage() {
 
           <div className="relative rounded-3xl overflow-hidden border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
             <img
-              src="/images/call-center-agent-1.jpg"
-              alt="WingCX certified agent at work"
+              src="/images/real-two-colleagues.jpg"
+              alt="WingCX agents collaborating on a program"
               className="w-full h-[380px] object-cover"
             />
           </div>

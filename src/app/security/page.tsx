@@ -78,7 +78,7 @@ export default function SecurityPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl animate-fade-in-up">
             <span className="eyebrow-brand"><span>SECURITY &amp; COMPLIANCE</span></span>
             <h1 className="text-4xl md:text-6xl font-bold text-[var(--fg)] mt-4 mb-5 leading-[1.04] tracking-[-0.025em]">
               Built for <span className="gradient-text">regulated industries</span>
@@ -142,8 +142,8 @@ export default function SecurityPage() {
               </p>
               <div className="rounded-2xl overflow-hidden border border-[var(--line-strong)] shadow-[var(--shadow-elev-2)]">
                 <img
-                  src="/images/woman-laptop.jpg"
-                  alt="Secure remote agent workstation"
+                  src="/images/real-woman-office-screen.jpg"
+                  alt="WingCX infrastructure and data center security"
                   className="w-full h-[260px] object-cover"
                 />
               </div>
