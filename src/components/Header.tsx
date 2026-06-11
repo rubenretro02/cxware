@@ -57,6 +57,12 @@ export default function Header() {
     { label: "Insurance Sales", pay: "$16–25+/hr", href: "/agents/opportunities/insurance-sales" },
     { label: "Bilingual Spanish", pay: "$17–20+/hr", href: "/agents/opportunities/bilingual-spanish" },
   ];
+  const whatToExpect = [
+    { label: "Why WingCX", href: "/agents/why-wingcx" },
+    { label: "The Agent Experience", href: "/agents/experience" },
+    { label: "Eligibility", href: "/agents/eligibility" },
+    { label: "Avoid Scams", href: "/agents/avoid-scams" },
+  ];
 
   const cta = isAgentsPage
     ? { label: "Apply Now", href: "#apply" }
@@ -287,6 +293,60 @@ export default function Header() {
                   </div>
                 </div>
 
+                <div
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter("expect")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button
+                    type="button"
+                    className="flex items-center gap-1 px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200"
+                  >
+                    What to Expect
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === "expect" ? "rotate-180" : ""}`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="M6 9l6 6 6-6" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+
+                  <div
+                    className={`absolute top-full left-0 mt-3 w-[280px] origin-top transition-all duration-300 ${
+                      activeDropdown === "expect"
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    <div
+                      className="rounded-2xl border p-3 shadow-[0_20px_60px_rgba(34,22,8,0.16)]"
+                      style={{
+                        borderColor: "var(--line-strong)",
+                        background: "var(--glass-bg-strong)",
+                        backdropFilter: "blur(22px) saturate(180%)",
+                        WebkitBackdropFilter: "blur(22px) saturate(180%)",
+                      }}
+                    >
+                      <div className="label px-2.5 mb-2">Working with us</div>
+                      <ul className="space-y-px">
+                        {whatToExpect.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-2.5 py-2 text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] hover:bg-[var(--bg-elev-2)] rounded-lg transition-all duration-200"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
                 <Link href="/agents#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   FAQs
                 </Link>
@@ -372,6 +432,10 @@ export default function Header() {
                 : [
                     { label: "How It Works", href: "/agents#how-to-start" },
                     { label: "Opportunities", href: "/agents/opportunities" },
+                    { label: "Why WingCX", href: "/agents/why-wingcx" },
+                    { label: "The Agent Experience", href: "/agents/experience" },
+                    { label: "Eligibility", href: "/agents/eligibility" },
+                    { label: "Avoid Scams", href: "/agents/avoid-scams" },
                     { label: "FAQs", href: "/agents#faq" },
                     { label: "Requirements", href: "/agents#requirements" },
                   ]

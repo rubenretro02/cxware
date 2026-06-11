@@ -45,13 +45,24 @@ export default function Footer() {
           />
           <FooterCol
             title="Company"
-            items={[
-              { label: "About us", href: "/about" },
-              { label: "Why WingCX", href: "/why-wingcx" },
-              { label: "Security & compliance", href: "/security" },
-              { label: "Terms of service", href: "/terms" },
-              { label: "Privacy policy", href: "/privacy" },
-            ]}
+            items={
+              isAgentsPage
+                ? [
+                    { label: "Why WingCX", href: "/agents/why-wingcx" },
+                    { label: "The agent experience", href: "/agents/experience" },
+                    { label: "Eligibility", href: "/agents/eligibility" },
+                    { label: "Avoid scams", href: "/agents/avoid-scams" },
+                    { label: "Terms of service", href: "/terms" },
+                    { label: "Privacy policy", href: "/privacy" },
+                  ]
+                : [
+                    { label: "About us", href: "/about" },
+                    { label: "Why WingCX", href: "/why-wingcx" },
+                    { label: "Security & compliance", href: "/security" },
+                    { label: "Terms of service", href: "/terms" },
+                    { label: "Privacy policy", href: "/privacy" },
+                  ]
+            }
           />
           <FooterCol
             title="Solutions"
