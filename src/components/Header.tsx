@@ -126,8 +126,11 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-0.5 text-[13px]">
             {!isAgentsPage ? (
               <>
-                <Link href="/#how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                <Link href="/how-it-works" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   How It Works
+                </Link>
+                <Link href="/why-wingcx" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                  Why WingCX
                 </Link>
 
                 <div
@@ -204,6 +207,9 @@ export default function Header() {
                   </div>
                 </div>
 
+                <Link href="/about" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+                  About
+                </Link>
                 <Link href="/#faq" className="px-3 py-1.5 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                   FAQs
                 </Link>
@@ -356,8 +362,10 @@ export default function Header() {
             <ul className="flex flex-col">
               {(!isAgentsPage
                 ? [
-                    { label: "How It Works", href: "/#how-it-works" },
-                    { label: "Services", href: "/services/call-center-outsourcing" },
+                    { label: "How It Works", href: "/how-it-works" },
+                    { label: "Why WingCX", href: "/why-wingcx" },
+                    { label: "Services", href: "/services" },
+                    { label: "About", href: "/about" },
                     { label: "FAQs", href: "/#faq" },
                     { label: "Contact", href: "/contact" },
                   ]

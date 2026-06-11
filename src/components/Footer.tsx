@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1400px] px-5 lg:px-8">
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14">
           {/* Brand + newsletter */}
-          <div className="col-span-12 lg:col-span-5 space-y-6">
+          <div className="col-span-12 lg:col-span-4 space-y-6">
             <BrandMark href={isAgentsPage ? "/agents" : "/"} className="!h-auto" />
             <p className="text-[14.5px] text-[var(--fg-muted)] leading-[1.55] max-w-[42ch]">
               {isAgentsPage
@@ -36,11 +36,21 @@ export default function Footer() {
           <FooterCol
             title="Platform"
             items={[
-              { label: "How it works", href: isAgentsPage ? "/agents#how-to-start" : "/#how-it-works" },
-              { label: "Services", href: "/services/call-center-outsourcing" },
+              { label: "How it works", href: isAgentsPage ? "/agents#how-to-start" : "/how-it-works" },
+              { label: "Services", href: "/services" },
               { label: isAgentsPage ? "For business" : "For agents", href: isAgentsPage ? "/" : "/agents" },
               { label: "FAQ", href: isAgentsPage ? "/agents#faq" : "/#faq" },
               { label: "Contact", href: "/contact" },
+            ]}
+          />
+          <FooterCol
+            title="Company"
+            items={[
+              { label: "About us", href: "/about" },
+              { label: "Why WingCX", href: "/why-wingcx" },
+              { label: "Security & compliance", href: "/security" },
+              { label: "Terms of service", href: "/terms" },
+              { label: "Privacy policy", href: "/privacy" },
             ]}
           />
           <FooterCol
@@ -70,10 +80,10 @@ export default function Footer() {
             © 2025 WingCX Agent Solutions — All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-[13px]">
-            <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+            <Link href="/privacy" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
               Privacy
             </Link>
-            <Link href="#" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
+            <Link href="/terms" className="text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
               Terms
             </Link>
           </div>
